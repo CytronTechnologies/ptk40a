@@ -1,0 +1,28 @@
+1. LED Blinking
+2. Buzzer 
+3. Display Number of 00 to 99 on 7 segment. Auto increment of 1 second
+4. Display “Hello World” on LCD
+5. Read Keypad, display on 7 segment
+6. Read Keypad, display on LCD
+7. ADC (temperature), display temperature in degree Celsius on 7 segment
+8. ADC (potentiometer) to control DC brush motor speed
+9. ADC (potentiometer) to control stepper motor position
+10. ADC (potentiometer) to control RC Servo motor position
+11. ADC, Read Ultrasonic Range Finder
+12. ADC: Read Infrared Distance Sensor
+13. Digital Input with IR01A
+14. Digital Input with PIR Sensor
+15. Tachometer in RPM
+16. UART, motor control from keyboard
+17. Real Time Clock from Timer 1
+18, I2C with DS1307 RTC
+19. UART, motor control from SKPS
+20. Wireless with SKXBee
+21. Wireless with BlueBee, Bluetooth
+22. Digital Infrared Sensor
+23. Password Door Security System
+24. USing SD02B from PTK40A via normal digital output pin (JP26)
+25. Using SD02B from PTK40A via UART interface
+26. USing MD10C from PTK40A via normal digital output pin (JP27)
+27. Using MD10C from PTK40A - Locked Antiphase mode
+

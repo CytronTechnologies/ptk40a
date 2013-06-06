@@ -1,0 +1,7 @@
+_pwm_initialize: CODE, 1864 0 16
+_adc_initialize: CODE, 1880 0 18
+_main: CODE, 1980 0 68
+_pwm_set_duty_cycle: CODE, 1898 0 31
+_adc_on: CODE, 1856 0 4
+_ui_adc_read: CODE, 1929 0 51
+Total: 188

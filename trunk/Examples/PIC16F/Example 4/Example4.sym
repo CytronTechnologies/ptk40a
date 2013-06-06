@@ -1,0 +1,363 @@
+??_set_lcd_rs 70 0 COMMON
+_RD C60 0 ABS
+_WR C61 0 ABS
+delay_ms@ui_value 70 0 COMMON
+_RB0 30 0 ABS
+_RA1 29 0 ABS
+_RA2 2A 0 ABS
+_RE0 48 0 ABS
+_RA3 2B 0 ABS
+_RC2 3A 0 ABS
+_RE1 49 0 ABS
+__S0 2008 0 ABS
+__S1 79 0 ABS
+__S2 0 0 ABS
+_GIE 5F 0 ABS
+__Hintentry 0 0 CODE
+__Lintentry 0 0 CODE
+__size_of_lcd_initialize 0 0 ABS
+__size_of_lcd_clear 0 0 ABS
+_CHS0 FB 0 ABS
+_CHS1 FC 0 ABS
+_CHS2 FD 0 ABS
+_ADFM 4FF 0 ABS
+_ADON F8 0 ABS
+_WREN C62 0 ABS
+__end_of_set_lcd_e 66C 0 CODE
+_beep 6E4 0 CODE
+_main 7B4 0 CODE
+btemp 7E 0 ABS
+_exit 0 0 CODE
+start 0 0 CODE
+__end_of_set_lcd_rs 678 0 CODE
+_PCFG0 4F8 0 ABS
+_PCFG1 4F9 0 ABS
+_PCFG2 4FA 0 ABS
+_PCFG3 4FB 0 ABS
+_send_lcd_data 73C 0 CODE
+_ADCS0 FE 0 ABS
+_ADCS1 FF 0 ABS
+_ADCS2 4FE 0 ABS
+?_set_lcd_data 70 0 COMMON
+__end_of_lcd_2ndline 660 0 CODE
+_TRISA 85 0 ABS
+_TRISB 86 0 ABS
+_TRISC 87 0 ABS
+_PORTA 5 0 ABS
+reset_vec 0 0 CODE
+_TRISD 88 0 ABS
+_PORTB 6 0 ABS
+_TRISE 89 0 ABS
+_PORTC 7 0 ABS
+_EEADR 10D 0 ABS
+_PORTD 8 0 ABS
+_PORTE 9 0 ABS
+wtemp0 7E 0 ABS
+__end_of_adc_initialize 6B1 0 CODE
+_CARRY 18 0 ABS
+__Hconfig 2008 0 CONFIG
+__Lconfig 2007 0 CONFIG
+__end_of_set_lcd_data 64B 0 CODE
+__Hram 0 0 ABS
+__Lram 0 0 ABS
+_set_lcd_e 660 0 CODE
+?_beep 70 0 COMMON
+?_main 70 0 COMMON
+__end_of_lcd_putstr 7B4 0 CODE
+__Hfunctab 0 0 CODE
+__Lfunctab 0 0 CODE
+?_send_lcd_data 71 0 COMMON
+_EECON1 18C 0 ABS
+_EECON2 18D 0 ABS
+??_set_lcd_data 70 0 COMMON
+__end_of_lcd_putchar 684 0 CODE
+__Hcommon 0 0 ABS
+__Lcommon 0 0 ABS
+__Heeprom_data 0 0 EEDATA
+__Leeprom_data 0 0 EEDATA
+??_lcd_clear 75 0 COMMON
+_delay_ms 6C9 0 CODE
+_EEDATA 10C 0 ABS
+_lcd_goto 684 0 CODE
+_ADRESH 1E 0 ABS
+__Habs1 0 0 ABS
+__Labs1 0 0 ABS
+_ADRESL 9E 0 ABS
+__Hsfr0 0 0 ABS
+__Lsfr0 0 0 ABS
+__Hsfr1 0 0 ABS
+__Lsfr1 0 0 ABS
+__Hsfr2 0 0 ABS
+__Lsfr2 0 0 ABS
+__Hsfr3 0 0 ABS
+__Lsfr3 0 0 ABS
+?_seg7_initialize 70 0 COMMON
+__ptext330 773 0 CODE
+__ptext340 645 0 CODE
+??_adc_initialize 70 0 COMMON
+??_lcd_initialize 75 0 COMMON
+__ptext331 709 0 CODE
+_lcd_putchar 678 0 CODE
+__end_of_lcd_initialize 73C 0 CODE
+__ptext341 66C 0 CODE
+__ptext332 678 0 CODE
+__ptext342 660 0 CODE
+__end_of_beep 709 0 CODE
+__ptext333 655 0 CODE
+__Hcode 0 0 ABS
+__Lcode 0 0 ABS
+__ptext343 69F 0 CODE
+__ptext334 64B 0 CODE
+?_set_lcd_e 70 0 COMMON
+??_beep 74 0 COMMON
+__ptext344 0 0 CODE
+??_main 79 0 COMMON
+__ptext335 684 0 CODE
+__Hinit 0 0 CODE
+__Linit 0 0 CODE
+_lcd_clear 64B 0 CODE
+set_lcd_rs@b_output 70 0 COMMON
+__end_of_main 800 0 CODE
+__ptext336 6E4 0 CODE
+__Htext 0 0 ABS
+__Ltext 0 0 ABS
+__ptext337 73C 0 CODE
+end_of_initialization 69B 0 CODE
+__ptext338 6C9 0 CODE
+__ptext329 0 0 CODE
+__ptext339 6B1 0 CODE
+??_send_lcd_data 72 0 COMMON
+__size_of_seg7_initialize 0 0 ABS
+__end_of_seg7_initialize 6C9 0 CODE
+lcd_putchar@c_data 76 0 COMMON
+?_delay_ms 70 0 COMMON
+__Hstrings 0 0 ABS
+__Lstrings 0 0 ABS
+__pstrings 3 0 STRING
+?_lcd_goto 70 0 COMMON
+_GO_DONE FA 0 ABS
+__Hbank0 0 0 ABS
+__Lbank0 0 0 ABS
+__Hbank1 0 0 ABS
+__Lbank1 0 0 ABS
+__Hbank2 0 0 ABS
+__Lbank2 0 0 ABS
+__Hbank3 0 0 ABS
+__Lbank3 0 0 ABS
+__Hpowerup 0 0 CODE
+__Lpowerup 0 0 CODE
+__size_of_lcd_goto 0 0 ABS
+__Hclrtext 0 0 ABS
+__Lclrtext 0 0 ABS
+beep@uc_count 74 0 COMMON
+?_lcd_putchar 70 0 COMMON
+__end_of_lcd_clear 655 0 CODE
+?_set_lcd_rs 70 0 COMMON
+__end_of_lcd_goto 691 0 CODE
+__size_of_beep 0 0 ABS
+__end_of_send_lcd_data 773 0 CODE
+_set_lcd_data 645 0 CODE
+__size_of_set_lcd_e 0 0 ABS
+__Hidloc 0 0 IDLOC
+__Lidloc 0 0 IDLOC
+??_set_lcd_e 70 0 COMMON
+__size_of_set_lcd_rs 0 0 ABS
+??_seg7_initialize 70 0 COMMON
+set_lcd_e@b_output 70 0 COMMON
+?_lcd_clear 70 0 COMMON
+__size_of_delay_ms 0 0 ABS
+__Hcinit 0 0 ABS
+__Lcinit 0 0 ABS
+_seg7_initialize 6B1 0 CODE
+__size_of_main 0 0 ABS
+__size_of_lcd_2ndline 0 0 ABS
+?_adc_initialize 70 0 COMMON
+?_lcd_initialize 70 0 COMMON
+send_lcd_data@b_rs 74 0 COMMON
+__size_of_set_lcd_data 0 0 ABS
+__HbssBANK0 0 0 ABS
+__LbssBANK0 0 0 ABS
+__pbssBANK0 20 0 BANK0
+??_lcd_putstr 77 0 COMMON
+__size_of_lcd_putstr 0 0 ABS
+??_lcd_2ndline 75 0 COMMON
+??_delay_ms 72 0 COMMON
+__size_of_lcd_putchar 0 0 ABS
+__size_of_adc_initialize 0 0 ABS
+_set_lcd_rs 66C 0 CODE
+__Hend_init 3 0 CODE
+__Lend_init 0 0 CODE
+??_lcd_goto 75 0 COMMON
+__end_of_delay_ms 6E4 0 CODE
+__Hreset_vec 0 0 CODE
+__Lreset_vec 0 0 CODE
+lcd_bcd@F1131 20 0 BANK0
+_adc_initialize 69F 0 CODE
+_lcd_initialize 709 0 CODE
+intlevel0 0 0 CODE
+lcd_putstr@csz_string 78 0 COMMON
+intlevel1 0 0 CODE
+intlevel2 0 0 CODE
+set_lcd_data@uc_data 70 0 COMMON
+intlevel3 0 0 CODE
+?_lcd_putstr 70 0 COMMON
+intlevel4 0 0 CODE
+intlevel5 0 0 CODE
+?_lcd_2ndline 70 0 COMMON
+__size_of_send_lcd_data 0 0 ABS
+__HcstackCOMMON 0 0 ABS
+__LcstackCOMMON 0 0 ABS
+__pcstackCOMMON 70 0 COMMON
+start_initialization 691 0 CODE
+__Hmaintext 0 0 ABS
+__Lmaintext 0 0 ABS
+__pmaintext 7B4 0 CODE
+_lcd_putstr 773 0 CODE
+_lcd_2ndline 655 0 CODE
+lcd_goto@uc_position 76 0 COMMON
+send_lcd_data@uc_data 71 0 COMMON
+??_lcd_putchar 75 0 COMMON
+%segments
+reset_vec 0 5 CODE 0
+config 400E 400F CONFIG 400E
+cstackCOMMON 70 78 COMMON 70
+bssBANK0 20 29 BANK0 20
+maintext F68 FFF CODE F68
+text330 EE6 F67 CODE EE6
+text337 E78 EE5 CODE E78
+text331 E12 E77 CODE E12
+text336 DC8 E11 CODE DC8
+strings 6 45 STRING 6
+text338 D92 DC7 CODE D92
+text339 D62 D91 CODE D62
+text343 D3E D61 CODE D3E
+cinit D22 D3D CODE D22
+text335 D08 D21 CODE D08
+text332 CF0 D07 CODE CF0
+text341 CD8 CEF CODE CD8
+text342 CC0 CD7 CODE CC0
+text333 CAA CBF CODE CAA
+text334 C96 CA9 CODE C96
+text340 C8A C95 CODE C8A
+%locals
+startup.obj
+startup.as
+65 0 0 CODE
+Example4.obj
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\Main E_4.c
+33 2007 0 CONFIG
+Example4.as
+213 691 0 CODE
+214 692 0 CODE
+215 693 0 CODE
+216 694 0 CODE
+217 695 0 CODE
+218 696 0 CODE
+219 697 0 CODE
+220 698 0 CODE
+221 699 0 CODE
+222 69A 0 CODE
+229 69B 0 CODE
+230 69C 0 CODE
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\Main E_4.c
+60 7B4 0 CODE
+61 7B7 0 CODE
+62 7B8 0 CODE
+63 7B9 0 CODE
+64 7BA 0 CODE
+70 7BB 0 CODE
+71 7BF 0 CODE
+72 7C1 0 CODE
+73 7C3 0 CODE
+74 7C4 0 CODE
+77 7C5 0 CODE
+80 7CA 0 CODE
+83 7CF 0 CODE
+86 7D4 0 CODE
+88 7DA 0 CODE
+95 7DD 0 CODE
+97 7E3 0 CODE
+98 7E9 0 CODE
+99 7EF 0 CODE
+100 7F5 0 CODE
+102 7FC 0 CODE
+103 7FD 0 CODE
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\lcd.c
+261 773 0 CODE
+263 774 0 CODE
+266 775 0 CODE
+267 78E 0 CODE
+268 793 0 CODE
+272 794 0 CODE
+276 7A1 0 CODE
+263 7A6 0 CODE
+278 7B3 0 CODE
+106 709 0 CODE
+107 70F 0 CODE
+110 718 0 CODE
+114 722 0 CODE
+117 72C 0 CODE
+120 736 0 CODE
+121 73B 0 CODE
+242 678 0 CODE
+243 683 0 CODE
+200 655 0 CODE
+201 65F 0 CODE
+158 64B 0 CODE
+159 654 0 CODE
+221 684 0 CODE
+222 690 0 CODE
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\Main E_4.c
+139 6E4 0 CODE
+140 6E5 0 CODE
+141 6E6 0 CODE
+142 6E9 0 CODE
+143 6F2 0 CODE
+144 6F5 0 CODE
+140 6FF 0 CODE
+146 708 0 CODE
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\lcd.c
+330 73C 0 CODE
+331 743 0 CODE
+334 749 0 CODE
+335 74F 0 CODE
+336 757 0 CODE
+337 75D 0 CODE
+340 766 0 CODE
+341 76C 0 CODE
+342 772 0 CODE
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\Main E_4.c
+120 6C9 0 CODE
+121 6CA 0 CODE
+120 6D2 0 CODE
+123 6E3 0 CODE
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\seg7.c
+53 6B1 0 CODE
+54 6B4 0 CODE
+55 6B5 0 CODE
+56 6B9 0 CODE
+57 6C1 0 CODE
+58 6C4 0 CODE
+59 6C5 0 CODE
+60 6C8 0 CODE
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\lcd.c
+400 645 0 CODE
+401 646 0 CODE
+402 64A 0 CODE
+380 66C 0 CODE
+381 66D 0 CODE
+382 677 0 CODE
+360 660 0 CODE
+361 661 0 CODE
+362 66B 0 CODE
+E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 4\adc.c
+29 69F 0 CODE
+30 6A2 0 CODE
+31 6A5 0 CODE
+34 6A6 0 CODE
+35 6A9 0 CODE
+36 6AA 0 CODE
+37 6AB 0 CODE
+40 6AC 0 CODE
+43 6AD 0 CODE
+44 6B0 0 CODE

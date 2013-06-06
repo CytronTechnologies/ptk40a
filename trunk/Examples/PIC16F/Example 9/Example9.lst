@@ -1,0 +1,1135 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
+                                                                                               Sat Apr 20 17:40:27 2013
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 31 "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\Main E_9.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 31 "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\Main E_9.c"
+    45  2007  FF32               	dw 0xFFFE & 0xFFFB & 0xFFF7 & 0xFFBF & 0xFF7F ;#
+    46                           	FNCALL	_main,_adc_initialize
+    47                           	FNCALL	_main,_adc_on
+    48                           	FNCALL	_main,_ui_adc_read
+    49                           	FNCALL	_main,_delay_ms
+    50                           	FNROOT	_main
+    51                           	global	_ADRESH
+    52                           psect	text110,local,class=CODE,delta=2
+    53                           global __ptext110
+    54  0000                     __ptext110:
+    55  001E                     _ADRESH	set	30
+    56                           	global	_PORTA
+    57  0005                     _PORTA	set	5
+    58                           	global	_PORTB
+    59  0006                     _PORTB	set	6
+    60                           	global	_PORTC
+    61  0007                     _PORTC	set	7
+    62                           	global	_PORTD
+    63  0008                     _PORTD	set	8
+    64                           	global	_PORTE
+    65  0009                     _PORTE	set	9
+    66                           	global	_ADCS0
+    67  00FE                     _ADCS0	set	254
+    68                           	global	_ADCS1
+    69  00FF                     _ADCS1	set	255
+    70                           	global	_ADON
+    71  00F8                     _ADON	set	248
+    72                           	global	_CARRY
+    73  0018                     _CARRY	set	24
+    74                           	global	_CHS0
+    75  00FB                     _CHS0	set	251
+    76                           	global	_CHS1
+    77  00FC                     _CHS1	set	252
+    78                           	global	_CHS2
+    79  00FD                     _CHS2	set	253
+    80                           	global	_GIE
+    81  005F                     _GIE	set	95
+    82                           	global	_GO_DONE
+    83  00FA                     _GO_DONE	set	250
+    84                           	global	_RB4
+    85  0034                     _RB4	set	52
+    86                           	global	_RB5
+    87  0035                     _RB5	set	53
+    88                           	global	_RB6
+    89  0036                     _RB6	set	54
+    90                           	global	_RB7
+    91  0037                     _RB7	set	55
+    92                           	global	_RC2
+    93  003A                     _RC2	set	58
+    94                           	global	_ADRESL
+    95  009E                     _ADRESL	set	158
+    96                           	global	_TRISA
+    97  0085                     _TRISA	set	133
+    98                           	global	_TRISB
+    99  0086                     _TRISB	set	134
+   100                           	global	_TRISC
+   101  0087                     _TRISC	set	135
+   102                           	global	_TRISD
+   103  0088                     _TRISD	set	136
+   104                           	global	_TRISE
+   105  0089                     _TRISE	set	137
+   106                           	global	_ADCS2
+   107  04FE                     _ADCS2	set	1278
+   108                           	global	_ADFM
+   109  04FF                     _ADFM	set	1279
+   110                           	global	_PCFG0
+   111  04F8                     _PCFG0	set	1272
+   112                           	global	_PCFG1
+   113  04F9                     _PCFG1	set	1273
+   114                           	global	_PCFG2
+   115  04FA                     _PCFG2	set	1274
+   116                           	global	_PCFG3
+   117  04FB                     _PCFG3	set	1275
+   118                           	global	_EEADR
+   119  010D                     _EEADR	set	269
+   120                           	global	_EEDATA
+   121  010C                     _EEDATA	set	268
+   122                           	global	_EECON1
+   123  018C                     _EECON1	set	396
+   124                           	global	_EECON2
+   125  018D                     _EECON2	set	397
+   126                           	global	_RD
+   127  0C60                     _RD	set	3168
+   128                           	global	_WR
+   129  0C61                     _WR	set	3169
+   130                           	global	_WREN
+   131  0C62                     _WREN	set	3170
+   132                           	file	"Example9.as"
+   133                           	line	#
+   134                           psect cinit,class=CODE,delta=2
+   135                           global start_initialization
+   136  0715                     start_initialization:
+   137                           
+   138                           psect cinit,class=CODE,delta=2
+   139                           global end_of_initialization
+   140                           
+   141                           ;End of C runtime variable initialization code
+   142                           
+   143  0715                     end_of_initialization:
+   144  0715  0183               clrf status
+   145  0716  120A  118A  2F79   ljmp _main	;jump to C main() function
+   146                           psect	cstackCOMMON,class=COMMON,space=1
+   147                           global __pcstackCOMMON
+   148  0070                     __pcstackCOMMON:
+   149                           	global	?_delay_ms
+   150  0070                     ?_delay_ms:	; 0 bytes @ 0x0
+   151                           	global	?_adc_initialize
+   152  0070                     ?_adc_initialize:	; 0 bytes @ 0x0
+   153                           	global	??_adc_initialize
+   154  0070                     ??_adc_initialize:	; 0 bytes @ 0x0
+   155                           	global	?_adc_on
+   156  0070                     ?_adc_on:	; 0 bytes @ 0x0
+   157                           	global	??_adc_on
+   158  0070                     ??_adc_on:	; 0 bytes @ 0x0
+   159                           	global	?_ui_adc_read
+   160  0070                     ?_ui_adc_read:	; 2 bytes @ 0x0
+   161                           	global	?_main
+   162  0070                     ?_main:	; 2 bytes @ 0x0
+   163                           	global	delay_ms@ui_value
+   164  0070                     delay_ms@ui_value:	; 2 bytes @ 0x0
+   165  0070                     	ds	2
+   166                           	global	??_delay_ms
+   167  0072                     ??_delay_ms:	; 0 bytes @ 0x2
+   168                           	global	??_ui_adc_read
+   169  0072                     ??_ui_adc_read:	; 0 bytes @ 0x2
+   170  0072                     	ds	2
+   171                           	global	ui_adc_read@temp
+   172  0074                     ui_adc_read@temp:	; 2 bytes @ 0x4
+   173  0074                     	ds	2
+   174                           	global	??_main
+   175  0076                     ??_main:	; 0 bytes @ 0x6
+   176  0076                     	ds	1
+   177                           	global	main@delay
+   178  0077                     main@delay:	; 2 bytes @ 0x7
+   179  0077                     	ds	2
+   180                           	global	main@step
+   181  0079                     main@step:	; 1 bytes @ 0x9
+   182  0079                     	ds	1
+   183 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   184 ;;Auto spaces:   Size  Autos    Used
+   185 ;; COMMON          14     10      10
+   186 ;; BANK0           80      0       0
+   187 ;; BANK1           80      0       0
+   188 ;; BANK3           96      0       0
+   189 ;; BANK2           96      0       0
+   190                           
+   191 ;;
+   192 ;; Pointer list with targets:
+   193                           
+   194 ;; ?_ui_adc_read	unsigned int  size(1) Largest target is 0
+   195 ;;
+   196                           
+   197                           
+   198 ;;
+   199 ;; Critical Paths under _main in COMMON
+   200 ;;
+   201 ;;   _main->_ui_adc_read
+   202 ;;
+   203 ;; Critical Paths under _main in BANK0
+   204 ;;
+   205 ;;   None.
+   206 ;;
+   207 ;; Critical Paths under _main in BANK1
+   208 ;;
+   209 ;;   None.
+   210 ;;
+   211 ;; Critical Paths under _main in BANK3
+   212 ;;
+   213 ;;   None.
+   214 ;;
+   215 ;; Critical Paths under _main in BANK2
+   216 ;;
+   217 ;;   None.
+   218                           
+   219 ;;
+   220 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   221 ;;
+   222                           
+   223 ;;
+   224 ;;Call Graph Tables:
+   225 ;;
+   226 ;; ---------------------------------------------------------------------------------
+   227 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   228 ;; ---------------------------------------------------------------------------------
+   229 ;; (0) _main                                                 4     4      0     105
+   230 ;;                                              6 COMMON     4     4      0
+   231 ;;                     _adc_initialize
+   232 ;;                             _adc_on
+   233 ;;                        _ui_adc_read
+   234 ;;                           _delay_ms
+   235 ;; ---------------------------------------------------------------------------------
+   236 ;; (1) _delay_ms                                             4     2      2      15
+   237 ;;                                              0 COMMON     4     2      2
+   238 ;; ---------------------------------------------------------------------------------
+   239 ;; (1) _ui_adc_read                                          6     4      2      30
+   240 ;;                                              0 COMMON     6     4      2
+   241 ;; ---------------------------------------------------------------------------------
+   242 ;; (1) _adc_on                                               0     0      0       0
+   243 ;; ---------------------------------------------------------------------------------
+   244 ;; (1) _adc_initialize                                       0     0      0       0
+   245 ;; ---------------------------------------------------------------------------------
+   246 ;; Estimated maximum stack depth 1
+   247 ;; ---------------------------------------------------------------------------------
+   248                           
+   249 ;; Call Graph Graphs:
+   250                           
+   251 ;; _main (ROOT)
+   252 ;;   _adc_initialize
+   253 ;;   _adc_on
+   254 ;;   _ui_adc_read
+   255 ;;   _delay_ms
+   256 ;;
+   257                           
+   258 ;; Address spaces:
+   259                           
+   260 ;;Name               Size   Autos  Total    Cost      Usage
+   261 ;;BITCOMMON            E      0       0       0        0.0%
+   262 ;;EEDATA             100      0       0       0        0.0%
+   263 ;;NULL                 0      0       0       0        0.0%
+   264 ;;CODE                 0      0       0       0        0.0%
+   265 ;;COMMON               E      A       A       1       71.4%
+   266 ;;BITSFR0              0      0       0       1        0.0%
+   267 ;;SFR0                 0      0       0       1        0.0%
+   268 ;;BITSFR1              0      0       0       2        0.0%
+   269 ;;SFR1                 0      0       0       2        0.0%
+   270 ;;STACK                0      0       1       2        0.0%
+   271 ;;ABS                  0      0       0       3        0.0%
+   272 ;;BITBANK0            50      0       0       4        0.0%
+   273 ;;BITSFR3              0      0       0       4        0.0%
+   274 ;;SFR3                 0      0       0       4        0.0%
+   275 ;;BANK0               50      0       0       5        0.0%
+   276 ;;BITSFR2              0      0       0       5        0.0%
+   277 ;;SFR2                 0      0       0       5        0.0%
+   278 ;;BITBANK1            50      0       0       6        0.0%
+   279 ;;BANK1               50      0       0       7        0.0%
+   280 ;;BITBANK3            60      0       0       8        0.0%
+   281 ;;BANK3               60      0       0       9        0.0%
+   282 ;;BITBANK2            60      0       0      10        0.0%
+   283 ;;BANK2               60      0       0      11        0.0%
+   284 ;;DATA                 0      0       0      12        0.0%
+   285                           
+   286                           	global	_main
+   287                           psect	maintext,global,class=CODE,delta=2
+   288                           global __pmaintext
+   289  0779                     __pmaintext:
+   290                           
+   291 ;; *************** function _main *****************
+   292 ;; Defined at:
+   293 ;;		line 56 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\Main E_9.c"
+   294 ;; Parameters:    Size  Location     Type
+   295 ;;		None
+   296 ;; Auto vars:     Size  Location     Type
+   297 ;;  delay           2    7[COMMON] unsigned int 
+   298 ;;  step            1    9[COMMON] unsigned char 
+   299 ;; Return value:  Size  Location     Type
+   300 ;;                  2  1393[COMMON] int 
+   301 ;; Registers used:
+   302 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   303 ;; Tracked objects:
+   304 ;;		On entry : 17F/0
+   305 ;;		On exit  : 0/0
+   306 ;;		Unchanged: 0/0
+   307 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   308 ;;      Params:         0       0       0       0       0
+   309 ;;      Locals:         3       0       0       0       0
+   310 ;;      Temps:          1       0       0       0       0
+   311 ;;      Totals:         4       0       0       0       0
+   312 ;;Total ram usage:        4 bytes
+   313 ;; Hardware stack levels required when called:    1
+   314 ;; This function calls:
+   315 ;;		_adc_initialize
+   316 ;;		_adc_on
+   317 ;;		_ui_adc_read
+   318 ;;		_delay_ms
+   319 ;; This function is called by:
+   320 ;;		Startup code after reset
+   321 ;; This function uses a non-reentrant model
+   322 ;;
+   323                           psect	maintext
+   324                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\Main E_9.c
+                                 "
+   325                           	line	56
+   326                           	global	__size_of_main
+   327  0087                     	__size_of_main	equ	__end_of_main-_main
+   328                           	
+   329  0779                     _main:	
+   330                           	opt	stack 7
+   331                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   332                           	line	57
+   333                           	
+   334  0779                     l3363:	
+   335                           ;Main E_9.c: 57: unsigned char step = 0;
+   336  0779  01F9               	clrf	(main@step)
+   337                           	line	58
+   338                           	
+   339  077A                     l3365:	
+   340                           ;Main E_9.c: 58: unsigned int delay = 0;
+   341  077A  01F7               	clrf	(main@delay)
+   342  077B  01F8               	clrf	(main@delay+1)
+   343                           	line	60
+   344                           ;Main E_9.c: 60: PORTA = 0;
+   345  077C  1283               	bcf	status, 5	;RP0=0, select bank0
+   346  077D  1303               	bcf	status, 6	;RP1=0, select bank0
+   347  077E  0185               	clrf	(5)	;volatile
+   348                           	line	61
+   349                           ;Main E_9.c: 61: PORTB = 0;
+   350  077F  0186               	clrf	(6)	;volatile
+   351                           	line	62
+   352                           ;Main E_9.c: 62: PORTC = 0;
+   353  0780  0187               	clrf	(7)	;volatile
+   354                           	line	63
+   355                           ;Main E_9.c: 63: PORTD = 0;
+   356  0781  0188               	clrf	(8)	;volatile
+   357                           	line	64
+   358                           ;Main E_9.c: 64: PORTE = 0;
+   359  0782  0189               	clrf	(9)	;volatile
+   360                           	line	70
+   361                           	
+   362  0783                     l3367:	
+   363                           ;Main E_9.c: 70: TRISA = 0b00010001;
+   364  0783  3011               	movlw	(011h)
+   365  0784  1683               	bsf	status, 5	;RP0=1, select bank1
+   366  0785  1303               	bcf	status, 6	;RP1=0, select bank1
+   367  0786  0085               	movwf	(133)^080h	;volatile
+   368                           	line	71
+   369                           	
+   370  0787                     l3369:	
+   371                           ;Main E_9.c: 71: TRISB = 0b00001111;
+   372  0787  300F               	movlw	(0Fh)
+   373  0788  0086               	movwf	(134)^080h	;volatile
+   374                           	line	72
+   375                           	
+   376  0789                     l3371:	
+   377                           ;Main E_9.c: 72: TRISC = 0b10010011;
+   378  0789  3093               	movlw	(093h)
+   379  078A  0087               	movwf	(135)^080h	;volatile
+   380                           	line	73
+   381                           	
+   382  078B                     l3373:	
+   383                           ;Main E_9.c: 73: TRISD = 0;
+   384  078B  0188               	clrf	(136)^080h	;volatile
+   385                           	line	74
+   386                           	
+   387  078C                     l3375:	
+   388                           ;Main E_9.c: 74: TRISE = 0;
+   389  078C  0189               	clrf	(137)^080h	;volatile
+   390                           	line	77
+   391                           	
+   392  078D                     l3377:	
+   393                           ;Main E_9.c: 77: adc_initialize();
+   394  078D  120A  118A  2719   	fcall	_adc_initialize
+              120A  118A         
+   395                           	line	85
+   396                           	
+   397  0792                     l3379:	
+   398                           ;Main E_9.c: 85: adc_on();
+   399  0792  120A  118A  2711   	fcall	_adc_on
+              120A  118A         
+   400                           	line	86
+   401                           	
+   402  0797                     l3381:	
+   403                           ;Main E_9.c: 86: step = 1;
+   404  0797  01F9               	clrf	(main@step)
+   405  0798  1403               	bsf	status,0
+   406  0799  0DF9               	rlf	(main@step),f
+   407                           	line	87
+   408                           	
+   409  079A                     l3383:	
+   410                           ;Main E_9.c: 87: RC2 = 1;
+   411  079A  1283               	bcf	status, 5	;RP0=0, select bank0
+   412  079B  1303               	bcf	status, 6	;RP1=0, select bank0
+   413  079C  1507               	bsf	(58/8),(58)&7
+   414  079D  2F9E               	goto	l3385
+   415                           	line	89
+   416                           ;Main E_9.c: 89: while(1)
+   417                           	
+   418  079E                     l1394:	
+   419                           	line	91
+   420                           	
+   421  079E                     l3385:	
+   422                           ;Main E_9.c: 90: {
+   423                           ;Main E_9.c: 91: if(step >= 5) step = 1;
+   424  079E  3005               	movlw	(05h)
+   425  079F  0279               	subwf	(main@step),w
+   426  07A0  1C03               	skipc
+   427  07A1  2FA3               	goto	u2251
+   428  07A2  2FA4               	goto	u2250
+   429  07A3                     u2251:
+   430  07A3  2FA8               	goto	l3389
+   431  07A4                     u2250:
+   432                           	
+   433  07A4                     l3387:	
+   434  07A4  01F9               	clrf	(main@step)
+   435  07A5  1403               	bsf	status,0
+   436  07A6  0DF9               	rlf	(main@step),f
+   437  07A7  2FA8               	goto	l3389
+   438                           	
+   439  07A8                     l1395:	
+   440                           	line	93
+   441                           	
+   442  07A8                     l3389:	
+   443                           ;Main E_9.c: 93: delay = ui_adc_read();
+   444  07A8  120A  118A  2746   	fcall	_ui_adc_read
+              120A  118A         
+   445  07AD  0871               	movf	(1+(?_ui_adc_read)),w
+   446  07AE  01F8               	clrf	(main@delay+1)
+   447  07AF  07F8               	addwf	(main@delay+1)
+   448  07B0  0870               	movf	(0+(?_ui_adc_read)),w
+   449  07B1  01F7               	clrf	(main@delay)
+   450  07B2  07F7               	addwf	(main@delay)
+   451                           
+   452                           	line	94
+   453                           	
+   454  07B3                     l3391:	
+   455                           ;Main E_9.c: 94: if (delay > 10)
+   456  07B3  3000               	movlw	high(0Bh)
+   457  07B4  0278               	subwf	(main@delay+1),w
+   458  07B5  300B               	movlw	low(0Bh)
+   459  07B6  1903               	skipnz
+   460  07B7  0277               	subwf	(main@delay),w
+   461  07B8  1C03               	skipc
+   462  07B9  2FBB               	goto	u2261
+   463  07BA  2FBC               	goto	u2260
+   464  07BB                     u2261:
+   465  07BB  2F9E               	goto	l3385
+   466  07BC                     u2260:
+   467  07BC  2FDB               	goto	l3397
+   468                           	line	96
+   469                           	
+   470  07BD                     l3393:	
+   471                           ;Main E_9.c: 95: {
+   472                           ;Main E_9.c: 96: switch (step)
+   473  07BD  2FDB               	goto	l3397
+   474                           	line	98
+   475                           ;Main E_9.c: 97: {
+   476                           ;Main E_9.c: 98: case 1:
+   477                           	
+   478  07BE                     l1398:	
+   479                           	line	99
+   480                           ;Main E_9.c: 99: RB4 = 1;
+   481  07BE  1283               	bcf	status, 5	;RP0=0, select bank0
+   482  07BF  1303               	bcf	status, 6	;RP1=0, select bank0
+   483  07C0  1606               	bsf	(52/8),(52)&7
+   484                           	line	100
+   485                           ;Main E_9.c: 100: RB6 = 0;
+   486  07C1  1306               	bcf	(54/8),(54)&7
+   487                           	line	101
+   488                           ;Main E_9.c: 101: RB5 = 0;
+   489  07C2  1286               	bcf	(53/8),(53)&7
+   490                           	line	102
+   491                           ;Main E_9.c: 102: RB7 = 0;
+   492  07C3  1386               	bcf	(55/8),(55)&7
+   493                           	line	103
+   494                           ;Main E_9.c: 103: break;
+   495  07C4  2FE9               	goto	l3399
+   496                           	line	105
+   497                           ;Main E_9.c: 105: case 2:
+   498                           	
+   499  07C5                     l1400:	
+   500                           	line	106
+   501                           ;Main E_9.c: 106: RB4 = 0;
+   502  07C5  1283               	bcf	status, 5	;RP0=0, select bank0
+   503  07C6  1303               	bcf	status, 6	;RP1=0, select bank0
+   504  07C7  1206               	bcf	(52/8),(52)&7
+   505                           	line	107
+   506                           ;Main E_9.c: 107: RB6 = 1;
+   507  07C8  1706               	bsf	(54/8),(54)&7
+   508                           	line	108
+   509                           ;Main E_9.c: 108: RB5 = 0;
+   510  07C9  1286               	bcf	(53/8),(53)&7
+   511                           	line	109
+   512                           ;Main E_9.c: 109: RB7 = 0;
+   513  07CA  1386               	bcf	(55/8),(55)&7
+   514                           	line	110
+   515                           ;Main E_9.c: 110: break;
+   516  07CB  2FE9               	goto	l3399
+   517                           	line	112
+   518                           ;Main E_9.c: 112: case 3:
+   519                           	
+   520  07CC                     l1401:	
+   521                           	line	113
+   522                           ;Main E_9.c: 113: RB4 = 0;
+   523  07CC  1283               	bcf	status, 5	;RP0=0, select bank0
+   524  07CD  1303               	bcf	status, 6	;RP1=0, select bank0
+   525  07CE  1206               	bcf	(52/8),(52)&7
+   526                           	line	114
+   527                           ;Main E_9.c: 114: RB6 = 0;
+   528  07CF  1306               	bcf	(54/8),(54)&7
+   529                           	line	115
+   530                           ;Main E_9.c: 115: RB5 = 1;
+   531  07D0  1686               	bsf	(53/8),(53)&7
+   532                           	line	116
+   533                           ;Main E_9.c: 116: RB7 = 0;
+   534  07D1  1386               	bcf	(55/8),(55)&7
+   535                           	line	117
+   536                           ;Main E_9.c: 117: break;
+   537  07D2  2FE9               	goto	l3399
+   538                           	line	119
+   539                           ;Main E_9.c: 119: case 4:
+   540                           	
+   541  07D3                     l1402:	
+   542                           	line	120
+   543                           ;Main E_9.c: 120: RB4 = 0;
+   544  07D3  1283               	bcf	status, 5	;RP0=0, select bank0
+   545  07D4  1303               	bcf	status, 6	;RP1=0, select bank0
+   546  07D5  1206               	bcf	(52/8),(52)&7
+   547                           	line	121
+   548                           ;Main E_9.c: 121: RB6 = 0;
+   549  07D6  1306               	bcf	(54/8),(54)&7
+   550                           	line	122
+   551                           ;Main E_9.c: 122: RB5 = 0;
+   552  07D7  1286               	bcf	(53/8),(53)&7
+   553                           	line	123
+   554                           ;Main E_9.c: 123: RB7 = 1;
+   555  07D8  1786               	bsf	(55/8),(55)&7
+   556                           	line	124
+   557                           ;Main E_9.c: 124: break;
+   558  07D9  2FE9               	goto	l3399
+   559                           	line	125
+   560                           	
+   561  07DA                     l3395:	
+   562                           ;Main E_9.c: 125: }
+   563  07DA  2FE9               	goto	l3399
+   564                           	line	96
+   565                           	
+   566  07DB                     l1397:	
+   567                           	
+   568  07DB                     l3397:	
+   569  07DB  0879               	movf	(main@step),w
+   570                           	; Switch size 1, requested type "space"
+   571                           ; Number of cases is 4, Range of values is 1 to 4
+   572                           ; switch strategies available:
+   573                           ; Name         Instructions Cycles
+   574                           ; simple_byte           13     7 (average)
+   575                           ; direct_byte           23    11 (fixed)
+   576                           ; jumptable            263     9 (fixed)
+   577                           ;	Chosen strategy is simple_byte
+   578                           
+   579                           	opt asmopt_off
+   580  07DC  3A01               	xorlw	1^0	; case 1
+   581  07DD  1903               	skipnz
+   582  07DE  2FBE               	goto	l1398
+   583  07DF  3A03               	xorlw	2^1	; case 2
+   584  07E0  1903               	skipnz
+   585  07E1  2FC5               	goto	l1400
+   586  07E2  3A01               	xorlw	3^2	; case 3
+   587  07E3  1903               	skipnz
+   588  07E4  2FCC               	goto	l1401
+   589  07E5  3A07               	xorlw	4^3	; case 4
+   590  07E6  1903               	skipnz
+   591  07E7  2FD3               	goto	l1402
+   592  07E8  2FE9               	goto	l3399
+   593                           	opt asmopt_on
+   594                           
+   595                           	line	125
+   596                           	
+   597  07E9                     l1399:	
+   598                           	line	126
+   599                           	
+   600  07E9                     l3399:	
+   601                           ;Main E_9.c: 126: delay_ms(delay);
+   602  07E9  0878               	movf	(main@delay+1),w
+   603  07EA  01F1               	clrf	(?_delay_ms+1)
+   604  07EB  07F1               	addwf	(?_delay_ms+1)
+   605  07EC  0877               	movf	(main@delay),w
+   606  07ED  01F0               	clrf	(?_delay_ms)
+   607  07EE  07F0               	addwf	(?_delay_ms)
+   608                           
+   609  07EF  120A  118A  272B   	fcall	_delay_ms
+              120A  118A         
+   610                           	line	127
+   611                           	
+   612  07F4                     l3401:	
+   613                           ;Main E_9.c: 127: step ++;
+   614  07F4  3001               	movlw	(01h)
+   615  07F5  00F6               	movwf	(??_main+0)+0
+   616  07F6  0876               	movf	(??_main+0)+0,w
+   617  07F7  07F9               	addwf	(main@step),f
+   618  07F8  2F9E               	goto	l3385
+   619                           	line	128
+   620                           	
+   621  07F9                     l1396:	
+   622  07F9  2F9E               	goto	l3385
+   623                           	line	129
+   624                           	
+   625  07FA                     l1403:	
+   626                           	line	89
+   627  07FA  2F9E               	goto	l3385
+   628                           	
+   629  07FB                     l1404:	
+   630  07FB  2FFC               	goto	l1406
+   631                           	line	131
+   632                           ;Main E_9.c: 128: }
+   633                           ;Main E_9.c: 129: }
+   634                           ;Main E_9.c: 131: while(1) continue;
+   635                           	
+   636  07FC                     l1405:	
+   637                           	
+   638  07FC                     l1406:	
+   639  07FC  2FFC               	goto	l1406
+   640                           	
+   641  07FD                     l1407:	
+   642                           	line	132
+   643                           	
+   644  07FD                     l1408:	
+   645                           	global	start
+   646  07FD  120A  118A  2800   	ljmp	start
+   647                           	opt stack 0
+   648                           GLOBAL	__end_of_main
+   649  0800                     	__end_of_main:
+   650 ;; =============== function _main ends ============
+   651                           
+   652                           	signat	_main,90
+   653                           	global	_delay_ms
+   654                           psect	text111,local,class=CODE,delta=2
+   655                           global __ptext111
+   656  072B                     __ptext111:
+   657                           
+   658 ;; *************** function _delay_ms *****************
+   659 ;; Defined at:
+   660 ;;		line 148 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\Main E_9.c"
+   661 ;; Parameters:    Size  Location     Type
+   662 ;;  ui_value        2    0[COMMON] unsigned int 
+   663 ;; Auto vars:     Size  Location     Type
+   664 ;;		None
+   665 ;; Return value:  Size  Location     Type
+   666 ;;		None               void
+   667 ;; Registers used:
+   668 ;;		wreg
+   669 ;; Tracked objects:
+   670 ;;		On entry : 0/0
+   671 ;;		On exit  : 0/0
+   672 ;;		Unchanged: 0/0
+   673 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   674 ;;      Params:         2       0       0       0       0
+   675 ;;      Locals:         0       0       0       0       0
+   676 ;;      Temps:          2       0       0       0       0
+   677 ;;      Totals:         4       0       0       0       0
+   678 ;;Total ram usage:        4 bytes
+   679 ;; Hardware stack levels used:    1
+   680 ;; This function calls:
+   681 ;;		Nothing
+   682 ;; This function is called by:
+   683 ;;		_main
+   684 ;;		_beep
+   685 ;; This function uses a non-reentrant model
+   686 ;;
+   687                           psect	text111
+   688                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\Main E_9.c
+                                 "
+   689                           	line	148
+   690                           	global	__size_of_delay_ms
+   691  001B                     	__size_of_delay_ms	equ	__end_of_delay_ms-_delay_ms
+   692                           	
+   693  072B                     _delay_ms:	
+   694                           	opt	stack 7
+   695                           ; Regs used in _delay_ms: [wreg]
+   696                           	line	149
+   697                           	
+   698  072B                     l3359:	
+   699                           ;Main E_9.c: 149: while (ui_value-- > 0) {
+   700  072B  2F34               	goto	l1411
+   701                           	
+   702  072C                     l1412:	
+   703                           	line	150
+   704                           	
+   705  072C                     l3361:	
+   706                           ;Main E_9.c: 150: _delay((unsigned long)((1)*(20000000/4000.0)));
+   707                           	opt asmopt_off
+   708  072C  3007               movlw	7
+   709  072D  00F3               movwf	((??_delay_ms+0)+0+1),f
+   710  072E  307D               	movlw	125
+   711  072F  00F2               movwf	((??_delay_ms+0)+0),f
+   712  0730                     u2277:
+   713  0730  0BF2               	decfsz	((??_delay_ms+0)+0),f
+   714  0731  2F30               	goto	u2277
+   715  0732  0BF3               	decfsz	((??_delay_ms+0)+0+1),f
+   716  0733  2F30               	goto	u2277
+   717                           opt asmopt_on
+   718                           
+   719                           	line	151
+   720                           	
+   721  0734                     l1411:	
+   722                           	line	149
+   723  0734  3001               	movlw	low(01h)
+   724  0735  02F0               	subwf	(delay_ms@ui_value),f
+   725  0736  3000               	movlw	high(01h)
+   726  0737  1C03               	skipc
+   727  0738  03F1               	decf	(delay_ms@ui_value+1),f
+   728  0739  02F1               	subwf	(delay_ms@ui_value+1),f
+   729  073A  30FF               	movlw	high(0FFFFh)
+   730  073B  0671               	xorwf	((delay_ms@ui_value+1)),w
+   731  073C  1D03               	skipz
+   732  073D  2F40               	goto	u2245
+   733  073E  30FF               	movlw	low(0FFFFh)
+   734  073F  0670               	xorwf	((delay_ms@ui_value)),w
+   735  0740                     u2245:
+   736                           
+   737  0740  1D03               	skipz
+   738  0741  2F43               	goto	u2241
+   739  0742  2F44               	goto	u2240
+   740  0743                     u2241:
+   741  0743  2F2C               	goto	l3361
+   742  0744                     u2240:
+   743  0744  2F45               	goto	l1414
+   744                           	
+   745  0745                     l1413:	
+   746                           	line	152
+   747                           	
+   748  0745                     l1414:	
+   749  0745  0008               	return
+   750                           	opt stack 0
+   751                           GLOBAL	__end_of_delay_ms
+   752  0746                     	__end_of_delay_ms:
+   753 ;; =============== function _delay_ms ends ============
+   754                           
+   755                           	signat	_delay_ms,4216
+   756                           	global	_ui_adc_read
+   757                           psect	text112,local,class=CODE,delta=2
+   758                           global __ptext112
+   759  0746                     __ptext112:
+   760                           
+   761 ;; *************** function _ui_adc_read *****************
+   762 ;; Defined at:
+   763 ;;		line 104 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\adc.c"
+   764 ;; Parameters:    Size  Location     Type
+   765 ;;		None
+   766 ;; Auto vars:     Size  Location     Type
+   767 ;;  temp            2    4[COMMON] unsigned int 
+   768 ;; Return value:  Size  Location     Type
+   769 ;;                  2    0[COMMON] unsigned int 
+   770 ;; Registers used:
+   771 ;;		wreg, status,2, status,0, btemp+1
+   772 ;; Tracked objects:
+   773 ;;		On entry : 0/0
+   774 ;;		On exit  : 0/0
+   775 ;;		Unchanged: 0/0
+   776 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   777 ;;      Params:         2       0       0       0       0
+   778 ;;      Locals:         2       0       0       0       0
+   779 ;;      Temps:          2       0       0       0       0
+   780 ;;      Totals:         6       0       0       0       0
+   781 ;;Total ram usage:        6 bytes
+   782 ;; Hardware stack levels used:    1
+   783 ;; This function calls:
+   784 ;;		Nothing
+   785 ;; This function is called by:
+   786 ;;		_main
+   787 ;; This function uses a non-reentrant model
+   788 ;;
+   789                           psect	text112
+   790                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\adc.c"
+   791                           	line	104
+   792                           	global	__size_of_ui_adc_read
+   793  0033                     	__size_of_ui_adc_read	equ	__end_of_ui_adc_read-_ui_adc_read
+   794                           	
+   795  0746                     _ui_adc_read:	
+   796                           	opt	stack 7
+   797                           ; Regs used in _ui_adc_read: [wreg+status,2+status,0+btemp+1]
+   798                           	line	105
+   799                           	
+   800  0746                     l3339:	
+   801                           ;adc.c: 105: unsigned int temp = 0;
+   802  0746  01F4               	clrf	(ui_adc_read@temp)
+   803  0747  01F5               	clrf	(ui_adc_read@temp+1)
+   804                           	line	107
+   805                           	
+   806  0748                     l3341:	
+   807                           ;adc.c: 107: CHS2 = 0;
+   808  0748  1283               	bcf	status, 5	;RP0=0, select bank0
+   809  0749  1303               	bcf	status, 6	;RP1=0, select bank0
+   810  074A  129F               	bcf	(253/8),(253)&7
+   811                           	line	108
+   812                           	
+   813  074B                     l3343:	
+   814                           ;adc.c: 108: CHS1 = 0;
+   815  074B  121F               	bcf	(252/8),(252)&7
+   816                           	line	109
+   817                           	
+   818  074C                     l3345:	
+   819                           ;adc.c: 109: CHS0 = 0;
+   820  074C  119F               	bcf	(251/8),(251)&7
+   821                           	line	112
+   822                           	
+   823  074D                     l3347:	
+   824                           ;adc.c: 112: _delay((unsigned long)((1)*(20000000/4000.0)));
+   825                           	opt asmopt_off
+   826  074D  3007               movlw	7
+   827  074E  00F3               movwf	((??_ui_adc_read+0)+0+1),f
+   828  074F  307D               	movlw	125
+   829  0750  00F2               movwf	((??_ui_adc_read+0)+0),f
+   830  0751                     u2287:
+   831  0751  0BF2               	decfsz	((??_ui_adc_read+0)+0),f
+   832  0752  2F51               	goto	u2287
+   833  0753  0BF3               	decfsz	((??_ui_adc_read+0)+0+1),f
+   834  0754  2F51               	goto	u2287
+   835                           opt asmopt_on
+   836                           
+   837                           	line	119
+   838                           	
+   839  0755                     l3349:	
+   840                           ;adc.c: 119: GO_DONE = 1;
+   841  0755  1283               	bcf	status, 5	;RP0=0, select bank0
+   842  0756  1303               	bcf	status, 6	;RP1=0, select bank0
+   843  0757  151F               	bsf	(250/8),(250)&7
+   844                           	line	120
+   845                           ;adc.c: 120: while (GO_DONE == 1);
+   846  0758  2F59               	goto	l696
+   847                           	
+   848  0759                     l697:	
+   849                           	
+   850  0759                     l696:	
+   851  0759  191F               	btfsc	(250/8),(250)&7
+   852  075A  2F5C               	goto	u2231
+   853  075B  2F5D               	goto	u2230
+   854  075C                     u2231:
+   855  075C  2F59               	goto	l696
+   856  075D                     u2230:
+   857  075D  2F5E               	goto	l3351
+   858                           	
+   859  075E                     l698:	
+   860                           	line	124
+   861                           	
+   862  075E                     l3351:	
+   863                           ;adc.c: 124: temp = (unsigned int)ADRESH << 8;
+   864  075E  081E               	movf	(30),w	;volatile
+   865  075F  00F2               	movwf	(??_ui_adc_read+0)+0
+   866  0760  01F3               	clrf	(??_ui_adc_read+0)+0+1
+   867  0761  0872               	movf	(??_ui_adc_read+0)+0,w
+   868  0762  00F3               	movwf	(??_ui_adc_read+0)+1
+   869  0763  01F2               	clrf	(??_ui_adc_read+0)+0
+   870  0764  0872               	movf	0+(??_ui_adc_read+0)+0,w
+   871  0765  00F4               	movwf	(ui_adc_read@temp)
+   872  0766  0873               	movf	1+(??_ui_adc_read+0)+0,w
+   873  0767  00F5               	movwf	(ui_adc_read@temp+1)
+   874                           	line	125
+   875                           	
+   876  0768                     l3353:	
+   877                           ;adc.c: 125: temp = temp + ADRESL;
+   878  0768  1683               	bsf	status, 5	;RP0=1, select bank1
+   879  0769  1303               	bcf	status, 6	;RP1=0, select bank1
+   880  076A  081E               	movf	(158)^080h,w	;volatile
+   881  076B  0774               	addwf	(ui_adc_read@temp),w
+   882  076C  00F4               	movwf	(ui_adc_read@temp)
+   883  076D  0875               	movf	(ui_adc_read@temp+1),w
+   884  076E  1803               	skipnc
+   885  076F  0A75               	incf	(ui_adc_read@temp+1),w
+   886  0770  00F5               	movwf	((ui_adc_read@temp))+1
+   887                           	line	126
+   888                           	
+   889  0771                     l3355:	
+   890                           ;adc.c: 126: return temp;
+   891  0771  0875               	movf	(ui_adc_read@temp+1),w
+   892  0772  01F1               	clrf	(?_ui_adc_read+1)
+   893  0773  07F1               	addwf	(?_ui_adc_read+1)
+   894  0774  0874               	movf	(ui_adc_read@temp),w
+   895  0775  01F0               	clrf	(?_ui_adc_read)
+   896  0776  07F0               	addwf	(?_ui_adc_read)
+   897                           
+   898  0777  2F78               	goto	l699
+   899                           	
+   900  0778                     l3357:	
+   901                           	line	127
+   902                           	
+   903  0778                     l699:	
+   904  0778  0008               	return
+   905                           	opt stack 0
+   906                           GLOBAL	__end_of_ui_adc_read
+   907  0779                     	__end_of_ui_adc_read:
+   908 ;; =============== function _ui_adc_read ends ============
+   909                           
+   910                           	signat	_ui_adc_read,90
+   911                           	global	_adc_on
+   912                           psect	text113,local,class=CODE,delta=2
+   913                           global __ptext113
+   914  0711                     __ptext113:
+   915                           
+   916 ;; *************** function _adc_on *****************
+   917 ;; Defined at:
+   918 ;;		line 61 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\adc.c"
+   919 ;; Parameters:    Size  Location     Type
+   920 ;;		None
+   921 ;; Auto vars:     Size  Location     Type
+   922 ;;		None
+   923 ;; Return value:  Size  Location     Type
+   924 ;;		None               void
+   925 ;; Registers used:
+   926 ;;		None
+   927 ;; Tracked objects:
+   928 ;;		On entry : 0/0
+   929 ;;		On exit  : 0/0
+   930 ;;		Unchanged: 0/0
+   931 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   932 ;;      Params:         0       0       0       0       0
+   933 ;;      Locals:         0       0       0       0       0
+   934 ;;      Temps:          0       0       0       0       0
+   935 ;;      Totals:         0       0       0       0       0
+   936 ;;Total ram usage:        0 bytes
+   937 ;; Hardware stack levels used:    1
+   938 ;; This function calls:
+   939 ;;		Nothing
+   940 ;; This function is called by:
+   941 ;;		_main
+   942 ;; This function uses a non-reentrant model
+   943 ;;
+   944                           psect	text113
+   945                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\adc.c"
+   946                           	line	61
+   947                           	global	__size_of_adc_on
+   948  0004                     	__size_of_adc_on	equ	__end_of_adc_on-_adc_on
+   949                           	
+   950  0711                     _adc_on:	
+   951                           	opt	stack 7
+   952                           ; Regs used in _adc_on: []
+   953                           	line	63
+   954                           	
+   955  0711                     l2469:	
+   956                           ;adc.c: 63: ADON = 1;
+   957  0711  1283               	bcf	status, 5	;RP0=0, select bank0
+   958  0712  1303               	bcf	status, 6	;RP1=0, select bank0
+   959  0713  141F               	bsf	(248/8),(248)&7
+   960                           	line	64
+   961                           	
+   962  0714                     l690:	
+   963  0714  0008               	return
+   964                           	opt stack 0
+   965                           GLOBAL	__end_of_adc_on
+   966  0715                     	__end_of_adc_on:
+   967 ;; =============== function _adc_on ends ============
+   968                           
+   969                           	signat	_adc_on,88
+   970                           	global	_adc_initialize
+   971                           psect	text114,local,class=CODE,delta=2
+   972                           global __ptext114
+   973  0719                     __ptext114:
+   974                           
+   975 ;; *************** function _adc_initialize *****************
+   976 ;; Defined at:
+   977 ;;		line 27 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\adc.c"
+   978 ;; Parameters:    Size  Location     Type
+   979 ;;		None
+   980 ;; Auto vars:     Size  Location     Type
+   981 ;;		None
+   982 ;; Return value:  Size  Location     Type
+   983 ;;		None               void
+   984 ;; Registers used:
+   985 ;;		None
+   986 ;; Tracked objects:
+   987 ;;		On entry : 0/0
+   988 ;;		On exit  : 0/0
+   989 ;;		Unchanged: 0/0
+   990 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   991 ;;      Params:         0       0       0       0       0
+   992 ;;      Locals:         0       0       0       0       0
+   993 ;;      Temps:          0       0       0       0       0
+   994 ;;      Totals:         0       0       0       0       0
+   995 ;;Total ram usage:        0 bytes
+   996 ;; Hardware stack levels used:    1
+   997 ;; This function calls:
+   998 ;;		Nothing
+   999 ;; This function is called by:
+  1000 ;;		_main
+  1001 ;; This function uses a non-reentrant model
+  1002 ;;
+  1003                           psect	text114
+  1004                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 9\adc.c"
+  1005                           	line	27
+  1006                           	global	__size_of_adc_initialize
+  1007  0012                     	__size_of_adc_initialize	equ	__end_of_adc_initialize-_adc_initialize
+  1008                           	
+  1009  0719                     _adc_initialize:	
+  1010                           	opt	stack 7
+  1011                           ; Regs used in _adc_initialize: []
+  1012                           	line	29
+  1013                           	
+  1014  0719                     l2467:	
+  1015                           ;adc.c: 29: ADCS2 = 1;
+  1016  0719  1683               	bsf	status, 5	;RP0=1, select bank1
+  1017  071A  1303               	bcf	status, 6	;RP1=0, select bank1
+  1018  071B  171F               	bsf	(1278/8)^080h,(1278)&7
+  1019                           	line	30
+  1020                           ;adc.c: 30: ADCS1 = 1;
+  1021  071C  1283               	bcf	status, 5	;RP0=0, select bank0
+  1022  071D  1303               	bcf	status, 6	;RP1=0, select bank0
+  1023  071E  179F               	bsf	(255/8),(255)&7
+  1024                           	line	31
+  1025                           ;adc.c: 31: ADCS0 = 0;
+  1026  071F  131F               	bcf	(254/8),(254)&7
+  1027                           	line	34
+  1028                           ;adc.c: 34: PCFG3 = 1;
+  1029  0720  1683               	bsf	status, 5	;RP0=1, select bank1
+  1030  0721  1303               	bcf	status, 6	;RP1=0, select bank1
+  1031  0722  159F               	bsf	(1275/8)^080h,(1275)&7
+  1032                           	line	35
+  1033                           ;adc.c: 35: PCFG2 = 1;
+  1034  0723  151F               	bsf	(1274/8)^080h,(1274)&7
+  1035                           	line	36
+  1036                           ;adc.c: 36: PCFG1 = 1;
+  1037  0724  149F               	bsf	(1273/8)^080h,(1273)&7
+  1038                           	line	37
+  1039                           ;adc.c: 37: PCFG0 = 0;
+  1040  0725  101F               	bcf	(1272/8)^080h,(1272)&7
+  1041                           	line	40
+  1042                           ;adc.c: 40: ADFM = 1;
+  1043  0726  179F               	bsf	(1279/8)^080h,(1279)&7
+  1044                           	line	43
+  1045                           ;adc.c: 43: ADON = 0;
+  1046  0727  1283               	bcf	status, 5	;RP0=0, select bank0
+  1047  0728  1303               	bcf	status, 6	;RP1=0, select bank0
+  1048  0729  101F               	bcf	(248/8),(248)&7
+  1049                           	line	44
+  1050                           	
+  1051  072A                     l687:	
+  1052  072A  0008               	return
+  1053                           	opt stack 0
+  1054                           GLOBAL	__end_of_adc_initialize
+  1055  072B                     	__end_of_adc_initialize:
+  1056 ;; =============== function _adc_initialize ends ============
+  1057                           
+  1058                           	signat	_adc_initialize,88
+  1059                           psect	text115,local,class=CODE,delta=2
+  1060                           global __ptext115
+  1061  0000                     __ptext115:
+  1062                           	global	btemp
+  1063  007E                     	btemp set 07Eh
+  1064                           
+  1065                           	DABS	1,126,2	;btemp
+  1066                           	global	wtemp0
+  1067  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sat Apr 20 17:40:27 2013
+
+        ui_adc_read@temp 0074                       _RD 0C60                       _WR 0C61  
+                    l690 0714                      l687 072A                      l696 0759  
+                    l697 0759                      l698 075E                      l699 0778  
+                    _GIE 005F                      _RC2 003A                      _RB4 0034  
+                    _RB5 0035                      _RB6 0036                      _RB7 0037  
+                   l1400 07C5                     l1401 07CC                     l1402 07D3  
+                   l1411 0734                     l1403 07FA                     l1412 072C  
+                   l1404 07FB                     l1413 0745                     l1405 07FC  
+                   l1414 0745                     l1406 07FC                     l1407 07FD  
+                   l1408 07FD                     l3401 07F4                     l1394 079E  
+                   l1395 07A8                     l1396 07F9                     l3341 0748  
+                   l1397 07DB                     l1398 07BE                     l3351 075E  
+                   l3343 074B                     l1399 07E9                     l3353 0768  
+                   l3345 074C                     l3361 072C                     l2467 0719  
+                   l3355 0771                     l3347 074D                     l3339 0746  
+                   l3371 0789                     l3363 0779                     l2469 0711  
+                   l3357 0778                     l3349 0755                     l3381 0797  
+                   l3373 078B                     l3365 077A                     l3359 072B  
+                   l3391 07B3                     l3383 079A                     l3375 078C  
+                   l3367 0783                     l3393 07BD                     l3385 079E  
+                   l3377 078D                     l3369 0787                     l3395 07DA  
+                   l3387 07A4                     l3379 0792                     l3397 07DB  
+                   l3389 07A8                     l3399 07E9                     _ADFM 04FF  
+                   _ADON 00F8                     _CHS0 00FB                     _CHS1 00FC  
+                   _CHS2 00FD                     u2230 075D                     u2231 075C  
+                   u2240 0744                     u2241 0743                     u2250 07A4  
+                   u2251 07A3                     u2260 07BC                     u2245 0740  
+                   u2261 07BB                     u2277 0730                     u2287 0751  
+                   _WREN 0C62                     _main 0779                     btemp 007E  
+                   start 0000                    _ADCS0 00FE                    _ADCS1 00FF  
+                  _ADCS2 04FE                    ?_main 0070                    _EEADR 010D  
+                  _CARRY 0018                    _PCFG0 04F8                    _PCFG1 04F9  
+                  _PCFG2 04FA                    _PCFG3 04FB                    _PORTA 0005  
+                  _PORTB 0006                    _PORTC 0007                    _PORTD 0008  
+                  _PORTE 0009                    _TRISA 0085                    _TRISB 0086  
+                  _TRISC 0087                    _TRISD 0088                    _TRISE 0089  
+                  status 0003                    wtemp0 007E             __end_of_main 0800  
+                 ??_main 0076             ?_ui_adc_read 0070                   _ADRESH 001E  
+                 _ADRESL 009E                   _EEDATA 010C                   _EECON1 018C  
+                 _EECON2 018D         __end_of_delay_ms 0746                   _adc_on 0711  
+__size_of_adc_initialize 0012           __pcstackCOMMON 0070               __pmaintext 0779  
+                ?_adc_on 0070                  _GO_DONE 00FA                ?_delay_ms 0070  
+   __size_of_ui_adc_read 0033         delay_ms@ui_value 0070           _adc_initialize 0719  
+        __size_of_adc_on 0004               ??_delay_ms 0072     end_of_initialization 0715  
+ __end_of_adc_initialize 072B          ?_adc_initialize 0070           __end_of_adc_on 0715  
+    start_initialization 0715                 ??_adc_on 0070        __size_of_delay_ms 001B  
+              __ptext110 0000                __ptext111 072B                __ptext112 0746  
+              __ptext113 0711                __ptext114 0719                __ptext115 0000  
+          ??_ui_adc_read 0072                main@delay 0077         ??_adc_initialize 0070  
+    __end_of_ui_adc_read 0779                 _delay_ms 072B            __size_of_main 0087  
+               main@step 0079              _ui_adc_read 0746  

@@ -1,0 +1,19 @@
+___awdiv: CODE, 1771 0 116
+_set_lcd_e: CODE, 1214 0 12
+_set_lcd_rs: CODE, 1226 0 12
+_c_wait_keypad: CODE, 1367 0 36
+_adc_initialize: CODE, 1252 0 18
+_set_lcd_data: CODE, 1198 0 6
+_seg7_1_dis: CODE, 1270 0 23
+_lcd_initialize: CODE, 1440 0 51
+___awmod: CODE, 1669 0 102
+_beep: CODE, 1403 0 37
+_main: CODE, 1546 0 57
+_c_read_keypad: CODE, 1887 0 161
+_seg7_initialize: CODE, 1316 0 24
+_seg7_com_dis: CODE, 1603 0 66
+_lcd_clear: CODE, 1204 0 10
+_send_lcd_data: CODE, 1491 0 55
+_seg7_2_dis: CODE, 1293 0 23
+_delay_ms: CODE, 1340 0 27
+Total: 836

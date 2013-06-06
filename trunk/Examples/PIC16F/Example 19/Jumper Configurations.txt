@@ -1,0 +1,21 @@
+;***********************************************************
+; Jumper Configurations for PTK40A
+; Example 19
+; By Ober Choo
+; 1 July 2012
+;***********************************************************
+
+    JP3		I2C		; Not Applicable
+	JP5		I2C		; Not Applicable
+	JP6		SPI		; Not Applicable
+	JP7		SPI		; Not Applicable	
+   	 JP9 	SERVO  	; connect to servo motor
+	JP10 	PWM  	; Need to connect to PWM
+	JP14  	POT     ; Not Applicable	
+	JP15	5V		; Not Applicable
+	JP18 	OUT		; Not connected, disconnect 5V from UC00A
+	JP20	DC MOTOR	; DC motor
+	JP21	DC MOTOR	; DC motor
+	JP23	UNIPOLAR	; Not Applicable
+	JP24	UNIPOLAR	; Not Applicable
+	

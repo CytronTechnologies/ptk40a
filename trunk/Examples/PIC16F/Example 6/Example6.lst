@@ -1,0 +1,3021 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
+                                                                                               Sat Apr 20 17:22:19 2013
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 34 "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\Main E_6.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 34 "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\Main E_6.c"
+    45  2007  FF32               	dw 0xFFFE & 0xFFFB & 0xFFF7 & 0xFFBF & 0xFF7F ;#
+    46                           	FNCALL	_main,_adc_initialize
+    47                           	FNCALL	_main,_seg7_initialize
+    48                           	FNCALL	_main,_lcd_initialize
+    49                           	FNCALL	_main,_beep
+    50                           	FNCALL	_main,_lcd_putstr
+    51                           	FNCALL	_main,_lcd_2ndline
+    52                           	FNCALL	_main,_lcd_goto
+    53                           	FNCALL	_main,_c_wait_keypad
+    54                           	FNCALL	_main,_c_key_to_ASCII
+    55                           	FNCALL	_main,_lcd_putchar
+    56                           	FNCALL	_lcd_putstr,_lcd_2ndline
+    57                           	FNCALL	_lcd_putstr,_lcd_putchar
+    58                           	FNCALL	_lcd_initialize,_set_lcd_e
+    59                           	FNCALL	_lcd_initialize,_send_lcd_data
+    60                           	FNCALL	_lcd_initialize,_lcd_clear
+    61                           	FNCALL	_beep,_delay_ms
+    62                           	FNCALL	_lcd_putchar,_send_lcd_data
+    63                           	FNCALL	_lcd_goto,_send_lcd_data
+    64                           	FNCALL	_lcd_2ndline,_send_lcd_data
+    65                           	FNCALL	_lcd_clear,_send_lcd_data
+    66                           	FNCALL	_c_wait_keypad,_c_read_keypad
+    67                           	FNCALL	_send_lcd_data,_set_lcd_rs
+    68                           	FNCALL	_send_lcd_data,_set_lcd_data
+    69                           	FNCALL	_send_lcd_data,_set_lcd_e
+    70                           	FNROOT	_main
+    71                           	global	lcd_bcd@F1131
+    72                           	global	_ADRESH
+    73                           psect	text373,local,class=CODE,delta=2
+    74                           global __ptext373
+    75  0000                     __ptext373:
+    76  001E                     _ADRESH	set	30
+    77                           	global	_PORTA
+    78  0005                     _PORTA	set	5
+    79                           	global	_PORTB
+    80  0006                     _PORTB	set	6
+    81                           	global	_PORTC
+    82  0007                     _PORTC	set	7
+    83                           	global	_PORTD
+    84  0008                     _PORTD	set	8
+    85                           	global	_PORTE
+    86  0009                     _PORTE	set	9
+    87                           	global	_ADCS0
+    88  00FE                     _ADCS0	set	254
+    89                           	global	_ADCS1
+    90  00FF                     _ADCS1	set	255
+    91                           	global	_ADON
+    92  00F8                     _ADON	set	248
+    93                           	global	_CARRY
+    94  0018                     _CARRY	set	24
+    95                           	global	_CHS0
+    96  00FB                     _CHS0	set	251
+    97                           	global	_CHS1
+    98  00FC                     _CHS1	set	252
+    99                           	global	_CHS2
+   100  00FD                     _CHS2	set	253
+   101                           	global	_GIE
+   102  005F                     _GIE	set	95
+   103                           	global	_GO_DONE
+   104  00FA                     _GO_DONE	set	250
+   105                           	global	_RA1
+   106  0029                     _RA1	set	41
+   107                           	global	_RA2
+   108  002A                     _RA2	set	42
+   109                           	global	_RA3
+   110  002B                     _RA3	set	43
+   111                           	global	_RB0
+   112  0030                     _RB0	set	48
+   113                           	global	_RB1
+   114  0031                     _RB1	set	49
+   115                           	global	_RB2
+   116  0032                     _RB2	set	50
+   117                           	global	_RB3
+   118  0033                     _RB3	set	51
+   119                           	global	_RC2
+   120  003A                     _RC2	set	58
+   121                           	global	_RD4
+   122  0044                     _RD4	set	68
+   123                           	global	_RD5
+   124  0045                     _RD5	set	69
+   125                           	global	_RD6
+   126  0046                     _RD6	set	70
+   127                           	global	_RD7
+   128  0047                     _RD7	set	71
+   129                           	global	_RE0
+   130  0048                     _RE0	set	72
+   131                           	global	_RE1
+   132  0049                     _RE1	set	73
+   133                           	global	_ADRESL
+   134  009E                     _ADRESL	set	158
+   135                           	global	_TRISA
+   136  0085                     _TRISA	set	133
+   137                           	global	_TRISB
+   138  0086                     _TRISB	set	134
+   139                           	global	_TRISC
+   140  0087                     _TRISC	set	135
+   141                           	global	_TRISD
+   142  0088                     _TRISD	set	136
+   143                           	global	_TRISE
+   144  0089                     _TRISE	set	137
+   145                           	global	_ADCS2
+   146  04FE                     _ADCS2	set	1278
+   147                           	global	_ADFM
+   148  04FF                     _ADFM	set	1279
+   149                           	global	_PCFG0
+   150  04F8                     _PCFG0	set	1272
+   151                           	global	_PCFG1
+   152  04F9                     _PCFG1	set	1273
+   153                           	global	_PCFG2
+   154  04FA                     _PCFG2	set	1274
+   155                           	global	_PCFG3
+   156  04FB                     _PCFG3	set	1275
+   157                           	global	_EEADR
+   158  010D                     _EEADR	set	269
+   159                           	global	_EEDATA
+   160  010C                     _EEDATA	set	268
+   161                           	global	_EECON1
+   162  018C                     _EECON1	set	396
+   163                           	global	_EECON2
+   164  018D                     _EECON2	set	397
+   165                           	global	_RD
+   166  0C60                     _RD	set	3168
+   167                           	global	_WR
+   168  0C61                     _WR	set	3169
+   169                           	global	_WREN
+   170  0C62                     _WREN	set	3170
+   171                           psect	strings,class=STRING,delta=2
+   172                           global __pstrings
+   173  0003                     __pstrings:
+   174                           ;	global	stringdir,stringtab,__stringbase
+   175  0003                     stringtab:
+   176                           ;	String table - string pointers are 1 byte each
+   177  0003                     stringcode:stringdir:
+      + 0003                     stringdir:	
+   178  0003  3000               movlw high(stringdir)
+   179  0004  008A               movwf pclath
+   180  0005  0804               movf fsr,w
+   181  0006  0A84               incf fsr
+   182  0007  0782               	addwf pc
+   183  0008                     __stringbase:
+   184  0008  3400               	retlw	0
+   185                           psect	strings
+   186                           	
+   187  0009                     STR_1:	
+   188  0009  3443               	retlw	67	;'C'
+   189  000A  3479               	retlw	121	;'y'
+   190  000B  3474               	retlw	116	;'t'
+   191  000C  3472               	retlw	114	;'r'
+   192  000D  346F               	retlw	111	;'o'
+   193  000E  346E               	retlw	110	;'n'
+   194  000F  3420               	retlw	32	;' '
+   195  0010  3450               	retlw	80	;'P'
+   196  0011  3454               	retlw	84	;'T'
+   197  0012  344B               	retlw	75	;'K'
+   198  0013  3434               	retlw	52	;'4'
+   199  0014  3430               	retlw	48	;'0'
+   200  0015  3441               	retlw	65	;'A'
+   201  0016  3400               	retlw	0
+   202                           psect	strings
+   203                           	
+   204  0017                     STR_2:	
+   205  0017  344B               	retlw	75	;'K'
+   206  0018  3465               	retlw	101	;'e'
+   207  0019  3479               	retlw	121	;'y'
+   208  001A  3470               	retlw	112	;'p'
+   209  001B  3461               	retlw	97	;'a'
+   210  001C  3464               	retlw	100	;'d'
+   211  001D  343A               	retlw	58	;':'
+   212  001E  3400               	retlw	0
+   213                           psect	strings
+   214                           	file	"Example6.as"
+   215                           	line	#
+   216                           psect cinit,class=CODE,delta=2
+   217                           global start_initialization
+   218  057C                     start_initialization:
+   219                           
+   220                           psect	bssBANK0,class=BANK0,space=1
+   221                           global __pbssBANK0
+   222  0020                     __pbssBANK0:
+   223  0020                     lcd_bcd@F1131:
+   224  0020                            ds      10
+   225                           
+   226                           ; Clear objects allocated to BANK0
+   227                           psect cinit,class=CODE,delta=2
+   228  057C  01A0               	clrf	((__pbssBANK0)+0)&07Fh
+   229  057D  01A1               	clrf	((__pbssBANK0)+1)&07Fh
+   230  057E  01A2               	clrf	((__pbssBANK0)+2)&07Fh
+   231  057F  01A3               	clrf	((__pbssBANK0)+3)&07Fh
+   232  0580  01A4               	clrf	((__pbssBANK0)+4)&07Fh
+   233  0581  01A5               	clrf	((__pbssBANK0)+5)&07Fh
+   234  0582  01A6               	clrf	((__pbssBANK0)+6)&07Fh
+   235  0583  01A7               	clrf	((__pbssBANK0)+7)&07Fh
+   236  0584  01A8               	clrf	((__pbssBANK0)+8)&07Fh
+   237  0585  01A9               	clrf	((__pbssBANK0)+9)&07Fh
+   238                           psect cinit,class=CODE,delta=2
+   239                           global end_of_initialization
+   240                           
+   241                           ;End of C runtime variable initialization code
+   242                           
+   243  0586                     end_of_initialization:
+   244  0586  0183               clrf status
+   245  0587  120A  118A  2F07   ljmp _main	;jump to C main() function
+   246                           psect	cstackCOMMON,class=COMMON,space=1
+   247                           global __pcstackCOMMON
+   248  0070                     __pcstackCOMMON:
+   249                           	global	?_set_lcd_e
+   250  0070                     ?_set_lcd_e:	; 0 bytes @ 0x0
+   251                           	global	??_set_lcd_e
+   252  0070                     ??_set_lcd_e:	; 0 bytes @ 0x0
+   253                           	global	?_lcd_clear
+   254  0070                     ?_lcd_clear:	; 0 bytes @ 0x0
+   255                           	global	?_set_lcd_rs
+   256  0070                     ?_set_lcd_rs:	; 0 bytes @ 0x0
+   257                           	global	??_set_lcd_rs
+   258  0070                     ??_set_lcd_rs:	; 0 bytes @ 0x0
+   259                           	global	?_set_lcd_data
+   260  0070                     ?_set_lcd_data:	; 0 bytes @ 0x0
+   261                           	global	??_set_lcd_data
+   262  0070                     ??_set_lcd_data:	; 0 bytes @ 0x0
+   263                           	global	?_beep
+   264  0070                     ?_beep:	; 0 bytes @ 0x0
+   265                           	global	?_adc_initialize
+   266  0070                     ?_adc_initialize:	; 0 bytes @ 0x0
+   267                           	global	??_adc_initialize
+   268  0070                     ??_adc_initialize:	; 0 bytes @ 0x0
+   269                           	global	?_seg7_initialize
+   270  0070                     ?_seg7_initialize:	; 0 bytes @ 0x0
+   271                           	global	??_seg7_initialize
+   272  0070                     ??_seg7_initialize:	; 0 bytes @ 0x0
+   273                           	global	??_c_read_keypad
+   274  0070                     ??_c_read_keypad:	; 0 bytes @ 0x0
+   275                           	global	??_c_key_to_ASCII
+   276  0070                     ??_c_key_to_ASCII:	; 0 bytes @ 0x0
+   277                           	global	?_lcd_initialize
+   278  0070                     ?_lcd_initialize:	; 0 bytes @ 0x0
+   279                           	global	?_lcd_2ndline
+   280  0070                     ?_lcd_2ndline:	; 0 bytes @ 0x0
+   281                           	global	?_lcd_goto
+   282  0070                     ?_lcd_goto:	; 0 bytes @ 0x0
+   283                           	global	?_lcd_putchar
+   284  0070                     ?_lcd_putchar:	; 0 bytes @ 0x0
+   285                           	global	?_lcd_putstr
+   286  0070                     ?_lcd_putstr:	; 0 bytes @ 0x0
+   287                           	global	?_delay_ms
+   288  0070                     ?_delay_ms:	; 0 bytes @ 0x0
+   289                           	global	?_c_read_keypad
+   290  0070                     ?_c_read_keypad:	; 1 bytes @ 0x0
+   291                           	global	?_c_key_to_ASCII
+   292  0070                     ?_c_key_to_ASCII:	; 1 bytes @ 0x0
+   293                           	global	?_c_wait_keypad
+   294  0070                     ?_c_wait_keypad:	; 1 bytes @ 0x0
+   295                           	global	?_main
+   296  0070                     ?_main:	; 2 bytes @ 0x0
+   297                           	global	c_key_to_ASCII@key_number
+   298  0070                     c_key_to_ASCII@key_number:	; 1 bytes @ 0x0
+   299                           	global	set_lcd_e@b_output
+   300  0070                     set_lcd_e@b_output:	; 1 bytes @ 0x0
+   301                           	global	set_lcd_rs@b_output
+   302  0070                     set_lcd_rs@b_output:	; 1 bytes @ 0x0
+   303                           	global	set_lcd_data@uc_data
+   304  0070                     set_lcd_data@uc_data:	; 1 bytes @ 0x0
+   305                           	global	delay_ms@ui_value
+   306  0070                     delay_ms@ui_value:	; 2 bytes @ 0x0
+   307  0070                     	ds	1
+   308                           	global	?_send_lcd_data
+   309  0071                     ?_send_lcd_data:	; 0 bytes @ 0x1
+   310                           	global	??_c_wait_keypad
+   311  0071                     ??_c_wait_keypad:	; 0 bytes @ 0x1
+   312                           	global	send_lcd_data@uc_data
+   313  0071                     send_lcd_data@uc_data:	; 1 bytes @ 0x1
+   314  0071                     	ds	1
+   315                           	global	??_send_lcd_data
+   316  0072                     ??_send_lcd_data:	; 0 bytes @ 0x2
+   317                           	global	??_delay_ms
+   318  0072                     ??_delay_ms:	; 0 bytes @ 0x2
+   319                           	global	c_wait_keypad@c_pressed_key
+   320  0072                     c_wait_keypad@c_pressed_key:	; 1 bytes @ 0x2
+   321  0072                     	ds	2
+   322                           	global	??_beep
+   323  0074                     ??_beep:	; 0 bytes @ 0x4
+   324                           	global	send_lcd_data@b_rs
+   325  0074                     send_lcd_data@b_rs:	; 1 bytes @ 0x4
+   326                           	global	beep@uc_count
+   327  0074                     beep@uc_count:	; 1 bytes @ 0x4
+   328  0074                     	ds	1
+   329                           	global	??_lcd_clear
+   330  0075                     ??_lcd_clear:	; 0 bytes @ 0x5
+   331                           	global	??_lcd_initialize
+   332  0075                     ??_lcd_initialize:	; 0 bytes @ 0x5
+   333                           	global	??_lcd_2ndline
+   334  0075                     ??_lcd_2ndline:	; 0 bytes @ 0x5
+   335                           	global	??_lcd_goto
+   336  0075                     ??_lcd_goto:	; 0 bytes @ 0x5
+   337                           	global	??_lcd_putchar
+   338  0075                     ??_lcd_putchar:	; 0 bytes @ 0x5
+   339  0075                     	ds	1
+   340                           	global	lcd_goto@uc_position
+   341  0076                     lcd_goto@uc_position:	; 1 bytes @ 0x6
+   342                           	global	lcd_putchar@c_data
+   343  0076                     lcd_putchar@c_data:	; 1 bytes @ 0x6
+   344  0076                     	ds	1
+   345                           	global	??_lcd_putstr
+   346  0077                     ??_lcd_putstr:	; 0 bytes @ 0x7
+   347  0077                     	ds	1
+   348                           	global	lcd_putstr@csz_string
+   349  0078                     lcd_putstr@csz_string:	; 1 bytes @ 0x8
+   350  0078                     	ds	1
+   351                           	global	??_main
+   352  0079                     ??_main:	; 0 bytes @ 0x9
+   353                           	global	main@value
+   354  0079                     main@value:	; 1 bytes @ 0x9
+   355  0079                     	ds	1
+   356 ;;Data sizes: Strings 22, constant 0, data 0, bss 10, persistent 0 stack 0
+   357 ;;Auto spaces:   Size  Autos    Used
+   358 ;; COMMON          14     10      10
+   359 ;; BANK0           80      0      10
+   360 ;; BANK1           80      0       0
+   361 ;; BANK3           96      0       0
+   362 ;; BANK2           96      0       0
+   363                           
+   364 ;;
+   365 ;; Pointer list with targets:
+   366                           
+   367 ;; lcd_putstr@csz_string	PTR const unsigned char  size(1) Largest target is 14
+   368 ;;		 -> STR_2(CODE[8]), STR_1(CODE[14]), 
+   369 ;;
+   370                           
+   371                           
+   372 ;;
+   373 ;; Critical Paths under _main in COMMON
+   374 ;;
+   375 ;;   _main->_lcd_putstr
+   376 ;;   _lcd_putstr->_lcd_putchar
+   377 ;;   _lcd_initialize->_send_lcd_data
+   378 ;;   _beep->_delay_ms
+   379 ;;   _lcd_putchar->_send_lcd_data
+   380 ;;   _lcd_goto->_send_lcd_data
+   381 ;;   _lcd_2ndline->_send_lcd_data
+   382 ;;   _lcd_clear->_send_lcd_data
+   383 ;;   _c_wait_keypad->_c_read_keypad
+   384 ;;   _send_lcd_data->_set_lcd_rs
+   385 ;;   _send_lcd_data->_set_lcd_data
+   386 ;;   _send_lcd_data->_set_lcd_e
+   387 ;;
+   388 ;; Critical Paths under _main in BANK0
+   389 ;;
+   390 ;;   None.
+   391 ;;
+   392 ;; Critical Paths under _main in BANK1
+   393 ;;
+   394 ;;   None.
+   395 ;;
+   396 ;; Critical Paths under _main in BANK3
+   397 ;;
+   398 ;;   None.
+   399 ;;
+   400 ;; Critical Paths under _main in BANK2
+   401 ;;
+   402 ;;   None.
+   403                           
+   404 ;;
+   405 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   406 ;;
+   407                           
+   408 ;;
+   409 ;;Call Graph Tables:
+   410 ;;
+   411 ;; ---------------------------------------------------------------------------------
+   412 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   413 ;; ---------------------------------------------------------------------------------
+   414 ;; (0) _main                                                 1     1      0    1128
+   415 ;;                                              9 COMMON     1     1      0
+   416 ;;                     _adc_initialize
+   417 ;;                    _seg7_initialize
+   418 ;;                     _lcd_initialize
+   419 ;;                               _beep
+   420 ;;                         _lcd_putstr
+   421 ;;                        _lcd_2ndline
+   422 ;;                           _lcd_goto
+   423 ;;                      _c_wait_keypad
+   424 ;;                     _c_key_to_ASCII
+   425 ;;                        _lcd_putchar
+   426 ;; ---------------------------------------------------------------------------------
+   427 ;; (1) _lcd_putstr                                           2     2      0     331
+   428 ;;                                              7 COMMON     2     2      0
+   429 ;;                        _lcd_2ndline
+   430 ;;                        _lcd_putchar
+   431 ;; ---------------------------------------------------------------------------------
+   432 ;; (1) _lcd_initialize                                       2     2      0     242
+   433 ;;                                              5 COMMON     2     2      0
+   434 ;;                          _set_lcd_e
+   435 ;;                      _send_lcd_data
+   436 ;;                          _lcd_clear
+   437 ;; ---------------------------------------------------------------------------------
+   438 ;; (1) _beep                                                 1     1      0      30
+   439 ;;                                              4 COMMON     1     1      0
+   440 ;;                           _delay_ms
+   441 ;; ---------------------------------------------------------------------------------
+   442 ;; (1) _lcd_putchar                                          2     2      0     132
+   443 ;;                                              5 COMMON     2     2      0
+   444 ;;                      _send_lcd_data
+   445 ;; ---------------------------------------------------------------------------------
+   446 ;; (1) _lcd_goto                                             2     2      0     132
+   447 ;;                                              5 COMMON     2     2      0
+   448 ;;                      _send_lcd_data
+   449 ;; ---------------------------------------------------------------------------------
+   450 ;; (1) _lcd_2ndline                                          1     1      0     110
+   451 ;;                                              5 COMMON     1     1      0
+   452 ;;                      _send_lcd_data
+   453 ;; ---------------------------------------------------------------------------------
+   454 ;; (2) _lcd_clear                                            0     0      0     110
+   455 ;;                      _send_lcd_data
+   456 ;; ---------------------------------------------------------------------------------
+   457 ;; (1) _c_wait_keypad                                        2     2      0      30
+   458 ;;                                              1 COMMON     2     2      0
+   459 ;;                      _c_read_keypad
+   460 ;; ---------------------------------------------------------------------------------
+   461 ;; (2) _delay_ms                                             4     2      2      15
+   462 ;;                                              0 COMMON     4     2      2
+   463 ;; ---------------------------------------------------------------------------------
+   464 ;; (2) _send_lcd_data                                        4     3      1     110
+   465 ;;                                              1 COMMON     4     3      1
+   466 ;;                         _set_lcd_rs
+   467 ;;                       _set_lcd_data
+   468 ;;                          _set_lcd_e
+   469 ;; ---------------------------------------------------------------------------------
+   470 ;; (2) _c_read_keypad                                        1     1      0       0
+   471 ;;                                              0 COMMON     1     1      0
+   472 ;; ---------------------------------------------------------------------------------
+   473 ;; (1) _seg7_initialize                                      2     2      0       0
+   474 ;;                                              0 COMMON     2     2      0
+   475 ;; ---------------------------------------------------------------------------------
+   476 ;; (3) _set_lcd_data                                         1     1      0      22
+   477 ;;                                              0 COMMON     1     1      0
+   478 ;; ---------------------------------------------------------------------------------
+   479 ;; (3) _set_lcd_rs                                           1     1      0      22
+   480 ;;                                              0 COMMON     1     1      0
+   481 ;; ---------------------------------------------------------------------------------
+   482 ;; (3) _set_lcd_e                                            1     1      0      22
+   483 ;;                                              0 COMMON     1     1      0
+   484 ;; ---------------------------------------------------------------------------------
+   485 ;; (1) _c_key_to_ASCII                                       1     1      0     120
+   486 ;;                                              0 COMMON     1     1      0
+   487 ;; ---------------------------------------------------------------------------------
+   488 ;; (1) _adc_initialize                                       0     0      0       0
+   489 ;; ---------------------------------------------------------------------------------
+   490 ;; Estimated maximum stack depth 3
+   491 ;; ---------------------------------------------------------------------------------
+   492                           
+   493 ;; Call Graph Graphs:
+   494                           
+   495 ;; _main (ROOT)
+   496 ;;   _adc_initialize
+   497 ;;   _seg7_initialize
+   498 ;;   _lcd_initialize
+   499 ;;     _set_lcd_e
+   500 ;;     _send_lcd_data
+   501 ;;       _set_lcd_rs
+   502 ;;       _set_lcd_data
+   503 ;;       _set_lcd_e
+   504 ;;     _lcd_clear
+   505 ;;       _send_lcd_data
+   506 ;;         _set_lcd_rs
+   507 ;;         _set_lcd_data
+   508 ;;         _set_lcd_e
+   509 ;;   _beep
+   510 ;;     _delay_ms
+   511 ;;   _lcd_putstr
+   512 ;;     _lcd_2ndline
+   513 ;;       _send_lcd_data
+   514 ;;         _set_lcd_rs
+   515 ;;         _set_lcd_data
+   516 ;;         _set_lcd_e
+   517 ;;     _lcd_putchar
+   518 ;;       _send_lcd_data
+   519 ;;         _set_lcd_rs
+   520 ;;         _set_lcd_data
+   521 ;;         _set_lcd_e
+   522 ;;   _lcd_2ndline
+   523 ;;     _send_lcd_data
+   524 ;;       _set_lcd_rs
+   525 ;;       _set_lcd_data
+   526 ;;       _set_lcd_e
+   527 ;;   _lcd_goto
+   528 ;;     _send_lcd_data
+   529 ;;       _set_lcd_rs
+   530 ;;       _set_lcd_data
+   531 ;;       _set_lcd_e
+   532 ;;   _c_wait_keypad
+   533 ;;     _c_read_keypad
+   534 ;;   _c_key_to_ASCII
+   535 ;;   _lcd_putchar
+   536 ;;     _send_lcd_data
+   537 ;;       _set_lcd_rs
+   538 ;;       _set_lcd_data
+   539 ;;       _set_lcd_e
+   540 ;;
+   541                           
+   542 ;; Address spaces:
+   543                           
+   544 ;;Name               Size   Autos  Total    Cost      Usage
+   545 ;;BITCOMMON            E      0       0       0        0.0%
+   546 ;;EEDATA             100      0       0       0        0.0%
+   547 ;;NULL                 0      0       0       0        0.0%
+   548 ;;CODE                 0      0       0       0        0.0%
+   549 ;;COMMON               E      A       A       1       71.4%
+   550 ;;BITSFR0              0      0       0       1        0.0%
+   551 ;;SFR0                 0      0       0       1        0.0%
+   552 ;;BITSFR1              0      0       0       2        0.0%
+   553 ;;SFR1                 0      0       0       2        0.0%
+   554 ;;STACK                0      0       4       2        0.0%
+   555 ;;ABS                  0      0      14       3        0.0%
+   556 ;;BITBANK0            50      0       0       4        0.0%
+   557 ;;BITSFR3              0      0       0       4        0.0%
+   558 ;;SFR3                 0      0       0       4        0.0%
+   559 ;;BANK0               50      0       A       5       12.5%
+   560 ;;BITSFR2              0      0       0       5        0.0%
+   561 ;;SFR2                 0      0       0       5        0.0%
+   562 ;;BITBANK1            50      0       0       6        0.0%
+   563 ;;BANK1               50      0       0       7        0.0%
+   564 ;;BITBANK3            60      0       0       8        0.0%
+   565 ;;BANK3               60      0       0       9        0.0%
+   566 ;;BITBANK2            60      0       0      10        0.0%
+   567 ;;BANK2               60      0       0      11        0.0%
+   568 ;;DATA                 0      0      18      12        0.0%
+   569                           
+   570                           	global	_main
+   571                           psect	maintext,global,class=CODE,delta=2
+   572                           global __pmaintext
+   573  0707                     __pmaintext:
+   574                           
+   575 ;; *************** function _main *****************
+   576 ;; Defined at:
+   577 ;;		line 59 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\Main E_6.c"
+   578 ;; Parameters:    Size  Location     Type
+   579 ;;		None
+   580 ;; Auto vars:     Size  Location     Type
+   581 ;;  value           1    9[COMMON] unsigned char 
+   582 ;; Return value:  Size  Location     Type
+   583 ;;                  2  3569[COMMON] int 
+   584 ;; Registers used:
+   585 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   586 ;; Tracked objects:
+   587 ;;		On entry : 17F/0
+   588 ;;		On exit  : 0/0
+   589 ;;		Unchanged: 0/0
+   590 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   591 ;;      Params:         0       0       0       0       0
+   592 ;;      Locals:         1       0       0       0       0
+   593 ;;      Temps:          0       0       0       0       0
+   594 ;;      Totals:         1       0       0       0       0
+   595 ;;Total ram usage:        1 bytes
+   596 ;; Hardware stack levels required when called:    4
+   597 ;; This function calls:
+   598 ;;		_adc_initialize
+   599 ;;		_seg7_initialize
+   600 ;;		_lcd_initialize
+   601 ;;		_beep
+   602 ;;		_lcd_putstr
+   603 ;;		_lcd_2ndline
+   604 ;;		_lcd_goto
+   605 ;;		_c_wait_keypad
+   606 ;;		_c_key_to_ASCII
+   607 ;;		_lcd_putchar
+   608 ;; This function is called by:
+   609 ;;		Startup code after reset
+   610 ;; This function uses a non-reentrant model
+   611 ;;
+   612                           psect	maintext
+   613                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\Main E_6.c
+                                 "
+   614                           	line	59
+   615                           	global	__size_of_main
+   616  0058                     	__size_of_main	equ	__end_of_main-_main
+   617                           	
+   618  0707                     _main:	
+   619                           	opt	stack 4
+   620                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   621                           	line	60
+   622                           	
+   623  0707                     l6133:	
+   624                           ;Main E_6.c: 60: unsigned char value = 0;
+   625  0707  01F9               	clrf	(main@value)
+   626                           	line	62
+   627                           	
+   628  0708                     l6135:	
+   629                           ;Main E_6.c: 62: PORTA = 0;
+   630  0708  1283               	bcf	status, 5	;RP0=0, select bank0
+   631  0709  1303               	bcf	status, 6	;RP1=0, select bank0
+   632  070A  0185               	clrf	(5)	;volatile
+   633                           	line	63
+   634                           ;Main E_6.c: 63: PORTB = 0;
+   635  070B  0186               	clrf	(6)	;volatile
+   636                           	line	64
+   637                           ;Main E_6.c: 64: PORTC = 0;
+   638  070C  0187               	clrf	(7)	;volatile
+   639                           	line	65
+   640                           ;Main E_6.c: 65: PORTD = 0;
+   641  070D  0188               	clrf	(8)	;volatile
+   642                           	line	66
+   643                           ;Main E_6.c: 66: PORTE = 0;
+   644  070E  0189               	clrf	(9)	;volatile
+   645                           	line	72
+   646                           	
+   647  070F                     l6137:	
+   648                           ;Main E_6.c: 72: TRISA = 0b00010001;
+   649  070F  3011               	movlw	(011h)
+   650  0710  1683               	bsf	status, 5	;RP0=1, select bank1
+   651  0711  1303               	bcf	status, 6	;RP1=0, select bank1
+   652  0712  0085               	movwf	(133)^080h	;volatile
+   653                           	line	73
+   654                           	
+   655  0713                     l6139:	
+   656                           ;Main E_6.c: 73: TRISB = 0b00001111;
+   657  0713  300F               	movlw	(0Fh)
+   658  0714  0086               	movwf	(134)^080h	;volatile
+   659                           	line	74
+   660                           	
+   661  0715                     l6141:	
+   662                           ;Main E_6.c: 74: TRISC = 0b10010011;
+   663  0715  3093               	movlw	(093h)
+   664  0716  0087               	movwf	(135)^080h	;volatile
+   665                           	line	75
+   666                           	
+   667  0717                     l6143:	
+   668                           ;Main E_6.c: 75: TRISD = 0;
+   669  0717  0188               	clrf	(136)^080h	;volatile
+   670                           	line	76
+   671                           	
+   672  0718                     l6145:	
+   673                           ;Main E_6.c: 76: TRISE = 0;
+   674  0718  0189               	clrf	(137)^080h	;volatile
+   675                           	line	79
+   676                           	
+   677  0719                     l6147:	
+   678                           ;Main E_6.c: 79: adc_initialize();
+   679  0719  120A  118A  258A   	fcall	_adc_initialize
+              120A  118A         
+   680                           	line	82
+   681                           	
+   682  071E                     l6149:	
+   683                           ;Main E_6.c: 82: seg7_initialize();
+   684  071E  120A  118A  259C   	fcall	_seg7_initialize
+              120A  118A         
+   685                           	line	85
+   686                           	
+   687  0723                     l6151:	
+   688                           ;Main E_6.c: 85: lcd_initialize();
+   689  0723  120A  118A  2618   	fcall	_lcd_initialize
+              120A  118A         
+   690                           	line	87
+   691                           	
+   692  0728                     l6153:	
+   693                           ;Main E_6.c: 87: beep(2);
+   694  0728  3002               	movlw	(02h)
+   695  0729  120A  118A  25F3   	fcall	_beep
+              120A  118A         
+   696                           	line	94
+   697                           	
+   698  072E                     l6155:	
+   699                           ;Main E_6.c: 94: RA1 = 1;
+   700  072E  1283               	bcf	status, 5	;RP0=0, select bank0
+   701  072F  1303               	bcf	status, 6	;RP1=0, select bank0
+   702  0730  1485               	bsf	(41/8),(41)&7
+   703                           	line	96
+   704                           	
+   705  0731                     l6157:	
+   706                           ;Main E_6.c: 96: lcd_putstr("Cytron PTK40A");
+   707  0731  3001               	movlw	((STR_1-__stringbase))&0ffh
+   708  0732  120A  118A  2682   	fcall	_lcd_putstr
+              120A  118A         
+   709                           	line	97
+   710                           	
+   711  0737                     l6159:	
+   712                           ;Main E_6.c: 97: lcd_2ndline();
+   713  0737  120A  118A  2540   	fcall	_lcd_2ndline
+              120A  118A         
+   714                           	line	98
+   715                           	
+   716  073C                     l6161:	
+   717                           ;Main E_6.c: 98: lcd_putstr("Keypad:");
+   718  073C  300F               	movlw	((STR_2-__stringbase))&0ffh
+   719  073D  120A  118A  2682   	fcall	_lcd_putstr
+              120A  118A         
+   720  0742  2F43               	goto	l6163
+   721                           	line	100
+   722                           ;Main E_6.c: 100: while(1)
+   723                           	
+   724  0743                     l3570:	
+   725                           	line	102
+   726                           	
+   727  0743                     l6163:	
+   728                           ;Main E_6.c: 101: {
+   729                           ;Main E_6.c: 102: lcd_goto(0x47);
+   730  0743  3047               	movlw	(047h)
+   731  0744  120A  118A  256F   	fcall	_lcd_goto
+              120A  118A         
+   732                           	line	103
+   733                           	
+   734  0749                     l6165:	
+   735                           ;Main E_6.c: 103: lcd_putchar(c_key_to_ASCII(c_wait_keypad()));
+   736  0749  120A  118A  25CF   	fcall	_c_wait_keypad
+              120A  118A         
+   737  074E  120A  118A  26C3   	fcall	_c_key_to_ASCII
+              120A  118A         
+   738  0753  120A  118A  2563   	fcall	_lcd_putchar
+              120A  118A         
+   739  0758  2F43               	goto	l6163
+   740                           	line	105
+   741                           	
+   742  0759                     l3571:	
+   743                           	line	100
+   744  0759  2F43               	goto	l6163
+   745                           	
+   746  075A                     l3572:	
+   747  075A  2F5B               	goto	l3574
+   748                           	line	106
+   749                           ;Main E_6.c: 105: }
+   750                           ;Main E_6.c: 106: while(1) continue;
+   751                           	
+   752  075B                     l3573:	
+   753                           	
+   754  075B                     l3574:	
+   755  075B  2F5B               	goto	l3574
+   756                           	
+   757  075C                     l3575:	
+   758                           	line	107
+   759                           	
+   760  075C                     l3576:	
+   761                           	global	start
+   762  075C  120A  118A  2800   	ljmp	start
+   763                           	opt stack 0
+   764                           GLOBAL	__end_of_main
+   765  075F                     	__end_of_main:
+   766 ;; =============== function _main ends ============
+   767                           
+   768                           	signat	_main,90
+   769                           	global	_lcd_putstr
+   770                           psect	text374,local,class=CODE,delta=2
+   771                           global __ptext374
+   772  0682                     __ptext374:
+   773                           
+   774 ;; *************** function _lcd_putstr *****************
+   775 ;; Defined at:
+   776 ;;		line 261 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+   777 ;; Parameters:    Size  Location     Type
+   778 ;;  csz_string      1    wreg     PTR const unsigned char 
+   779 ;;		 -> STR_2(8), STR_1(14), 
+   780 ;; Auto vars:     Size  Location     Type
+   781 ;;  csz_string      1    8[COMMON] PTR const unsigned char 
+   782 ;;		 -> STR_2(8), STR_1(14), 
+   783 ;; Return value:  Size  Location     Type
+   784 ;;		None               void
+   785 ;; Registers used:
+   786 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   787 ;; Tracked objects:
+   788 ;;		On entry : 0/0
+   789 ;;		On exit  : 0/0
+   790 ;;		Unchanged: 0/0
+   791 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   792 ;;      Params:         0       0       0       0       0
+   793 ;;      Locals:         1       0       0       0       0
+   794 ;;      Temps:          1       0       0       0       0
+   795 ;;      Totals:         2       0       0       0       0
+   796 ;;Total ram usage:        2 bytes
+   797 ;; Hardware stack levels used:    1
+   798 ;; Hardware stack levels required when called:    3
+   799 ;; This function calls:
+   800 ;;		_lcd_2ndline
+   801 ;;		_lcd_putchar
+   802 ;; This function is called by:
+   803 ;;		_main
+   804 ;; This function uses a non-reentrant model
+   805 ;;
+   806                           psect	text374
+   807                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+   808                           	line	261
+   809                           	global	__size_of_lcd_putstr
+   810  0041                     	__size_of_lcd_putstr	equ	__end_of_lcd_putstr-_lcd_putstr
+   811                           	
+   812  0682                     _lcd_putstr:	
+   813                           	opt	stack 4
+   814                           ; Regs used in _lcd_putstr: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   815                           ;lcd_putstr@csz_string stored from wreg
+   816  0682  00F8               	movwf	(lcd_putstr@csz_string)
+   817                           	line	263
+   818                           	
+   819  0683                     l6119:	
+   820                           ;lcd.c: 263: while (*csz_string != '\0') {
+   821  0683  2EB5               	goto	l6131
+   822                           	
+   823  0684                     l2837:	
+   824                           	line	266
+   825                           	
+   826  0684                     l6121:	
+   827                           ;lcd.c: 266: if (*csz_string == '\n' || *csz_string == '\r') {
+   828  0684  0878               	movf	(lcd_putstr@csz_string),w
+   829  0685  0084               	movwf	fsr0
+   830  0686  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+   831  068B  3A0A               	xorlw	0Ah
+   832  068C  1903               	skipnz
+   833  068D  2E8F               	goto	u2831
+   834  068E  2E90               	goto	u2830
+   835  068F                     u2831:
+   836  068F  2E9D               	goto	l6125
+   837  0690                     u2830:
+   838                           	
+   839  0690                     l6123:	
+   840  0690  0878               	movf	(lcd_putstr@csz_string),w
+   841  0691  0084               	movwf	fsr0
+   842  0692  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+   843  0697  3A0D               	xorlw	0Dh
+   844  0698  1D03               	skipz
+   845  0699  2E9B               	goto	u2841
+   846  069A  2E9C               	goto	u2840
+   847  069B                     u2841:
+   848  069B  2EA3               	goto	l6127
+   849  069C                     u2840:
+   850  069C  2E9D               	goto	l6125
+   851                           	
+   852  069D                     l2840:	
+   853                           	line	267
+   854                           	
+   855  069D                     l6125:	
+   856                           ;lcd.c: 267: lcd_2ndline();
+   857  069D  120A  118A  2540   	fcall	_lcd_2ndline
+              120A  118A         
+   858                           	line	268
+   859                           ;lcd.c: 268: }
+   860  06A2  2EB0               	goto	l6129
+   861                           	line	271
+   862                           	
+   863  06A3                     l2838:	
+   864                           	line	272
+   865                           	
+   866  06A3                     l6127:	
+   867                           ;lcd.c: 271: else {
+   868                           ;lcd.c: 272: lcd_putchar(*csz_string);
+   869  06A3  0878               	movf	(lcd_putstr@csz_string),w
+   870  06A4  0084               	movwf	fsr0
+   871  06A5  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+   872  06AA  120A  118A  2563   	fcall	_lcd_putchar
+              120A  118A         
+   873  06AF  2EB0               	goto	l6129
+   874                           	line	273
+   875                           	
+   876  06B0                     l2841:	
+   877                           	line	276
+   878                           	
+   879  06B0                     l6129:	
+   880                           ;lcd.c: 273: }
+   881                           ;lcd.c: 276: csz_string++;
+   882  06B0  3001               	movlw	(01h)
+   883  06B1  00F7               	movwf	(??_lcd_putstr+0)+0
+   884  06B2  0877               	movf	(??_lcd_putstr+0)+0,w
+   885  06B3  07F8               	addwf	(lcd_putstr@csz_string),f
+   886  06B4  2EB5               	goto	l6131
+   887                           	line	277
+   888                           	
+   889  06B5                     l2836:	
+   890                           	line	263
+   891                           	
+   892  06B5                     l6131:	
+   893  06B5  0878               	movf	(lcd_putstr@csz_string),w
+   894  06B6  0084               	movwf	fsr0
+   895  06B7  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+   896  06BC  3800               	iorlw	0
+   897  06BD  1D03               	skipz
+   898  06BE  2EC0               	goto	u2851
+   899  06BF  2EC1               	goto	u2850
+   900  06C0                     u2851:
+   901  06C0  2E84               	goto	l6121
+   902  06C1                     u2850:
+   903  06C1  2EC2               	goto	l2843
+   904                           	
+   905  06C2                     l2842:	
+   906                           	line	278
+   907                           	
+   908  06C2                     l2843:	
+   909  06C2  0008               	return
+   910                           	opt stack 0
+   911                           GLOBAL	__end_of_lcd_putstr
+   912  06C3                     	__end_of_lcd_putstr:
+   913 ;; =============== function _lcd_putstr ends ============
+   914                           
+   915                           	signat	_lcd_putstr,4216
+   916                           	global	_lcd_initialize
+   917                           psect	text375,local,class=CODE,delta=2
+   918                           global __ptext375
+   919  0618                     __ptext375:
+   920                           
+   921 ;; *************** function _lcd_initialize *****************
+   922 ;; Defined at:
+   923 ;;		line 103 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+   924 ;; Parameters:    Size  Location     Type
+   925 ;;		None
+   926 ;; Auto vars:     Size  Location     Type
+   927 ;;		None
+   928 ;; Return value:  Size  Location     Type
+   929 ;;		None               void
+   930 ;; Registers used:
+   931 ;;		wreg, status,2, status,0, pclath, cstack
+   932 ;; Tracked objects:
+   933 ;;		On entry : 0/0
+   934 ;;		On exit  : 0/0
+   935 ;;		Unchanged: 0/0
+   936 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   937 ;;      Params:         0       0       0       0       0
+   938 ;;      Locals:         0       0       0       0       0
+   939 ;;      Temps:          2       0       0       0       0
+   940 ;;      Totals:         2       0       0       0       0
+   941 ;;Total ram usage:        2 bytes
+   942 ;; Hardware stack levels used:    1
+   943 ;; Hardware stack levels required when called:    3
+   944 ;; This function calls:
+   945 ;;		_set_lcd_e
+   946 ;;		_send_lcd_data
+   947 ;;		_lcd_clear
+   948 ;; This function is called by:
+   949 ;;		_main
+   950 ;; This function uses a non-reentrant model
+   951 ;;
+   952                           psect	text375
+   953                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+   954                           	line	103
+   955                           	global	__size_of_lcd_initialize
+   956  0033                     	__size_of_lcd_initialize	equ	__end_of_lcd_initialize-_lcd_initialize
+   957                           	
+   958  0618                     _lcd_initialize:	
+   959                           	opt	stack 4
+   960                           ; Regs used in _lcd_initialize: [wreg+status,2+status,0+pclath+cstack]
+   961                           	line	106
+   962                           	
+   963  0618                     l6107:	
+   964                           ;lcd.c: 106: set_lcd_e(1);
+   965  0618  3001               	movlw	(01h)
+   966  0619  120A  118A  254B   	fcall	_set_lcd_e
+              120A  118A         
+   967                           	line	107
+   968                           	
+   969  061E                     l6109:	
+   970                           ;lcd.c: 107: _delay((unsigned long)((15)*(20000000/4000.0)));
+   971                           	opt asmopt_off
+   972  061E  3062               movlw	98
+   973  061F  00F6               movwf	((??_lcd_initialize+0)+0+1),f
+   974  0620  3065               	movlw	101
+   975  0621  00F5               movwf	((??_lcd_initialize+0)+0),f
+   976  0622                     u2867:
+   977  0622  0BF5               	decfsz	((??_lcd_initialize+0)+0),f
+   978  0623  2E22               	goto	u2867
+   979  0624  0BF6               	decfsz	((??_lcd_initialize+0)+0+1),f
+   980  0625  2E22               	goto	u2867
+   981  0626  2E27               	nop2
+   982                           opt asmopt_on
+   983                           
+   984                           	line	110
+   985                           	
+   986  0627                     l6111:	
+   987                           ;lcd.c: 110: send_lcd_data(0, 0b00100000 | 0b00010000 | 0b00001000 | 0b00000000);
+   988  0627  3038               	movlw	(038h)
+   989  0628  00F5               	movwf	(??_lcd_initialize+0)+0
+   990  0629  0875               	movf	(??_lcd_initialize+0)+0,w
+   991  062A  00F1               	movwf	(?_send_lcd_data)
+   992  062B  3000               	movlw	(0)
+   993  062C  120A  118A  264B   	fcall	_send_lcd_data
+              120A  118A         
+   994                           	line	114
+   995                           	
+   996  0631                     l6113:	
+   997                           ;lcd.c: 114: send_lcd_data(0, 0b00000100 | 0b00000010 | 0b00000000);
+   998  0631  3006               	movlw	(06h)
+   999  0632  00F5               	movwf	(??_lcd_initialize+0)+0
+  1000  0633  0875               	movf	(??_lcd_initialize+0)+0,w
+  1001  0634  00F1               	movwf	(?_send_lcd_data)
+  1002  0635  3000               	movlw	(0)
+  1003  0636  120A  118A  264B   	fcall	_send_lcd_data
+              120A  118A         
+  1004                           	line	117
+  1005                           	
+  1006  063B                     l6115:	
+  1007                           ;lcd.c: 117: send_lcd_data(0, 0b00001000 | 0b00000100 | 0b00000000 | 0b00000000);
+  1008  063B  300C               	movlw	(0Ch)
+  1009  063C  00F5               	movwf	(??_lcd_initialize+0)+0
+  1010  063D  0875               	movf	(??_lcd_initialize+0)+0,w
+  1011  063E  00F1               	movwf	(?_send_lcd_data)
+  1012  063F  3000               	movlw	(0)
+  1013  0640  120A  118A  264B   	fcall	_send_lcd_data
+              120A  118A         
+  1014                           	line	120
+  1015                           	
+  1016  0645                     l6117:	
+  1017                           ;lcd.c: 120: lcd_clear();
+  1018  0645  120A  118A  2536   	fcall	_lcd_clear
+              120A  118A         
+  1019                           	line	121
+  1020                           	
+  1021  064A                     l2815:	
+  1022  064A  0008               	return
+  1023                           	opt stack 0
+  1024                           GLOBAL	__end_of_lcd_initialize
+  1025  064B                     	__end_of_lcd_initialize:
+  1026 ;; =============== function _lcd_initialize ends ============
+  1027                           
+  1028                           	signat	_lcd_initialize,88
+  1029                           	global	_beep
+  1030                           psect	text376,local,class=CODE,delta=2
+  1031                           global __ptext376
+  1032  05F3                     __ptext376:
+  1033                           
+  1034 ;; *************** function _beep *****************
+  1035 ;; Defined at:
+  1036 ;;		line 143 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\Main E_6.c"
+  1037 ;; Parameters:    Size  Location     Type
+  1038 ;;  uc_count        1    wreg     unsigned char 
+  1039 ;; Auto vars:     Size  Location     Type
+  1040 ;;  uc_count        1    4[COMMON] unsigned char 
+  1041 ;; Return value:  Size  Location     Type
+  1042 ;;		None               void
+  1043 ;; Registers used:
+  1044 ;;		wreg, status,2, status,0, pclath, cstack
+  1045 ;; Tracked objects:
+  1046 ;;		On entry : 0/0
+  1047 ;;		On exit  : 0/0
+  1048 ;;		Unchanged: 0/0
+  1049 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1050 ;;      Params:         0       0       0       0       0
+  1051 ;;      Locals:         1       0       0       0       0
+  1052 ;;      Temps:          0       0       0       0       0
+  1053 ;;      Totals:         1       0       0       0       0
+  1054 ;;Total ram usage:        1 bytes
+  1055 ;; Hardware stack levels used:    1
+  1056 ;; Hardware stack levels required when called:    1
+  1057 ;; This function calls:
+  1058 ;;		_delay_ms
+  1059 ;; This function is called by:
+  1060 ;;		_main
+  1061 ;; This function uses a non-reentrant model
+  1062 ;;
+  1063                           psect	text376
+  1064                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\Main E_6.c
+                                 "
+  1065                           	line	143
+  1066                           	global	__size_of_beep
+  1067  0025                     	__size_of_beep	equ	__end_of_beep-_beep
+  1068                           	
+  1069  05F3                     _beep:	
+  1070                           	opt	stack 6
+  1071                           ; Regs used in _beep: [wreg+status,2+status,0+pclath+cstack]
+  1072                           ;beep@uc_count stored from wreg
+  1073  05F3  00F4               	movwf	(beep@uc_count)
+  1074                           	line	144
+  1075                           	
+  1076  05F4                     l5915:	
+  1077                           ;Main E_6.c: 144: while (uc_count-- > 0) {
+  1078  05F4  2E0E               	goto	l5921
+  1079                           	
+  1080  05F5                     l3586:	
+  1081                           	line	145
+  1082                           ;Main E_6.c: 145: RC2 = 1;
+  1083  05F5  1283               	bcf	status, 5	;RP0=0, select bank0
+  1084  05F6  1303               	bcf	status, 6	;RP1=0, select bank0
+  1085  05F7  1507               	bsf	(58/8),(58)&7
+  1086                           	line	146
+  1087                           	
+  1088  05F8                     l5917:	
+  1089                           ;Main E_6.c: 146: delay_ms(80);
+  1090  05F8  3050               	movlw	low(050h)
+  1091  05F9  00F0               	movwf	(?_delay_ms)
+  1092  05FA  3000               	movlw	high(050h)
+  1093  05FB  00F1               	movwf	((?_delay_ms))+1
+  1094  05FC  120A  118A  25B4   	fcall	_delay_ms
+              120A  118A         
+  1095                           	line	147
+  1096                           	
+  1097  0601                     l5919:	
+  1098                           ;Main E_6.c: 147: RC2 = 0;
+  1099  0601  1283               	bcf	status, 5	;RP0=0, select bank0
+  1100  0602  1303               	bcf	status, 6	;RP1=0, select bank0
+  1101  0603  1107               	bcf	(58/8),(58)&7
+  1102                           	line	148
+  1103                           ;Main E_6.c: 148: delay_ms(100);
+  1104  0604  3064               	movlw	low(064h)
+  1105  0605  00F0               	movwf	(?_delay_ms)
+  1106  0606  3000               	movlw	high(064h)
+  1107  0607  00F1               	movwf	((?_delay_ms))+1
+  1108  0608  120A  118A  25B4   	fcall	_delay_ms
+              120A  118A         
+  1109  060D  2E0E               	goto	l5921
+  1110                           	line	149
+  1111                           	
+  1112  060E                     l3585:	
+  1113                           	line	144
+  1114                           	
+  1115  060E                     l5921:	
+  1116  060E  3001               	movlw	low(01h)
+  1117  060F  02F4               	subwf	(beep@uc_count),f
+  1118  0610  0874               	movf	((beep@uc_count)),w
+  1119  0611  3AFF               	xorlw	0FFh
+  1120  0612  1D03               	skipz
+  1121  0613  2E15               	goto	u2581
+  1122  0614  2E16               	goto	u2580
+  1123  0615                     u2581:
+  1124  0615  2DF5               	goto	l3586
+  1125  0616                     u2580:
+  1126  0616  2E17               	goto	l3588
+  1127                           	
+  1128  0617                     l3587:	
+  1129                           	line	150
+  1130                           	
+  1131  0617                     l3588:	
+  1132  0617  0008               	return
+  1133                           	opt stack 0
+  1134                           GLOBAL	__end_of_beep
+  1135  0618                     	__end_of_beep:
+  1136 ;; =============== function _beep ends ============
+  1137                           
+  1138                           	signat	_beep,4216
+  1139                           	global	_lcd_putchar
+  1140                           psect	text377,local,class=CODE,delta=2
+  1141                           global __ptext377
+  1142  0563                     __ptext377:
+  1143                           
+  1144 ;; *************** function _lcd_putchar *****************
+  1145 ;; Defined at:
+  1146 ;;		line 240 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1147 ;; Parameters:    Size  Location     Type
+  1148 ;;  c_data          1    wreg     unsigned char 
+  1149 ;; Auto vars:     Size  Location     Type
+  1150 ;;  c_data          1    6[COMMON] unsigned char 
+  1151 ;; Return value:  Size  Location     Type
+  1152 ;;		None               void
+  1153 ;; Registers used:
+  1154 ;;		wreg, status,2, status,0, pclath, cstack
+  1155 ;; Tracked objects:
+  1156 ;;		On entry : 0/0
+  1157 ;;		On exit  : 0/0
+  1158 ;;		Unchanged: 0/0
+  1159 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1160 ;;      Params:         0       0       0       0       0
+  1161 ;;      Locals:         1       0       0       0       0
+  1162 ;;      Temps:          1       0       0       0       0
+  1163 ;;      Totals:         2       0       0       0       0
+  1164 ;;Total ram usage:        2 bytes
+  1165 ;; Hardware stack levels used:    1
+  1166 ;; Hardware stack levels required when called:    2
+  1167 ;; This function calls:
+  1168 ;;		_send_lcd_data
+  1169 ;; This function is called by:
+  1170 ;;		_lcd_putstr
+  1171 ;;		_main
+  1172 ;;		_lcd_bcd
+  1173 ;; This function uses a non-reentrant model
+  1174 ;;
+  1175                           psect	text377
+  1176                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1177                           	line	240
+  1178                           	global	__size_of_lcd_putchar
+  1179  000C                     	__size_of_lcd_putchar	equ	__end_of_lcd_putchar-_lcd_putchar
+  1180                           	
+  1181  0563                     _lcd_putchar:	
+  1182                           	opt	stack 5
+  1183                           ; Regs used in _lcd_putchar: [wreg+status,2+status,0+pclath+cstack]
+  1184                           ;lcd_putchar@c_data stored from wreg
+  1185                           	line	242
+  1186  0563  00F6               	movwf	(lcd_putchar@c_data)
+  1187                           	
+  1188  0564                     l6105:	
+  1189                           ;lcd.c: 242: send_lcd_data(1, (unsigned char)c_data);
+  1190  0564  0876               	movf	(lcd_putchar@c_data),w
+  1191  0565  00F5               	movwf	(??_lcd_putchar+0)+0
+  1192  0566  0875               	movf	(??_lcd_putchar+0)+0,w
+  1193  0567  00F1               	movwf	(?_send_lcd_data)
+  1194  0568  3001               	movlw	(01h)
+  1195  0569  120A  118A  264B   	fcall	_send_lcd_data
+              120A  118A         
+  1196                           	line	243
+  1197                           	
+  1198  056E                     l2833:	
+  1199  056E  0008               	return
+  1200                           	opt stack 0
+  1201                           GLOBAL	__end_of_lcd_putchar
+  1202  056F                     	__end_of_lcd_putchar:
+  1203 ;; =============== function _lcd_putchar ends ============
+  1204                           
+  1205                           	signat	_lcd_putchar,4216
+  1206                           	global	_lcd_goto
+  1207                           psect	text378,local,class=CODE,delta=2
+  1208                           global __ptext378
+  1209  056F                     __ptext378:
+  1210                           
+  1211 ;; *************** function _lcd_goto *****************
+  1212 ;; Defined at:
+  1213 ;;		line 219 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1214 ;; Parameters:    Size  Location     Type
+  1215 ;;  uc_position     1    wreg     unsigned char 
+  1216 ;; Auto vars:     Size  Location     Type
+  1217 ;;  uc_position     1    6[COMMON] unsigned char 
+  1218 ;; Return value:  Size  Location     Type
+  1219 ;;		None               void
+  1220 ;; Registers used:
+  1221 ;;		wreg, status,2, status,0, pclath, cstack
+  1222 ;; Tracked objects:
+  1223 ;;		On entry : 0/0
+  1224 ;;		On exit  : 0/0
+  1225 ;;		Unchanged: 0/0
+  1226 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1227 ;;      Params:         0       0       0       0       0
+  1228 ;;      Locals:         1       0       0       0       0
+  1229 ;;      Temps:          1       0       0       0       0
+  1230 ;;      Totals:         2       0       0       0       0
+  1231 ;;Total ram usage:        2 bytes
+  1232 ;; Hardware stack levels used:    1
+  1233 ;; Hardware stack levels required when called:    2
+  1234 ;; This function calls:
+  1235 ;;		_send_lcd_data
+  1236 ;; This function is called by:
+  1237 ;;		_main
+  1238 ;; This function uses a non-reentrant model
+  1239 ;;
+  1240                           psect	text378
+  1241                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1242                           	line	219
+  1243                           	global	__size_of_lcd_goto
+  1244  000D                     	__size_of_lcd_goto	equ	__end_of_lcd_goto-_lcd_goto
+  1245                           	
+  1246  056F                     _lcd_goto:	
+  1247                           	opt	stack 5
+  1248                           ; Regs used in _lcd_goto: [wreg+status,2+status,0+pclath+cstack]
+  1249                           ;lcd_goto@uc_position stored from wreg
+  1250                           	line	221
+  1251  056F  00F6               	movwf	(lcd_goto@uc_position)
+  1252                           	
+  1253  0570                     l6103:	
+  1254                           ;lcd.c: 221: send_lcd_data(0, 0b10000000 | uc_position);
+  1255  0570  0876               	movf	(lcd_goto@uc_position),w
+  1256  0571  3880               	iorlw	080h
+  1257  0572  00F5               	movwf	(??_lcd_goto+0)+0
+  1258  0573  0875               	movf	(??_lcd_goto+0)+0,w
+  1259  0574  00F1               	movwf	(?_send_lcd_data)
+  1260  0575  3000               	movlw	(0)
+  1261  0576  120A  118A  264B   	fcall	_send_lcd_data
+              120A  118A         
+  1262                           	line	222
+  1263                           	
+  1264  057B                     l2830:	
+  1265  057B  0008               	return
+  1266                           	opt stack 0
+  1267                           GLOBAL	__end_of_lcd_goto
+  1268  057C                     	__end_of_lcd_goto:
+  1269 ;; =============== function _lcd_goto ends ============
+  1270                           
+  1271                           	signat	_lcd_goto,4216
+  1272                           	global	_lcd_2ndline
+  1273                           psect	text379,local,class=CODE,delta=2
+  1274                           global __ptext379
+  1275  0540                     __ptext379:
+  1276                           
+  1277 ;; *************** function _lcd_2ndline *****************
+  1278 ;; Defined at:
+  1279 ;;		line 198 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1280 ;; Parameters:    Size  Location     Type
+  1281 ;;		None
+  1282 ;; Auto vars:     Size  Location     Type
+  1283 ;;		None
+  1284 ;; Return value:  Size  Location     Type
+  1285 ;;		None               void
+  1286 ;; Registers used:
+  1287 ;;		wreg, status,2, status,0, pclath, cstack
+  1288 ;; Tracked objects:
+  1289 ;;		On entry : 0/0
+  1290 ;;		On exit  : 0/0
+  1291 ;;		Unchanged: 0/0
+  1292 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1293 ;;      Params:         0       0       0       0       0
+  1294 ;;      Locals:         0       0       0       0       0
+  1295 ;;      Temps:          1       0       0       0       0
+  1296 ;;      Totals:         1       0       0       0       0
+  1297 ;;Total ram usage:        1 bytes
+  1298 ;; Hardware stack levels used:    1
+  1299 ;; Hardware stack levels required when called:    2
+  1300 ;; This function calls:
+  1301 ;;		_send_lcd_data
+  1302 ;; This function is called by:
+  1303 ;;		_lcd_putstr
+  1304 ;;		_main
+  1305 ;; This function uses a non-reentrant model
+  1306 ;;
+  1307                           psect	text379
+  1308                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1309                           	line	198
+  1310                           	global	__size_of_lcd_2ndline
+  1311  000B                     	__size_of_lcd_2ndline	equ	__end_of_lcd_2ndline-_lcd_2ndline
+  1312                           	
+  1313  0540                     _lcd_2ndline:	
+  1314                           	opt	stack 5
+  1315                           ; Regs used in _lcd_2ndline: [wreg+status,2+status,0+pclath+cstack]
+  1316                           	line	200
+  1317                           	
+  1318  0540                     l6101:	
+  1319                           ;lcd.c: 200: send_lcd_data(0, 0b10000000 | 0x40);
+  1320  0540  30C0               	movlw	(0C0h)
+  1321  0541  00F5               	movwf	(??_lcd_2ndline+0)+0
+  1322  0542  0875               	movf	(??_lcd_2ndline+0)+0,w
+  1323  0543  00F1               	movwf	(?_send_lcd_data)
+  1324  0544  3000               	movlw	(0)
+  1325  0545  120A  118A  264B   	fcall	_send_lcd_data
+              120A  118A         
+  1326                           	line	201
+  1327                           	
+  1328  054A                     l2827:	
+  1329  054A  0008               	return
+  1330                           	opt stack 0
+  1331                           GLOBAL	__end_of_lcd_2ndline
+  1332  054B                     	__end_of_lcd_2ndline:
+  1333 ;; =============== function _lcd_2ndline ends ============
+  1334                           
+  1335                           	signat	_lcd_2ndline,88
+  1336                           	global	_lcd_clear
+  1337                           psect	text380,local,class=CODE,delta=2
+  1338                           global __ptext380
+  1339  0536                     __ptext380:
+  1340                           
+  1341 ;; *************** function _lcd_clear *****************
+  1342 ;; Defined at:
+  1343 ;;		line 156 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1344 ;; Parameters:    Size  Location     Type
+  1345 ;;		None
+  1346 ;; Auto vars:     Size  Location     Type
+  1347 ;;		None
+  1348 ;; Return value:  Size  Location     Type
+  1349 ;;		None               void
+  1350 ;; Registers used:
+  1351 ;;		wreg, status,2, status,0, pclath, cstack
+  1352 ;; Tracked objects:
+  1353 ;;		On entry : 0/0
+  1354 ;;		On exit  : 0/0
+  1355 ;;		Unchanged: 0/0
+  1356 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1357 ;;      Params:         0       0       0       0       0
+  1358 ;;      Locals:         0       0       0       0       0
+  1359 ;;      Temps:          0       0       0       0       0
+  1360 ;;      Totals:         0       0       0       0       0
+  1361 ;;Total ram usage:        0 bytes
+  1362 ;; Hardware stack levels used:    1
+  1363 ;; Hardware stack levels required when called:    2
+  1364 ;; This function calls:
+  1365 ;;		_send_lcd_data
+  1366 ;; This function is called by:
+  1367 ;;		_lcd_initialize
+  1368 ;; This function uses a non-reentrant model
+  1369 ;;
+  1370                           psect	text380
+  1371                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1372                           	line	156
+  1373                           	global	__size_of_lcd_clear
+  1374  000A                     	__size_of_lcd_clear	equ	__end_of_lcd_clear-_lcd_clear
+  1375                           	
+  1376  0536                     _lcd_clear:	
+  1377                           	opt	stack 4
+  1378                           ; Regs used in _lcd_clear: [wreg+status,2+status,0+pclath+cstack]
+  1379                           	line	158
+  1380                           	
+  1381  0536                     l6099:	
+  1382                           ;lcd.c: 158: send_lcd_data(0, 0b00000001);
+  1383  0536  01F1               	clrf	(?_send_lcd_data)
+  1384  0537  1403               	bsf	status,0
+  1385  0538  0DF1               	rlf	(?_send_lcd_data),f
+  1386  0539  3000               	movlw	(0)
+  1387  053A  120A  118A  264B   	fcall	_send_lcd_data
+              120A  118A         
+  1388                           	line	159
+  1389                           	
+  1390  053F                     l2821:	
+  1391  053F  0008               	return
+  1392                           	opt stack 0
+  1393                           GLOBAL	__end_of_lcd_clear
+  1394  0540                     	__end_of_lcd_clear:
+  1395 ;; =============== function _lcd_clear ends ============
+  1396                           
+  1397                           	signat	_lcd_clear,88
+  1398                           	global	_c_wait_keypad
+  1399                           psect	text381,local,class=CODE,delta=2
+  1400                           global __ptext381
+  1401  05CF                     __ptext381:
+  1402                           
+  1403 ;; *************** function _c_wait_keypad *****************
+  1404 ;; Defined at:
+  1405 ;;		line 116 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\keypad.c"
+  1406 ;; Parameters:    Size  Location     Type
+  1407 ;;		None
+  1408 ;; Auto vars:     Size  Location     Type
+  1409 ;;  c_pressed_ke    1    2[COMMON] unsigned char 
+  1410 ;; Return value:  Size  Location     Type
+  1411 ;;                  1    wreg      unsigned char 
+  1412 ;; Registers used:
+  1413 ;;		wreg, pclath, cstack
+  1414 ;; Tracked objects:
+  1415 ;;		On entry : 0/0
+  1416 ;;		On exit  : 0/0
+  1417 ;;		Unchanged: 0/0
+  1418 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1419 ;;      Params:         0       0       0       0       0
+  1420 ;;      Locals:         1       0       0       0       0
+  1421 ;;      Temps:          1       0       0       0       0
+  1422 ;;      Totals:         2       0       0       0       0
+  1423 ;;Total ram usage:        2 bytes
+  1424 ;; Hardware stack levels used:    1
+  1425 ;; Hardware stack levels required when called:    1
+  1426 ;; This function calls:
+  1427 ;;		_c_read_keypad
+  1428 ;; This function is called by:
+  1429 ;;		_main
+  1430 ;; This function uses a non-reentrant model
+  1431 ;;
+  1432                           psect	text381
+  1433                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\keypad.c"
+  1434                           	line	116
+  1435                           	global	__size_of_c_wait_keypad
+  1436  0024                     	__size_of_c_wait_keypad	equ	__end_of_c_wait_keypad-_c_wait_keypad
+  1437                           	
+  1438  05CF                     _c_wait_keypad:	
+  1439                           	opt	stack 6
+  1440                           ; Regs used in _c_wait_keypad: [wreg+pclath+cstack]
+  1441                           	line	118
+  1442                           	
+  1443  05CF                     l5895:	
+  1444                           ;keypad.c: 118: unsigned char c_pressed_key = 0xFF;
+  1445  05CF  30FF               	movlw	(0FFh)
+  1446  05D0  00F1               	movwf	(??_c_wait_keypad+0)+0
+  1447  05D1  0871               	movf	(??_c_wait_keypad+0)+0,w
+  1448  05D2  00F2               	movwf	(c_wait_keypad@c_pressed_key)
+  1449  05D3  2DD4               	goto	l5897
+  1450                           	line	121
+  1451                           ;keypad.c: 121: do {
+  1452                           	
+  1453  05D4                     l2113:	
+  1454                           	line	122
+  1455                           	
+  1456  05D4                     l5897:	
+  1457                           ;keypad.c: 122: c_pressed_key = c_read_keypad();
+  1458  05D4  120A  118A  275F   	fcall	_c_read_keypad
+              120A  118A         
+  1459  05D9  00F1               	movwf	(??_c_wait_keypad+0)+0
+  1460  05DA  0871               	movf	(??_c_wait_keypad+0)+0,w
+  1461  05DB  00F2               	movwf	(c_wait_keypad@c_pressed_key)
+  1462                           	line	124
+  1463                           	
+  1464  05DC                     l5899:	
+  1465                           ;keypad.c: 123: }
+  1466                           ;keypad.c: 124: while (c_pressed_key == 0xFF);
+  1467  05DC  0872               	movf	(c_wait_keypad@c_pressed_key),w
+  1468  05DD  3AFF               	xorlw	0FFh
+  1469  05DE  1903               	skipnz
+  1470  05DF  2DE1               	goto	u2561
+  1471  05E0  2DE2               	goto	u2560
+  1472  05E1                     u2561:
+  1473  05E1  2DD4               	goto	l5897
+  1474  05E2                     u2560:
+  1475  05E2  2DE5               	goto	l5901
+  1476                           	
+  1477  05E3                     l2114:	
+  1478                           	line	127
+  1479                           ;keypad.c: 127: while (c_read_keypad() != 0xFF);
+  1480  05E3  2DE5               	goto	l5901
+  1481                           	
+  1482  05E4                     l2116:	
+  1483  05E4  2DE5               	goto	l5901
+  1484                           	
+  1485  05E5                     l2115:	
+  1486                           	
+  1487  05E5                     l5901:	
+  1488  05E5  120A  118A  275F   	fcall	_c_read_keypad
+              120A  118A         
+  1489  05EA  3AFF               	xorlw	0FFh
+  1490  05EB  1D03               	skipz
+  1491  05EC  2DEE               	goto	u2571
+  1492  05ED  2DEF               	goto	u2570
+  1493  05EE                     u2571:
+  1494  05EE  2DE5               	goto	l5901
+  1495  05EF                     u2570:
+  1496  05EF  2DF0               	goto	l5903
+  1497                           	
+  1498  05F0                     l2117:	
+  1499                           	line	129
+  1500                           	
+  1501  05F0                     l5903:	
+  1502                           ;keypad.c: 129: return c_pressed_key;
+  1503  05F0  0872               	movf	(c_wait_keypad@c_pressed_key),w
+  1504  05F1  2DF2               	goto	l2118
+  1505                           	
+  1506  05F2                     l5905:	
+  1507                           	line	130
+  1508                           	
+  1509  05F2                     l2118:	
+  1510  05F2  0008               	return
+  1511                           	opt stack 0
+  1512                           GLOBAL	__end_of_c_wait_keypad
+  1513  05F3                     	__end_of_c_wait_keypad:
+  1514 ;; =============== function _c_wait_keypad ends ============
+  1515                           
+  1516                           	signat	_c_wait_keypad,89
+  1517                           	global	_delay_ms
+  1518                           psect	text382,local,class=CODE,delta=2
+  1519                           global __ptext382
+  1520  05B4                     __ptext382:
+  1521                           
+  1522 ;; *************** function _delay_ms *****************
+  1523 ;; Defined at:
+  1524 ;;		line 123 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\Main E_6.c"
+  1525 ;; Parameters:    Size  Location     Type
+  1526 ;;  ui_value        2    0[COMMON] unsigned int 
+  1527 ;; Auto vars:     Size  Location     Type
+  1528 ;;		None
+  1529 ;; Return value:  Size  Location     Type
+  1530 ;;		None               void
+  1531 ;; Registers used:
+  1532 ;;		wreg
+  1533 ;; Tracked objects:
+  1534 ;;		On entry : 0/0
+  1535 ;;		On exit  : 0/0
+  1536 ;;		Unchanged: 0/0
+  1537 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1538 ;;      Params:         2       0       0       0       0
+  1539 ;;      Locals:         0       0       0       0       0
+  1540 ;;      Temps:          2       0       0       0       0
+  1541 ;;      Totals:         4       0       0       0       0
+  1542 ;;Total ram usage:        4 bytes
+  1543 ;; Hardware stack levels used:    1
+  1544 ;; This function calls:
+  1545 ;;		Nothing
+  1546 ;; This function is called by:
+  1547 ;;		_beep
+  1548 ;; This function uses a non-reentrant model
+  1549 ;;
+  1550                           psect	text382
+  1551                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\Main E_6.c
+                                 "
+  1552                           	line	123
+  1553                           	global	__size_of_delay_ms
+  1554  001B                     	__size_of_delay_ms	equ	__end_of_delay_ms-_delay_ms
+  1555                           	
+  1556  05B4                     _delay_ms:	
+  1557                           	opt	stack 6
+  1558                           ; Regs used in _delay_ms: [wreg]
+  1559                           	line	124
+  1560                           	
+  1561  05B4                     l5891:	
+  1562                           ;Main E_6.c: 124: while (ui_value-- > 0) {
+  1563  05B4  2DBD               	goto	l3579
+  1564                           	
+  1565  05B5                     l3580:	
+  1566                           	line	125
+  1567                           	
+  1568  05B5                     l5893:	
+  1569                           ;Main E_6.c: 125: _delay((unsigned long)((1)*(20000000/4000.0)));
+  1570                           	opt asmopt_off
+  1571  05B5  3007               movlw	7
+  1572  05B6  00F3               movwf	((??_delay_ms+0)+0+1),f
+  1573  05B7  307D               	movlw	125
+  1574  05B8  00F2               movwf	((??_delay_ms+0)+0),f
+  1575  05B9                     u2877:
+  1576  05B9  0BF2               	decfsz	((??_delay_ms+0)+0),f
+  1577  05BA  2DB9               	goto	u2877
+  1578  05BB  0BF3               	decfsz	((??_delay_ms+0)+0+1),f
+  1579  05BC  2DB9               	goto	u2877
+  1580                           opt asmopt_on
+  1581                           
+  1582                           	line	126
+  1583                           	
+  1584  05BD                     l3579:	
+  1585                           	line	124
+  1586  05BD  3001               	movlw	low(01h)
+  1587  05BE  02F0               	subwf	(delay_ms@ui_value),f
+  1588  05BF  3000               	movlw	high(01h)
+  1589  05C0  1C03               	skipc
+  1590  05C1  03F1               	decf	(delay_ms@ui_value+1),f
+  1591  05C2  02F1               	subwf	(delay_ms@ui_value+1),f
+  1592  05C3  30FF               	movlw	high(0FFFFh)
+  1593  05C4  0671               	xorwf	((delay_ms@ui_value+1)),w
+  1594  05C5  1D03               	skipz
+  1595  05C6  2DC9               	goto	u2555
+  1596  05C7  30FF               	movlw	low(0FFFFh)
+  1597  05C8  0670               	xorwf	((delay_ms@ui_value)),w
+  1598  05C9                     u2555:
+  1599                           
+  1600  05C9  1D03               	skipz
+  1601  05CA  2DCC               	goto	u2551
+  1602  05CB  2DCD               	goto	u2550
+  1603  05CC                     u2551:
+  1604  05CC  2DB5               	goto	l5893
+  1605  05CD                     u2550:
+  1606  05CD  2DCE               	goto	l3582
+  1607                           	
+  1608  05CE                     l3581:	
+  1609                           	line	127
+  1610                           	
+  1611  05CE                     l3582:	
+  1612  05CE  0008               	return
+  1613                           	opt stack 0
+  1614                           GLOBAL	__end_of_delay_ms
+  1615  05CF                     	__end_of_delay_ms:
+  1616 ;; =============== function _delay_ms ends ============
+  1617                           
+  1618                           	signat	_delay_ms,4216
+  1619                           	global	_send_lcd_data
+  1620                           psect	text383,local,class=CODE,delta=2
+  1621                           global __ptext383
+  1622  064B                     __ptext383:
+  1623                           
+  1624 ;; *************** function _send_lcd_data *****************
+  1625 ;; Defined at:
+  1626 ;;		line 328 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1627 ;; Parameters:    Size  Location     Type
+  1628 ;;  b_rs            1    wreg     unsigned char 
+  1629 ;;  uc_data         1    1[COMMON] unsigned char 
+  1630 ;; Auto vars:     Size  Location     Type
+  1631 ;;  b_rs            1    4[COMMON] unsigned char 
+  1632 ;; Return value:  Size  Location     Type
+  1633 ;;		None               void
+  1634 ;; Registers used:
+  1635 ;;		wreg, status,2, status,0, pclath, cstack
+  1636 ;; Tracked objects:
+  1637 ;;		On entry : 0/0
+  1638 ;;		On exit  : 0/0
+  1639 ;;		Unchanged: 0/0
+  1640 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1641 ;;      Params:         1       0       0       0       0
+  1642 ;;      Locals:         1       0       0       0       0
+  1643 ;;      Temps:          2       0       0       0       0
+  1644 ;;      Totals:         4       0       0       0       0
+  1645 ;;Total ram usage:        4 bytes
+  1646 ;; Hardware stack levels used:    1
+  1647 ;; Hardware stack levels required when called:    1
+  1648 ;; This function calls:
+  1649 ;;		_set_lcd_rs
+  1650 ;;		_set_lcd_data
+  1651 ;;		_set_lcd_e
+  1652 ;; This function is called by:
+  1653 ;;		_lcd_initialize
+  1654 ;;		_lcd_clear
+  1655 ;;		_lcd_2ndline
+  1656 ;;		_lcd_goto
+  1657 ;;		_lcd_putchar
+  1658 ;;		_lcd_config
+  1659 ;;		_lcd_home
+  1660 ;; This function uses a non-reentrant model
+  1661 ;;
+  1662                           psect	text383
+  1663                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  1664                           	line	328
+  1665                           	global	__size_of_send_lcd_data
+  1666  0037                     	__size_of_send_lcd_data	equ	__end_of_send_lcd_data-_send_lcd_data
+  1667                           	
+  1668  064B                     _send_lcd_data:	
+  1669                           	opt	stack 5
+  1670                           ; Regs used in _send_lcd_data: [wreg+status,2+status,0+pclath+cstack]
+  1671                           ;send_lcd_data@b_rs stored from wreg
+  1672                           	line	330
+  1673  064B  00F4               	movwf	(send_lcd_data@b_rs)
+  1674                           	
+  1675  064C                     l6089:	
+  1676                           ;lcd.c: 330: set_lcd_rs(b_rs);
+  1677  064C  0874               	movf	(send_lcd_data@b_rs),w
+  1678  064D  120A  118A  2557   	fcall	_set_lcd_rs
+              120A  118A         
+  1679                           	line	331
+  1680                           ;lcd.c: 331: set_lcd_data(uc_data);
+  1681  0652  0871               	movf	(send_lcd_data@uc_data),w
+  1682  0653  120A  118A  2530   	fcall	_set_lcd_data
+              120A  118A         
+  1683                           	line	334
+  1684                           ;lcd.c: 334: set_lcd_e(1);
+  1685  0658  3001               	movlw	(01h)
+  1686  0659  120A  118A  254B   	fcall	_set_lcd_e
+              120A  118A         
+  1687                           	line	335
+  1688                           	
+  1689  065E                     l6091:	
+  1690                           ;lcd.c: 335: _delay((unsigned long)((1)*(20000000/4000.0)));
+  1691                           	opt asmopt_off
+  1692  065E  3007               movlw	7
+  1693  065F  00F3               movwf	((??_send_lcd_data+0)+0+1),f
+  1694  0660  307D               	movlw	125
+  1695  0661  00F2               movwf	((??_send_lcd_data+0)+0),f
+  1696  0662                     u2887:
+  1697  0662  0BF2               	decfsz	((??_send_lcd_data+0)+0),f
+  1698  0663  2E62               	goto	u2887
+  1699  0664  0BF3               	decfsz	((??_send_lcd_data+0)+0+1),f
+  1700  0665  2E62               	goto	u2887
+  1701                           opt asmopt_on
+  1702                           
+  1703                           	line	336
+  1704                           	
+  1705  0666                     l6093:	
+  1706                           ;lcd.c: 336: set_lcd_e(0);
+  1707  0666  3000               	movlw	(0)
+  1708  0667  120A  118A  254B   	fcall	_set_lcd_e
+              120A  118A         
+  1709                           	line	337
+  1710                           ;lcd.c: 337: _delay((unsigned long)((2)*(20000000/4000.0)));
+  1711                           	opt asmopt_off
+  1712  066C  300D               movlw	13
+  1713  066D  00F3               movwf	((??_send_lcd_data+0)+0+1),f
+  1714  066E  30FB               	movlw	251
+  1715  066F  00F2               movwf	((??_send_lcd_data+0)+0),f
+  1716  0670                     u2897:
+  1717  0670  0BF2               	decfsz	((??_send_lcd_data+0)+0),f
+  1718  0671  2E70               	goto	u2897
+  1719  0672  0BF3               	decfsz	((??_send_lcd_data+0)+0+1),f
+  1720  0673  2E70               	goto	u2897
+  1721  0674  2E75               	nop2
+  1722                           opt asmopt_on
+  1723                           
+  1724                           	line	340
+  1725                           	
+  1726  0675                     l6095:	
+  1727                           ;lcd.c: 340: set_lcd_rs(0);
+  1728  0675  3000               	movlw	(0)
+  1729  0676  120A  118A  2557   	fcall	_set_lcd_rs
+              120A  118A         
+  1730                           	line	341
+  1731                           	
+  1732  067B                     l6097:	
+  1733                           ;lcd.c: 341: set_lcd_data(0);
+  1734  067B  3000               	movlw	(0)
+  1735  067C  120A  118A  2530   	fcall	_set_lcd_data
+              120A  118A         
+  1736                           	line	342
+  1737                           	
+  1738  0681                     l2854:	
+  1739  0681  0008               	return
+  1740                           	opt stack 0
+  1741                           GLOBAL	__end_of_send_lcd_data
+  1742  0682                     	__end_of_send_lcd_data:
+  1743 ;; =============== function _send_lcd_data ends ============
+  1744                           
+  1745                           	signat	_send_lcd_data,8312
+  1746                           	global	_c_read_keypad
+  1747                           psect	text384,local,class=CODE,delta=2
+  1748                           global __ptext384
+  1749  075F                     __ptext384:
+  1750                           
+  1751 ;; *************** function _c_read_keypad *****************
+  1752 ;; Defined at:
+  1753 ;;		line 29 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\keypad.c"
+  1754 ;; Parameters:    Size  Location     Type
+  1755 ;;		None
+  1756 ;; Auto vars:     Size  Location     Type
+  1757 ;;		None
+  1758 ;; Return value:  Size  Location     Type
+  1759 ;;                  1    wreg      unsigned char 
+  1760 ;; Registers used:
+  1761 ;;		wreg
+  1762 ;; Tracked objects:
+  1763 ;;		On entry : 0/0
+  1764 ;;		On exit  : 0/0
+  1765 ;;		Unchanged: 0/0
+  1766 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1767 ;;      Params:         0       0       0       0       0
+  1768 ;;      Locals:         0       0       0       0       0
+  1769 ;;      Temps:          1       0       0       0       0
+  1770 ;;      Totals:         1       0       0       0       0
+  1771 ;;Total ram usage:        1 bytes
+  1772 ;; Hardware stack levels used:    1
+  1773 ;; This function calls:
+  1774 ;;		Nothing
+  1775 ;; This function is called by:
+  1776 ;;		_c_wait_keypad
+  1777 ;; This function uses a non-reentrant model
+  1778 ;;
+  1779                           psect	text384
+  1780                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\keypad.c"
+  1781                           	line	29
+  1782                           	global	__size_of_c_read_keypad
+  1783  00A1                     	__size_of_c_read_keypad	equ	__end_of_c_read_keypad-_c_read_keypad
+  1784                           	
+  1785  075F                     _c_read_keypad:	
+  1786                           	opt	stack 6
+  1787                           ; Regs used in _c_read_keypad: [wreg]
+  1788                           	line	31
+  1789                           	
+  1790  075F                     l5795:	
+  1791                           ;keypad.c: 31: RD4 = 0;
+  1792  075F  1283               	bcf	status, 5	;RP0=0, select bank0
+  1793  0760  1303               	bcf	status, 6	;RP1=0, select bank0
+  1794  0761  1208               	bcf	(68/8),(68)&7
+  1795                           	line	32
+  1796                           ;keypad.c: 32: RD5 = 1;
+  1797  0762  1688               	bsf	(69/8),(69)&7
+  1798                           	line	33
+  1799                           ;keypad.c: 33: RD6 = 1;
+  1800  0763  1708               	bsf	(70/8),(70)&7
+  1801                           	line	34
+  1802                           ;keypad.c: 34: RD7 = 1;
+  1803  0764  1788               	bsf	(71/8),(71)&7
+  1804                           	line	35
+  1805                           	
+  1806  0765                     l5797:	
+  1807                           ;keypad.c: 35: _delay((unsigned long)((30)*(20000000/4000000.0)));
+  1808                           	opt asmopt_off
+  1809  0765  3031               movlw	49
+  1810  0766  00F0               movwf	(??_c_read_keypad+0)+0,f
+  1811  0767                     u2907:
+  1812  0767  0BF0               decfsz	(??_c_read_keypad+0)+0,f
+  1813  0768  2F67               	goto	u2907
+  1814  0769  2F6A               	nop2	;nop
+  1815                           opt asmopt_on
+  1816                           
+  1817                           	line	36
+  1818                           	
+  1819  076A                     l5799:	
+  1820                           ;keypad.c: 36: if (RB0 == 0) return 1;
+  1821  076A  1283               	bcf	status, 5	;RP0=0, select bank0
+  1822  076B  1303               	bcf	status, 6	;RP1=0, select bank0
+  1823  076C  1806               	btfsc	(48/8),(48)&7
+  1824  076D  2F6F               	goto	u2391
+  1825  076E  2F70               	goto	u2390
+  1826  076F                     u2391:
+  1827  076F  2F73               	goto	l2084
+  1828  0770                     u2390:
+  1829                           	
+  1830  0770                     l5801:	
+  1831  0770  3001               	movlw	(01h)
+  1832  0771  2FFF               	goto	l2085
+  1833                           	
+  1834  0772                     l5803:	
+  1835  0772  2FFF               	goto	l2085
+  1836                           	
+  1837  0773                     l2084:	
+  1838                           	line	37
+  1839                           ;keypad.c: 37: if (RB1 == 0) return 2;
+  1840  0773  1886               	btfsc	(49/8),(49)&7
+  1841  0774  2F76               	goto	u2401
+  1842  0775  2F77               	goto	u2400
+  1843  0776                     u2401:
+  1844  0776  2F7A               	goto	l2086
+  1845  0777                     u2400:
+  1846                           	
+  1847  0777                     l5805:	
+  1848  0777  3002               	movlw	(02h)
+  1849  0778  2FFF               	goto	l2085
+  1850                           	
+  1851  0779                     l5807:	
+  1852  0779  2FFF               	goto	l2085
+  1853                           	
+  1854  077A                     l2086:	
+  1855                           	line	38
+  1856                           ;keypad.c: 38: if (RB2 == 0) return 3;
+  1857  077A  1906               	btfsc	(50/8),(50)&7
+  1858  077B  2F7D               	goto	u2411
+  1859  077C  2F7E               	goto	u2410
+  1860  077D                     u2411:
+  1861  077D  2F81               	goto	l2087
+  1862  077E                     u2410:
+  1863                           	
+  1864  077E                     l5809:	
+  1865  077E  3003               	movlw	(03h)
+  1866  077F  2FFF               	goto	l2085
+  1867                           	
+  1868  0780                     l5811:	
+  1869  0780  2FFF               	goto	l2085
+  1870                           	
+  1871  0781                     l2087:	
+  1872                           	line	39
+  1873                           ;keypad.c: 39: if (RB3 == 0) return 10;
+  1874  0781  1986               	btfsc	(51/8),(51)&7
+  1875  0782  2F84               	goto	u2421
+  1876  0783  2F85               	goto	u2420
+  1877  0784                     u2421:
+  1878  0784  2F88               	goto	l2088
+  1879  0785                     u2420:
+  1880                           	
+  1881  0785                     l5813:	
+  1882  0785  300A               	movlw	(0Ah)
+  1883  0786  2FFF               	goto	l2085
+  1884                           	
+  1885  0787                     l5815:	
+  1886  0787  2FFF               	goto	l2085
+  1887                           	
+  1888  0788                     l2088:	
+  1889                           	line	41
+  1890                           ;keypad.c: 41: RD4 = 1;
+  1891  0788  1608               	bsf	(68/8),(68)&7
+  1892                           	line	42
+  1893                           ;keypad.c: 42: RD5 = 0;
+  1894  0789  1288               	bcf	(69/8),(69)&7
+  1895                           	line	43
+  1896                           ;keypad.c: 43: RD6 = 1;
+  1897  078A  1708               	bsf	(70/8),(70)&7
+  1898                           	line	44
+  1899                           ;keypad.c: 44: RD7 = 1;
+  1900  078B  1788               	bsf	(71/8),(71)&7
+  1901                           	line	45
+  1902                           	
+  1903  078C                     l5817:	
+  1904                           ;keypad.c: 45: _delay((unsigned long)((30)*(20000000/4000000.0)));
+  1905                           	opt asmopt_off
+  1906  078C  3031               movlw	49
+  1907  078D  00F0               movwf	(??_c_read_keypad+0)+0,f
+  1908  078E                     u2917:
+  1909  078E  0BF0               decfsz	(??_c_read_keypad+0)+0,f
+  1910  078F  2F8E               	goto	u2917
+  1911  0790  2F91               	nop2	;nop
+  1912                           opt asmopt_on
+  1913                           
+  1914                           	line	46
+  1915                           	
+  1916  0791                     l5819:	
+  1917                           ;keypad.c: 46: if (RB0 == 0) return 4;
+  1918  0791  1283               	bcf	status, 5	;RP0=0, select bank0
+  1919  0792  1303               	bcf	status, 6	;RP1=0, select bank0
+  1920  0793  1806               	btfsc	(48/8),(48)&7
+  1921  0794  2F96               	goto	u2431
+  1922  0795  2F97               	goto	u2430
+  1923  0796                     u2431:
+  1924  0796  2F9A               	goto	l2089
+  1925  0797                     u2430:
+  1926                           	
+  1927  0797                     l5821:	
+  1928  0797  3004               	movlw	(04h)
+  1929  0798  2FFF               	goto	l2085
+  1930                           	
+  1931  0799                     l5823:	
+  1932  0799  2FFF               	goto	l2085
+  1933                           	
+  1934  079A                     l2089:	
+  1935                           	line	47
+  1936                           ;keypad.c: 47: if (RB1 == 0) return 5;
+  1937  079A  1886               	btfsc	(49/8),(49)&7
+  1938  079B  2F9D               	goto	u2441
+  1939  079C  2F9E               	goto	u2440
+  1940  079D                     u2441:
+  1941  079D  2FA1               	goto	l2090
+  1942  079E                     u2440:
+  1943                           	
+  1944  079E                     l5825:	
+  1945  079E  3005               	movlw	(05h)
+  1946  079F  2FFF               	goto	l2085
+  1947                           	
+  1948  07A0                     l5827:	
+  1949  07A0  2FFF               	goto	l2085
+  1950                           	
+  1951  07A1                     l2090:	
+  1952                           	line	48
+  1953                           ;keypad.c: 48: if (RB2 == 0) return 6;
+  1954  07A1  1906               	btfsc	(50/8),(50)&7
+  1955  07A2  2FA4               	goto	u2451
+  1956  07A3  2FA5               	goto	u2450
+  1957  07A4                     u2451:
+  1958  07A4  2FA8               	goto	l2091
+  1959  07A5                     u2450:
+  1960                           	
+  1961  07A5                     l5829:	
+  1962  07A5  3006               	movlw	(06h)
+  1963  07A6  2FFF               	goto	l2085
+  1964                           	
+  1965  07A7                     l5831:	
+  1966  07A7  2FFF               	goto	l2085
+  1967                           	
+  1968  07A8                     l2091:	
+  1969                           	line	49
+  1970                           ;keypad.c: 49: if (RB3 == 0) return 11;
+  1971  07A8  1986               	btfsc	(51/8),(51)&7
+  1972  07A9  2FAB               	goto	u2461
+  1973  07AA  2FAC               	goto	u2460
+  1974  07AB                     u2461:
+  1975  07AB  2FAF               	goto	l2092
+  1976  07AC                     u2460:
+  1977                           	
+  1978  07AC                     l5833:	
+  1979  07AC  300B               	movlw	(0Bh)
+  1980  07AD  2FFF               	goto	l2085
+  1981                           	
+  1982  07AE                     l5835:	
+  1983  07AE  2FFF               	goto	l2085
+  1984                           	
+  1985  07AF                     l2092:	
+  1986                           	line	51
+  1987                           ;keypad.c: 51: RD4 = 1;
+  1988  07AF  1608               	bsf	(68/8),(68)&7
+  1989                           	line	52
+  1990                           ;keypad.c: 52: RD5 = 1;
+  1991  07B0  1688               	bsf	(69/8),(69)&7
+  1992                           	line	53
+  1993                           ;keypad.c: 53: RD6 = 0;
+  1994  07B1  1308               	bcf	(70/8),(70)&7
+  1995                           	line	54
+  1996                           ;keypad.c: 54: RD7 = 1;
+  1997  07B2  1788               	bsf	(71/8),(71)&7
+  1998                           	line	55
+  1999                           	
+  2000  07B3                     l5837:	
+  2001                           ;keypad.c: 55: _delay((unsigned long)((30)*(20000000/4000000.0)));
+  2002                           	opt asmopt_off
+  2003  07B3  3031               movlw	49
+  2004  07B4  00F0               movwf	(??_c_read_keypad+0)+0,f
+  2005  07B5                     u2927:
+  2006  07B5  0BF0               decfsz	(??_c_read_keypad+0)+0,f
+  2007  07B6  2FB5               	goto	u2927
+  2008  07B7  2FB8               	nop2	;nop
+  2009                           opt asmopt_on
+  2010                           
+  2011                           	line	56
+  2012                           	
+  2013  07B8                     l5839:	
+  2014                           ;keypad.c: 56: if (RB0 == 0) return 7;
+  2015  07B8  1283               	bcf	status, 5	;RP0=0, select bank0
+  2016  07B9  1303               	bcf	status, 6	;RP1=0, select bank0
+  2017  07BA  1806               	btfsc	(48/8),(48)&7
+  2018  07BB  2FBD               	goto	u2471
+  2019  07BC  2FBE               	goto	u2470
+  2020  07BD                     u2471:
+  2021  07BD  2FC1               	goto	l2093
+  2022  07BE                     u2470:
+  2023                           	
+  2024  07BE                     l5841:	
+  2025  07BE  3007               	movlw	(07h)
+  2026  07BF  2FFF               	goto	l2085
+  2027                           	
+  2028  07C0                     l5843:	
+  2029  07C0  2FFF               	goto	l2085
+  2030                           	
+  2031  07C1                     l2093:	
+  2032                           	line	57
+  2033                           ;keypad.c: 57: if (RB1 == 0) return 8;
+  2034  07C1  1886               	btfsc	(49/8),(49)&7
+  2035  07C2  2FC4               	goto	u2481
+  2036  07C3  2FC5               	goto	u2480
+  2037  07C4                     u2481:
+  2038  07C4  2FC8               	goto	l2094
+  2039  07C5                     u2480:
+  2040                           	
+  2041  07C5                     l5845:	
+  2042  07C5  3008               	movlw	(08h)
+  2043  07C6  2FFF               	goto	l2085
+  2044                           	
+  2045  07C7                     l5847:	
+  2046  07C7  2FFF               	goto	l2085
+  2047                           	
+  2048  07C8                     l2094:	
+  2049                           	line	58
+  2050                           ;keypad.c: 58: if (RB2 == 0) return 9;
+  2051  07C8  1906               	btfsc	(50/8),(50)&7
+  2052  07C9  2FCB               	goto	u2491
+  2053  07CA  2FCC               	goto	u2490
+  2054  07CB                     u2491:
+  2055  07CB  2FCF               	goto	l2095
+  2056  07CC                     u2490:
+  2057                           	
+  2058  07CC                     l5849:	
+  2059  07CC  3009               	movlw	(09h)
+  2060  07CD  2FFF               	goto	l2085
+  2061                           	
+  2062  07CE                     l5851:	
+  2063  07CE  2FFF               	goto	l2085
+  2064                           	
+  2065  07CF                     l2095:	
+  2066                           	line	59
+  2067                           ;keypad.c: 59: if (RB3 == 0) return 12;
+  2068  07CF  1986               	btfsc	(51/8),(51)&7
+  2069  07D0  2FD2               	goto	u2501
+  2070  07D1  2FD3               	goto	u2500
+  2071  07D2                     u2501:
+  2072  07D2  2FD6               	goto	l2096
+  2073  07D3                     u2500:
+  2074                           	
+  2075  07D3                     l5853:	
+  2076  07D3  300C               	movlw	(0Ch)
+  2077  07D4  2FFF               	goto	l2085
+  2078                           	
+  2079  07D5                     l5855:	
+  2080  07D5  2FFF               	goto	l2085
+  2081                           	
+  2082  07D6                     l2096:	
+  2083                           	line	61
+  2084                           ;keypad.c: 61: RD4 = 1;
+  2085  07D6  1608               	bsf	(68/8),(68)&7
+  2086                           	line	62
+  2087                           ;keypad.c: 62: RD5 = 1;
+  2088  07D7  1688               	bsf	(69/8),(69)&7
+  2089                           	line	63
+  2090                           ;keypad.c: 63: RD6 = 1;
+  2091  07D8  1708               	bsf	(70/8),(70)&7
+  2092                           	line	64
+  2093                           ;keypad.c: 64: RD7 = 0;
+  2094  07D9  1388               	bcf	(71/8),(71)&7
+  2095                           	line	65
+  2096                           	
+  2097  07DA                     l5857:	
+  2098                           ;keypad.c: 65: _delay((unsigned long)((30)*(20000000/4000000.0)));
+  2099                           	opt asmopt_off
+  2100  07DA  3031               movlw	49
+  2101  07DB  00F0               movwf	(??_c_read_keypad+0)+0,f
+  2102  07DC                     u2937:
+  2103  07DC  0BF0               decfsz	(??_c_read_keypad+0)+0,f
+  2104  07DD  2FDC               	goto	u2937
+  2105  07DE  2FDF               	nop2	;nop
+  2106                           opt asmopt_on
+  2107                           
+  2108                           	line	66
+  2109                           	
+  2110  07DF                     l5859:	
+  2111                           ;keypad.c: 66: if (RB0 == 0) return 14;
+  2112  07DF  1283               	bcf	status, 5	;RP0=0, select bank0
+  2113  07E0  1303               	bcf	status, 6	;RP1=0, select bank0
+  2114  07E1  1806               	btfsc	(48/8),(48)&7
+  2115  07E2  2FE4               	goto	u2511
+  2116  07E3  2FE5               	goto	u2510
+  2117  07E4                     u2511:
+  2118  07E4  2FE8               	goto	l2097
+  2119  07E5                     u2510:
+  2120                           	
+  2121  07E5                     l5861:	
+  2122  07E5  300E               	movlw	(0Eh)
+  2123  07E6  2FFF               	goto	l2085
+  2124                           	
+  2125  07E7                     l5863:	
+  2126  07E7  2FFF               	goto	l2085
+  2127                           	
+  2128  07E8                     l2097:	
+  2129                           	line	67
+  2130                           ;keypad.c: 67: if (RB1 == 0) return 0;
+  2131  07E8  1886               	btfsc	(49/8),(49)&7
+  2132  07E9  2FEB               	goto	u2521
+  2133  07EA  2FEC               	goto	u2520
+  2134  07EB                     u2521:
+  2135  07EB  2FEF               	goto	l2098
+  2136  07EC                     u2520:
+  2137                           	
+  2138  07EC                     l5865:	
+  2139  07EC  3000               	movlw	(0)
+  2140  07ED  2FFF               	goto	l2085
+  2141                           	
+  2142  07EE                     l5867:	
+  2143  07EE  2FFF               	goto	l2085
+  2144                           	
+  2145  07EF                     l2098:	
+  2146                           	line	68
+  2147                           ;keypad.c: 68: if (RB2 == 0) return 15;
+  2148  07EF  1906               	btfsc	(50/8),(50)&7
+  2149  07F0  2FF2               	goto	u2531
+  2150  07F1  2FF3               	goto	u2530
+  2151  07F2                     u2531:
+  2152  07F2  2FF6               	goto	l2099
+  2153  07F3                     u2530:
+  2154                           	
+  2155  07F3                     l5869:	
+  2156  07F3  300F               	movlw	(0Fh)
+  2157  07F4  2FFF               	goto	l2085
+  2158                           	
+  2159  07F5                     l5871:	
+  2160  07F5  2FFF               	goto	l2085
+  2161                           	
+  2162  07F6                     l2099:	
+  2163                           	line	69
+  2164                           ;keypad.c: 69: if (RB3 == 0) return 13;
+  2165  07F6  1986               	btfsc	(51/8),(51)&7
+  2166  07F7  2FF9               	goto	u2541
+  2167  07F8  2FFA               	goto	u2540
+  2168  07F9                     u2541:
+  2169  07F9  2FFD               	goto	l5877
+  2170  07FA                     u2540:
+  2171                           	
+  2172  07FA                     l5873:	
+  2173  07FA  300D               	movlw	(0Dh)
+  2174  07FB  2FFF               	goto	l2085
+  2175                           	
+  2176  07FC                     l5875:	
+  2177  07FC  2FFF               	goto	l2085
+  2178                           	
+  2179  07FD                     l2100:	
+  2180                           	line	71
+  2181                           	
+  2182  07FD                     l5877:	
+  2183                           ;keypad.c: 71: return 0xFF;
+  2184  07FD  30FF               	movlw	(0FFh)
+  2185  07FE  2FFF               	goto	l2085
+  2186                           	
+  2187  07FF                     l5879:	
+  2188                           	line	72
+  2189                           	
+  2190  07FF                     l2085:	
+  2191  07FF  0008               	return
+  2192                           	opt stack 0
+  2193                           GLOBAL	__end_of_c_read_keypad
+  2194  0800                     	__end_of_c_read_keypad:
+  2195 ;; =============== function _c_read_keypad ends ============
+  2196                           
+  2197                           	signat	_c_read_keypad,89
+  2198                           	global	_seg7_initialize
+  2199                           psect	text385,local,class=CODE,delta=2
+  2200                           global __ptext385
+  2201  059C                     __ptext385:
+  2202                           
+  2203 ;; *************** function _seg7_initialize *****************
+  2204 ;; Defined at:
+  2205 ;;		line 52 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\seg7.c"
+  2206 ;; Parameters:    Size  Location     Type
+  2207 ;;		None
+  2208 ;; Auto vars:     Size  Location     Type
+  2209 ;;		None
+  2210 ;; Return value:  Size  Location     Type
+  2211 ;;		None               void
+  2212 ;; Registers used:
+  2213 ;;		wreg, status,2
+  2214 ;; Tracked objects:
+  2215 ;;		On entry : 0/0
+  2216 ;;		On exit  : 0/0
+  2217 ;;		Unchanged: 0/0
+  2218 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2219 ;;      Params:         0       0       0       0       0
+  2220 ;;      Locals:         0       0       0       0       0
+  2221 ;;      Temps:          2       0       0       0       0
+  2222 ;;      Totals:         2       0       0       0       0
+  2223 ;;Total ram usage:        2 bytes
+  2224 ;; Hardware stack levels used:    1
+  2225 ;; This function calls:
+  2226 ;;		Nothing
+  2227 ;; This function is called by:
+  2228 ;;		_main
+  2229 ;; This function uses a non-reentrant model
+  2230 ;;
+  2231                           psect	text385
+  2232                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\seg7.c"
+  2233                           	line	52
+  2234                           	global	__size_of_seg7_initialize
+  2235  0018                     	__size_of_seg7_initialize	equ	__end_of_seg7_initialize-_seg7_initialize
+  2236                           	
+  2237  059C                     _seg7_initialize:	
+  2238                           	opt	stack 7
+  2239                           ; Regs used in _seg7_initialize: [wreg+status,2]
+  2240                           	line	53
+  2241                           	
+  2242  059C                     l5783:	
+  2243                           ;seg7.c: 53: RE1 = 0;
+  2244  059C  1283               	bcf	status, 5	;RP0=0, select bank0
+  2245  059D  1303               	bcf	status, 6	;RP1=0, select bank0
+  2246  059E  1089               	bcf	(73/8),(73)&7
+  2247                           	line	54
+  2248                           ;seg7.c: 54: RE0 = 0;
+  2249  059F  1009               	bcf	(72/8),(72)&7
+  2250                           	line	55
+  2251                           	
+  2252  05A0                     l5785:	
+  2253                           ;seg7.c: 55: PORTD = (PORTD & 0xf0) | 0x0A;
+  2254  05A0  0808               	movf	(8),w
+  2255  05A1  39F0               	andlw	0F0h
+  2256  05A2  380A               	iorlw	0Ah
+  2257  05A3  0088               	movwf	(8)	;volatile
+  2258                           	line	56
+  2259                           	
+  2260  05A4                     l5787:	
+  2261                           ;seg7.c: 56: _delay((unsigned long)((1)*(20000000/4000.0)));
+  2262                           	opt asmopt_off
+  2263  05A4  3007               movlw	7
+  2264  05A5  00F1               movwf	((??_seg7_initialize+0)+0+1),f
+  2265  05A6  307D               	movlw	125
+  2266  05A7  00F0               movwf	((??_seg7_initialize+0)+0),f
+  2267  05A8                     u2947:
+  2268  05A8  0BF0               	decfsz	((??_seg7_initialize+0)+0),f
+  2269  05A9  2DA8               	goto	u2947
+  2270  05AA  0BF1               	decfsz	((??_seg7_initialize+0)+0+1),f
+  2271  05AB  2DA8               	goto	u2947
+  2272                           opt asmopt_on
+  2273                           
+  2274                           	line	57
+  2275                           	
+  2276  05AC                     l5789:	
+  2277                           ;seg7.c: 57: RE1 = 1;
+  2278  05AC  1283               	bcf	status, 5	;RP0=0, select bank0
+  2279  05AD  1303               	bcf	status, 6	;RP1=0, select bank0
+  2280  05AE  1489               	bsf	(73/8),(73)&7
+  2281                           	line	58
+  2282                           	
+  2283  05AF                     l5791:	
+  2284                           ;seg7.c: 58: RE0 = 1;
+  2285  05AF  1409               	bsf	(72/8),(72)&7
+  2286                           	line	59
+  2287                           	
+  2288  05B0                     l5793:	
+  2289                           ;seg7.c: 59: PORTD = PORTD & 0xf0;
+  2290  05B0  0808               	movf	(8),w
+  2291  05B1  39F0               	andlw	0F0h
+  2292  05B2  0088               	movwf	(8)	;volatile
+  2293                           	line	60
+  2294                           	
+  2295  05B3                     l1386:	
+  2296  05B3  0008               	return
+  2297                           	opt stack 0
+  2298                           GLOBAL	__end_of_seg7_initialize
+  2299  05B4                     	__end_of_seg7_initialize:
+  2300 ;; =============== function _seg7_initialize ends ============
+  2301                           
+  2302                           	signat	_seg7_initialize,88
+  2303                           	global	_set_lcd_data
+  2304                           psect	text386,local,class=CODE,delta=2
+  2305                           global __ptext386
+  2306  0530                     __ptext386:
+  2307                           
+  2308 ;; *************** function _set_lcd_data *****************
+  2309 ;; Defined at:
+  2310 ;;		line 400 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  2311 ;; Parameters:    Size  Location     Type
+  2312 ;;  uc_data         1    wreg     unsigned char 
+  2313 ;; Auto vars:     Size  Location     Type
+  2314 ;;  uc_data         1    0[COMMON] unsigned char 
+  2315 ;; Return value:  Size  Location     Type
+  2316 ;;		None               void
+  2317 ;; Registers used:
+  2318 ;;		wreg
+  2319 ;; Tracked objects:
+  2320 ;;		On entry : 0/0
+  2321 ;;		On exit  : 0/0
+  2322 ;;		Unchanged: 0/0
+  2323 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2324 ;;      Params:         0       0       0       0       0
+  2325 ;;      Locals:         1       0       0       0       0
+  2326 ;;      Temps:          0       0       0       0       0
+  2327 ;;      Totals:         1       0       0       0       0
+  2328 ;;Total ram usage:        1 bytes
+  2329 ;; Hardware stack levels used:    1
+  2330 ;; This function calls:
+  2331 ;;		Nothing
+  2332 ;; This function is called by:
+  2333 ;;		_send_lcd_data
+  2334 ;; This function uses a non-reentrant model
+  2335 ;;
+  2336                           psect	text386
+  2337                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  2338                           	line	400
+  2339                           	global	__size_of_set_lcd_data
+  2340  0006                     	__size_of_set_lcd_data	equ	__end_of_set_lcd_data-_set_lcd_data
+  2341                           	
+  2342  0530                     _set_lcd_data:	
+  2343                           	opt	stack 5
+  2344                           ; Regs used in _set_lcd_data: [wreg]
+  2345                           ;set_lcd_data@uc_data stored from wreg
+  2346  0530  00F0               	movwf	(set_lcd_data@uc_data)
+  2347                           	line	401
+  2348                           	
+  2349  0531                     l6039:	
+  2350                           ;lcd.c: 401: PORTD = uc_data;
+  2351  0531  0870               	movf	(set_lcd_data@uc_data),w
+  2352  0532  1283               	bcf	status, 5	;RP0=0, select bank0
+  2353  0533  1303               	bcf	status, 6	;RP1=0, select bank0
+  2354  0534  0088               	movwf	(8)	;volatile
+  2355                           	line	402
+  2356                           	
+  2357  0535                     l2863:	
+  2358  0535  0008               	return
+  2359                           	opt stack 0
+  2360                           GLOBAL	__end_of_set_lcd_data
+  2361  0536                     	__end_of_set_lcd_data:
+  2362 ;; =============== function _set_lcd_data ends ============
+  2363                           
+  2364                           	signat	_set_lcd_data,4216
+  2365                           	global	_set_lcd_rs
+  2366                           psect	text387,local,class=CODE,delta=2
+  2367                           global __ptext387
+  2368  0557                     __ptext387:
+  2369                           
+  2370 ;; *************** function _set_lcd_rs *****************
+  2371 ;; Defined at:
+  2372 ;;		line 380 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  2373 ;; Parameters:    Size  Location     Type
+  2374 ;;  b_output        1    wreg     unsigned char 
+  2375 ;; Auto vars:     Size  Location     Type
+  2376 ;;  b_output        1    0[COMMON] unsigned char 
+  2377 ;; Return value:  Size  Location     Type
+  2378 ;;		None               void
+  2379 ;; Registers used:
+  2380 ;;		wreg
+  2381 ;; Tracked objects:
+  2382 ;;		On entry : 0/0
+  2383 ;;		On exit  : 0/0
+  2384 ;;		Unchanged: 0/0
+  2385 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2386 ;;      Params:         0       0       0       0       0
+  2387 ;;      Locals:         1       0       0       0       0
+  2388 ;;      Temps:          0       0       0       0       0
+  2389 ;;      Totals:         1       0       0       0       0
+  2390 ;;Total ram usage:        1 bytes
+  2391 ;; Hardware stack levels used:    1
+  2392 ;; This function calls:
+  2393 ;;		Nothing
+  2394 ;; This function is called by:
+  2395 ;;		_send_lcd_data
+  2396 ;; This function uses a non-reentrant model
+  2397 ;;
+  2398                           psect	text387
+  2399                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  2400                           	line	380
+  2401                           	global	__size_of_set_lcd_rs
+  2402  000C                     	__size_of_set_lcd_rs	equ	__end_of_set_lcd_rs-_set_lcd_rs
+  2403                           	
+  2404  0557                     _set_lcd_rs:	
+  2405                           	opt	stack 5
+  2406                           ; Regs used in _set_lcd_rs: [wreg]
+  2407                           ;set_lcd_rs@b_output stored from wreg
+  2408  0557  00F0               	movwf	(set_lcd_rs@b_output)
+  2409                           	line	381
+  2410                           	
+  2411  0558                     l6037:	
+  2412                           ;lcd.c: 381: RA2 = b_output;
+  2413  0558  1870               	btfsc	(set_lcd_rs@b_output),0
+  2414  0559  2D5B               	goto	u2681
+  2415  055A  2D5F               	goto	u2680
+  2416                           	
+  2417  055B                     u2681:
+  2418  055B  1283               	bcf	status, 5	;RP0=0, select bank0
+  2419  055C  1303               	bcf	status, 6	;RP1=0, select bank0
+  2420  055D  1505               	bsf	(42/8),(42)&7
+  2421  055E  2D62               	goto	u2694
+  2422  055F                     u2680:
+  2423  055F  1283               	bcf	status, 5	;RP0=0, select bank0
+  2424  0560  1303               	bcf	status, 6	;RP1=0, select bank0
+  2425  0561  1105               	bcf	(42/8),(42)&7
+  2426  0562                     u2694:
+  2427                           	line	382
+  2428                           	
+  2429  0562                     l2860:	
+  2430  0562  0008               	return
+  2431                           	opt stack 0
+  2432                           GLOBAL	__end_of_set_lcd_rs
+  2433  0563                     	__end_of_set_lcd_rs:
+  2434 ;; =============== function _set_lcd_rs ends ============
+  2435                           
+  2436                           	signat	_set_lcd_rs,4216
+  2437                           	global	_set_lcd_e
+  2438                           psect	text388,local,class=CODE,delta=2
+  2439                           global __ptext388
+  2440  054B                     __ptext388:
+  2441                           
+  2442 ;; *************** function _set_lcd_e *****************
+  2443 ;; Defined at:
+  2444 ;;		line 360 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  2445 ;; Parameters:    Size  Location     Type
+  2446 ;;  b_output        1    wreg     unsigned char 
+  2447 ;; Auto vars:     Size  Location     Type
+  2448 ;;  b_output        1    0[COMMON] unsigned char 
+  2449 ;; Return value:  Size  Location     Type
+  2450 ;;		None               void
+  2451 ;; Registers used:
+  2452 ;;		wreg
+  2453 ;; Tracked objects:
+  2454 ;;		On entry : 0/0
+  2455 ;;		On exit  : 0/0
+  2456 ;;		Unchanged: 0/0
+  2457 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2458 ;;      Params:         0       0       0       0       0
+  2459 ;;      Locals:         1       0       0       0       0
+  2460 ;;      Temps:          0       0       0       0       0
+  2461 ;;      Totals:         1       0       0       0       0
+  2462 ;;Total ram usage:        1 bytes
+  2463 ;; Hardware stack levels used:    1
+  2464 ;; This function calls:
+  2465 ;;		Nothing
+  2466 ;; This function is called by:
+  2467 ;;		_lcd_initialize
+  2468 ;;		_send_lcd_data
+  2469 ;; This function uses a non-reentrant model
+  2470 ;;
+  2471                           psect	text388
+  2472                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\lcd.c"
+  2473                           	line	360
+  2474                           	global	__size_of_set_lcd_e
+  2475  000C                     	__size_of_set_lcd_e	equ	__end_of_set_lcd_e-_set_lcd_e
+  2476                           	
+  2477  054B                     _set_lcd_e:	
+  2478                           	opt	stack 5
+  2479                           ; Regs used in _set_lcd_e: [wreg]
+  2480                           ;set_lcd_e@b_output stored from wreg
+  2481  054B  00F0               	movwf	(set_lcd_e@b_output)
+  2482                           	line	361
+  2483                           	
+  2484  054C                     l5999:	
+  2485                           ;lcd.c: 361: RA3 = b_output;
+  2486  054C  1870               	btfsc	(set_lcd_e@b_output),0
+  2487  054D  2D4F               	goto	u2621
+  2488  054E  2D53               	goto	u2620
+  2489                           	
+  2490  054F                     u2621:
+  2491  054F  1283               	bcf	status, 5	;RP0=0, select bank0
+  2492  0550  1303               	bcf	status, 6	;RP1=0, select bank0
+  2493  0551  1585               	bsf	(43/8),(43)&7
+  2494  0552  2D56               	goto	u2634
+  2495  0553                     u2620:
+  2496  0553  1283               	bcf	status, 5	;RP0=0, select bank0
+  2497  0554  1303               	bcf	status, 6	;RP1=0, select bank0
+  2498  0555  1185               	bcf	(43/8),(43)&7
+  2499  0556                     u2634:
+  2500                           	line	362
+  2501                           	
+  2502  0556                     l2857:	
+  2503  0556  0008               	return
+  2504                           	opt stack 0
+  2505                           GLOBAL	__end_of_set_lcd_e
+  2506  0557                     	__end_of_set_lcd_e:
+  2507 ;; =============== function _set_lcd_e ends ============
+  2508                           
+  2509                           	signat	_set_lcd_e,4216
+  2510                           	global	_c_key_to_ASCII
+  2511                           psect	text389,local,class=CODE,delta=2
+  2512                           global __ptext389
+  2513  06C3                     __ptext389:
+  2514                           
+  2515 ;; *************** function _c_key_to_ASCII *****************
+  2516 ;; Defined at:
+  2517 ;;		line 88 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\keypad.c"
+  2518 ;; Parameters:    Size  Location     Type
+  2519 ;;  key_number      1    wreg     unsigned char 
+  2520 ;; Auto vars:     Size  Location     Type
+  2521 ;;  key_number      1    0[COMMON] unsigned char 
+  2522 ;; Return value:  Size  Location     Type
+  2523 ;;                  1    wreg      unsigned char 
+  2524 ;; Registers used:
+  2525 ;;		wreg, status,2, status,0
+  2526 ;; Tracked objects:
+  2527 ;;		On entry : 0/0
+  2528 ;;		On exit  : 0/0
+  2529 ;;		Unchanged: 0/0
+  2530 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2531 ;;      Params:         0       0       0       0       0
+  2532 ;;      Locals:         1       0       0       0       0
+  2533 ;;      Temps:          0       0       0       0       0
+  2534 ;;      Totals:         1       0       0       0       0
+  2535 ;;Total ram usage:        1 bytes
+  2536 ;; Hardware stack levels used:    1
+  2537 ;; This function calls:
+  2538 ;;		Nothing
+  2539 ;; This function is called by:
+  2540 ;;		_main
+  2541 ;; This function uses a non-reentrant model
+  2542 ;;
+  2543                           psect	text389
+  2544                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\keypad.c"
+  2545                           	line	88
+  2546                           	global	__size_of_c_key_to_ASCII
+  2547  0044                     	__size_of_c_key_to_ASCII	equ	__end_of_c_key_to_ASCII-_c_key_to_ASCII
+  2548                           	
+  2549  06C3                     _c_key_to_ASCII:	
+  2550                           	opt	stack 7
+  2551                           ; Regs used in _c_key_to_ASCII: [wreg+status,2+status,0]
+  2552                           ;c_key_to_ASCII@key_number stored from wreg
+  2553                           	line	90
+  2554  06C3  00F0               	movwf	(c_key_to_ASCII@key_number)
+  2555                           	
+  2556  06C4                     l4825:	
+  2557                           ;keypad.c: 90: if (key_number < 10) return key_number + 0x30;
+  2558  06C4  300A               	movlw	(0Ah)
+  2559  06C5  0270               	subwf	(c_key_to_ASCII@key_number),w
+  2560  06C6  1803               	skipnc
+  2561  06C7  2EC9               	goto	u31
+  2562  06C8  2ECA               	goto	u30
+  2563  06C9                     u31:
+  2564  06C9  2ECE               	goto	l4831
+  2565  06CA                     u30:
+  2566                           	
+  2567  06CA                     l4827:	
+  2568  06CA  0870               	movf	(c_key_to_ASCII@key_number),w
+  2569  06CB  3E30               	addlw	030h
+  2570  06CC  2F06               	goto	l2104
+  2571                           	
+  2572  06CD                     l4829:	
+  2573  06CD  2F06               	goto	l2104
+  2574                           	
+  2575  06CE                     l2103:	
+  2576                           	line	93
+  2577                           	
+  2578  06CE                     l4831:	
+  2579                           ;keypad.c: 93: if (key_number == 10) return 'A';
+  2580  06CE  0870               	movf	(c_key_to_ASCII@key_number),w
+  2581  06CF  3A0A               	xorlw	0Ah
+  2582  06D0  1D03               	skipz
+  2583  06D1  2ED3               	goto	u41
+  2584  06D2  2ED4               	goto	u40
+  2585  06D3                     u41:
+  2586  06D3  2ED7               	goto	l4837
+  2587  06D4                     u40:
+  2588                           	
+  2589  06D4                     l4833:	
+  2590  06D4  3041               	movlw	(041h)
+  2591  06D5  2F06               	goto	l2104
+  2592                           	
+  2593  06D6                     l4835:	
+  2594  06D6  2F06               	goto	l2104
+  2595                           	
+  2596  06D7                     l2105:	
+  2597                           	line	94
+  2598                           	
+  2599  06D7                     l4837:	
+  2600                           ;keypad.c: 94: if (key_number == 11) return 'B';
+  2601  06D7  0870               	movf	(c_key_to_ASCII@key_number),w
+  2602  06D8  3A0B               	xorlw	0Bh
+  2603  06D9  1D03               	skipz
+  2604  06DA  2EDC               	goto	u51
+  2605  06DB  2EDD               	goto	u50
+  2606  06DC                     u51:
+  2607  06DC  2EE0               	goto	l4843
+  2608  06DD                     u50:
+  2609                           	
+  2610  06DD                     l4839:	
+  2611  06DD  3042               	movlw	(042h)
+  2612  06DE  2F06               	goto	l2104
+  2613                           	
+  2614  06DF                     l4841:	
+  2615  06DF  2F06               	goto	l2104
+  2616                           	
+  2617  06E0                     l2106:	
+  2618                           	line	95
+  2619                           	
+  2620  06E0                     l4843:	
+  2621                           ;keypad.c: 95: if (key_number == 12) return 'C';
+  2622  06E0  0870               	movf	(c_key_to_ASCII@key_number),w
+  2623  06E1  3A0C               	xorlw	0Ch
+  2624  06E2  1D03               	skipz
+  2625  06E3  2EE5               	goto	u61
+  2626  06E4  2EE6               	goto	u60
+  2627  06E5                     u61:
+  2628  06E5  2EE9               	goto	l4849
+  2629  06E6                     u60:
+  2630                           	
+  2631  06E6                     l4845:	
+  2632  06E6  3043               	movlw	(043h)
+  2633  06E7  2F06               	goto	l2104
+  2634                           	
+  2635  06E8                     l4847:	
+  2636  06E8  2F06               	goto	l2104
+  2637                           	
+  2638  06E9                     l2107:	
+  2639                           	line	96
+  2640                           	
+  2641  06E9                     l4849:	
+  2642                           ;keypad.c: 96: if (key_number == 13) return 'D';
+  2643  06E9  0870               	movf	(c_key_to_ASCII@key_number),w
+  2644  06EA  3A0D               	xorlw	0Dh
+  2645  06EB  1D03               	skipz
+  2646  06EC  2EEE               	goto	u71
+  2647  06ED  2EEF               	goto	u70
+  2648  06EE                     u71:
+  2649  06EE  2EF2               	goto	l4855
+  2650  06EF                     u70:
+  2651                           	
+  2652  06EF                     l4851:	
+  2653  06EF  3044               	movlw	(044h)
+  2654  06F0  2F06               	goto	l2104
+  2655                           	
+  2656  06F1                     l4853:	
+  2657  06F1  2F06               	goto	l2104
+  2658                           	
+  2659  06F2                     l2108:	
+  2660                           	line	97
+  2661                           	
+  2662  06F2                     l4855:	
+  2663                           ;keypad.c: 97: if (key_number == 14) return '*';
+  2664  06F2  0870               	movf	(c_key_to_ASCII@key_number),w
+  2665  06F3  3A0E               	xorlw	0Eh
+  2666  06F4  1D03               	skipz
+  2667  06F5  2EF7               	goto	u81
+  2668  06F6  2EF8               	goto	u80
+  2669  06F7                     u81:
+  2670  06F7  2EFB               	goto	l4861
+  2671  06F8                     u80:
+  2672                           	
+  2673  06F8                     l4857:	
+  2674  06F8  302A               	movlw	(02Ah)
+  2675  06F9  2F06               	goto	l2104
+  2676                           	
+  2677  06FA                     l4859:	
+  2678  06FA  2F06               	goto	l2104
+  2679                           	
+  2680  06FB                     l2109:	
+  2681                           	line	98
+  2682                           	
+  2683  06FB                     l4861:	
+  2684                           ;keypad.c: 98: if (key_number == 15) return '#';
+  2685  06FB  0870               	movf	(c_key_to_ASCII@key_number),w
+  2686  06FC  3A0F               	xorlw	0Fh
+  2687  06FD  1D03               	skipz
+  2688  06FE  2F00               	goto	u91
+  2689  06FF  2F01               	goto	u90
+  2690  0700                     u91:
+  2691  0700  2F04               	goto	l4867
+  2692  0701                     u90:
+  2693                           	
+  2694  0701                     l4863:	
+  2695  0701  3023               	movlw	(023h)
+  2696  0702  2F06               	goto	l2104
+  2697                           	
+  2698  0703                     l4865:	
+  2699  0703  2F06               	goto	l2104
+  2700                           	
+  2701  0704                     l2110:	
+  2702                           	line	99
+  2703                           	
+  2704  0704                     l4867:	
+  2705                           ;keypad.c: 99: return 0;
+  2706  0704  3000               	movlw	(0)
+  2707  0705  2F06               	goto	l2104
+  2708                           	
+  2709  0706                     l4869:	
+  2710                           	line	100
+  2711                           	
+  2712  0706                     l2104:	
+  2713  0706  0008               	return
+  2714                           	opt stack 0
+  2715                           GLOBAL	__end_of_c_key_to_ASCII
+  2716  0707                     	__end_of_c_key_to_ASCII:
+  2717 ;; =============== function _c_key_to_ASCII ends ============
+  2718                           
+  2719                           	signat	_c_key_to_ASCII,4217
+  2720                           	global	_adc_initialize
+  2721                           psect	text390,local,class=CODE,delta=2
+  2722                           global __ptext390
+  2723  058A                     __ptext390:
+  2724                           
+  2725 ;; *************** function _adc_initialize *****************
+  2726 ;; Defined at:
+  2727 ;;		line 27 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\adc.c"
+  2728 ;; Parameters:    Size  Location     Type
+  2729 ;;		None
+  2730 ;; Auto vars:     Size  Location     Type
+  2731 ;;		None
+  2732 ;; Return value:  Size  Location     Type
+  2733 ;;		None               void
+  2734 ;; Registers used:
+  2735 ;;		None
+  2736 ;; Tracked objects:
+  2737 ;;		On entry : 0/0
+  2738 ;;		On exit  : 0/0
+  2739 ;;		Unchanged: 0/0
+  2740 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2741 ;;      Params:         0       0       0       0       0
+  2742 ;;      Locals:         0       0       0       0       0
+  2743 ;;      Temps:          0       0       0       0       0
+  2744 ;;      Totals:         0       0       0       0       0
+  2745 ;;Total ram usage:        0 bytes
+  2746 ;; Hardware stack levels used:    1
+  2747 ;; This function calls:
+  2748 ;;		Nothing
+  2749 ;; This function is called by:
+  2750 ;;		_main
+  2751 ;; This function uses a non-reentrant model
+  2752 ;;
+  2753                           psect	text390
+  2754                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 6\adc.c"
+  2755                           	line	27
+  2756                           	global	__size_of_adc_initialize
+  2757  0012                     	__size_of_adc_initialize	equ	__end_of_adc_initialize-_adc_initialize
+  2758                           	
+  2759  058A                     _adc_initialize:	
+  2760                           	opt	stack 7
+  2761                           ; Regs used in _adc_initialize: []
+  2762                           	line	29
+  2763                           	
+  2764  058A                     l4775:	
+  2765                           ;adc.c: 29: ADCS2 = 1;
+  2766  058A  1683               	bsf	status, 5	;RP0=1, select bank1
+  2767  058B  1303               	bcf	status, 6	;RP1=0, select bank1
+  2768  058C  171F               	bsf	(1278/8)^080h,(1278)&7
+  2769                           	line	30
+  2770                           ;adc.c: 30: ADCS1 = 1;
+  2771  058D  1283               	bcf	status, 5	;RP0=0, select bank0
+  2772  058E  1303               	bcf	status, 6	;RP1=0, select bank0
+  2773  058F  179F               	bsf	(255/8),(255)&7
+  2774                           	line	31
+  2775                           ;adc.c: 31: ADCS0 = 0;
+  2776  0590  131F               	bcf	(254/8),(254)&7
+  2777                           	line	34
+  2778                           ;adc.c: 34: PCFG3 = 1;
+  2779  0591  1683               	bsf	status, 5	;RP0=1, select bank1
+  2780  0592  1303               	bcf	status, 6	;RP1=0, select bank1
+  2781  0593  159F               	bsf	(1275/8)^080h,(1275)&7
+  2782                           	line	35
+  2783                           ;adc.c: 35: PCFG2 = 1;
+  2784  0594  151F               	bsf	(1274/8)^080h,(1274)&7
+  2785                           	line	36
+  2786                           ;adc.c: 36: PCFG1 = 1;
+  2787  0595  149F               	bsf	(1273/8)^080h,(1273)&7
+  2788                           	line	37
+  2789                           ;adc.c: 37: PCFG0 = 0;
+  2790  0596  101F               	bcf	(1272/8)^080h,(1272)&7
+  2791                           	line	40
+  2792                           ;adc.c: 40: ADFM = 1;
+  2793  0597  179F               	bsf	(1279/8)^080h,(1279)&7
+  2794                           	line	43
+  2795                           ;adc.c: 43: ADON = 0;
+  2796  0598  1283               	bcf	status, 5	;RP0=0, select bank0
+  2797  0599  1303               	bcf	status, 6	;RP1=0, select bank0
+  2798  059A  101F               	bcf	(248/8),(248)&7
+  2799                           	line	44
+  2800                           	
+  2801  059B                     l687:	
+  2802  059B  0008               	return
+  2803                           	opt stack 0
+  2804                           GLOBAL	__end_of_adc_initialize
+  2805  059C                     	__end_of_adc_initialize:
+  2806 ;; =============== function _adc_initialize ends ============
+  2807                           
+  2808                           	signat	_adc_initialize,88
+  2809                           psect	text391,local,class=CODE,delta=2
+  2810                           global __ptext391
+  2811  0000                     __ptext391:
+  2812                           	global	btemp
+  2813  007E                     	btemp set 07Eh
+  2814                           
+  2815                           	DABS	1,126,2	;btemp
+  2816                           	global	wtemp0
+  2817  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sat Apr 20 17:22:19 2013
+
+                         pc 0002                ?_lcd_putchar 0070                          _RD 0C60  
+                        u30 06CA                          u31 06C9                          u40 06D4  
+                        u41 06D3                          u50 06DD                          u51 06DC  
+                        u60 06E6                          u61 06E5                          u70 06EF  
+                        u71 06EE                          u80 06F8                          u81 06F7  
+                        u90 0701                          u91 0700                          _WR 0C61  
+                        fsr 0004                         l687 059B                         _GIE 005F  
+                       _RA1 0029                         _RB0 0030                         _RA2 002A  
+                       _RB1 0031                         _RA3 002B                         _RB2 0032  
+                       _RB3 0033                         _RC2 003A                         _RE0 0048  
+                       _RE1 0049                         _RD4 0044                         _RD5 0045  
+                       _RD6 0046                         _RD7 0047                         fsr0 0004  
+         set_lcd_e@b_output 0070                        l2100 07FD                        l2110 0704  
+                      l2103 06CE                        l2104 0706                        l2105 06D7  
+                      l2113 05D4                        l2106 06E0                        l2114 05E3  
+                      l2107 06E9                        l2115 05E5                        l2108 06F2  
+                      l2116 05E4                        l2109 06FB                        l2117 05F0  
+                      l2118 05F2                        l2090 07A1                        l2091 07A8  
+                      l2092 07AF                        l2084 0773                        l2093 07C1  
+                      l2085 07FF                        l2094 07C8                        l2086 077A  
+                      l2095 07CF                        l2087 0781                        l2096 07D6  
+                      l2088 0788                        l2097 07E8                        l2089 079A  
+                      l1386 05B3                        l2098 07EF                        l2099 07F6  
+                      l2821 053F                        l6101 0540                        l2830 057B  
+                      l6103 0570                        l2815 064A                        l6111 0627  
+                      l2840 069D                        l2833 056E                        l6105 0564  
+                      l6113 0631                        l2841 06B0                        l6121 0684  
+                      l2842 06C2                        l3570 0743                        l2827 054A  
+                      l6115 063B                        l6107 0618                        l2843 06C2  
+                      l6123 0690                        l6131 06B5                        l3571 0759  
+                      l2860 0562                        l3580 05B5                        l2836 06B5  
+                      l3572 075A                        l6037 0558                        l3581 05CE  
+                      l6117 0645                        l6109 061E                        l6125 069D  
+                      l2837 0684                        l3573 075B                        l6141 0715  
+                      l6133 0707                        l2854 0681                        l3582 05CE  
+                      l2838 06A3                        l3574 075B                        l2863 0535  
+                      l6039 0531                        l6127 06A3                        l6119 0683  
+                      l3575 075C                        l6151 0723                        l6143 0717  
+                      l6135 0708                        l3576 075C                        l2857 0556  
+                      l3585 060E                        l6129 06B0                        l6161 073C  
+                      l6153 0728                        l6145 0718                        l6137 070F  
+                      l3586 05F5                        l6091 065E                        l3579 05BD  
+                      l3587 0617                        l6163 0743                        l6155 072E  
+                      l6147 0719                        l6139 0713                        l3588 0617  
+                      l6093 0666                        l6165 0749                        l6157 0731  
+                      l6149 071E                        l4831 06CE                        l6095 0675  
+                      l6159 0737                        l4841 06DF                        l4833 06D4  
+                      l4825 06C4                        l5801 0770                        l6097 067B  
+                      l6089 064C                        l4851 06EF                        l4843 06E0  
+                      l4835 06D6                        l4827 06CA                        l5811 0780  
+                      l5803 0772                        l6099 0536                        l4861 06FB  
+                      l4853 06F1                        l4845 06E6                        l4837 06D7  
+                      l4829 06CD                        l5821 0797                        l5813 0785  
+                      l5805 0777                        l5901 05E5                        l4775 058A  
+                      l4863 0701                        l4855 06F2                        l4847 06E8  
+                      l4839 06DD                        l5831 07A7                        l5823 0799  
+                      l5815 0787                        l5807 0779                        l5903 05F0  
+                      l4865 0703                        l4857 06F8                        l4849 06E9  
+                      l5841 07BE                        l5833 07AC                        l5825 079E  
+                      l5817 078C                        l5809 077E                        l5905 05F2  
+                      l5921 060E                        _ADFM 04FF                        l4867 0704  
+                      l4859 06FA                        l5851 07CE                        l5843 07C0  
+                      l5835 07AE                        l5827 07A0                        l5819 0791  
+                      l5915 05F4                        l4869 0706                        l5861 07E5  
+                      l5853 07D3                        l5845 07C5                        l5837 07B3  
+                      l5829 07A5                        l5917 05F8                        l5791 05AF  
+                      l5783 059C                        l5871 07F5                        l5863 07E7  
+                      l5855 07D5                        l5847 07C7                        l5839 07B8  
+                      l5919 0601                        l5793 05B0                        l5785 05A0  
+                      l5873 07FA                        l5865 07EC                        l5857 07DA  
+                      l5849 07CC                        l5787 05A4                        l5875 07FC  
+                      l5867 07EE                        l5859 07DF                        l5795 075F  
+                      l5891 05B4                        l5789 05AC                        l5877 07FD  
+                      l5869 07F3                        l5797 0765                        l5893 05B5  
+                      l5879 07FF                        l5799 076A                        l5895 05CF  
+                      l5897 05D4                        l5899 05DC                        _ADON 00F8  
+                      l5999 054C                        _CHS0 00FB                        _CHS1 00FC  
+                      _CHS2 00FD                        STR_1 0009                        STR_2 0017  
+                      u2400 0777                        u2401 0776                        u2410 077E  
+                      u2411 077D                        u2500 07D3                        u2420 0785  
+                      u2501 07D2                        u2421 0784                        u2510 07E5  
+                      u2430 0797                        u2511 07E4                        u2431 0796  
+                      u2520 07EC                        u2440 079E                        u2521 07EB  
+                      u2441 079D                        u2530 07F3                        u2450 07A5  
+                      u2531 07F2                        u2451 07A4                        u2620 0553  
+                      u2540 07FA                        u2460 07AC                        u2621 054F  
+                      u2541 07F9                        u2461 07AB                        u2470 07BE  
+                      u2390 0770                        u2550 05CD                        u2471 07BD  
+                      u2391 076F                        u2551 05CC                        u2480 07C5  
+                      u2560 05E2                        u2481 07C4                        u2561 05E1  
+                      u2634 0556                        u2490 07CC                        u2570 05EF  
+                      u2491 07CB                        u2555 05C9                        u2571 05EE  
+                      u2580 0616                        u2581 0615                        u2830 0690  
+                      u2831 068F                        u2680 055F                        u2840 069C  
+                      u2681 055B                        u2841 069B                        u2850 06C1  
+                      u2907 0767                        u2851 06C0                        u2917 078E  
+                      u2694 0562                        u2927 07B5                        u2937 07DC  
+                      u2947 05A8                        u2867 0622                        u2877 05B9  
+                      u2887 0662                        u2897 0670                        _WREN 0C62  
+                      _beep 05F3       __end_of_c_wait_keypad 05F3                        _main 0707  
+                      btemp 007E                        start 0000                       ?_beep 0070  
+                     _ADCS0 00FE                       _ADCS1 00FF                       _ADCS2 04FE  
+                     ?_main 0070                       _EEADR 010D                       _CARRY 0018  
+                     _PCFG0 04F8                       _PCFG1 04F9                       _PCFG2 04FA  
+                     _PCFG3 04FB                       _PORTA 0005                       _PORTB 0006  
+                     _PORTC 0007                       _PORTD 0008                       _PORTE 0009  
+                     _TRISA 0085                       _TRISB 0086                       _TRISC 0087  
+                     _TRISD 0088                       _TRISE 0089        send_lcd_data@uc_data 0071  
+                     pclath 000A                       status 0003                       wtemp0 007E  
+         send_lcd_data@b_rs 0074                __end_of_beep 0618                __end_of_main 075F  
+  __size_of_seg7_initialize 0018        __size_of_lcd_2ndline 000B       __end_of_send_lcd_data 0682  
+                    ??_beep 0074                      ??_main 0079            ??_c_key_to_ASCII 0070  
+                    _ADRESH 001E                      _ADRESL 009E                      _EEDATA 010C  
+                    _EECON1 018C                      _EECON2 018D            __end_of_delay_ms 05CF  
+          __end_of_lcd_goto 057C     __size_of_adc_initialize 0012        __size_of_lcd_putchar 000C  
+          ??_lcd_initialize 0075              __pcstackCOMMON 0070           ??_seg7_initialize 0070  
+        __size_of_lcd_clear 000A      __size_of_c_read_keypad 00A1                  __pbssBANK0 0020  
+                __pmaintext 0707          __size_of_set_lcd_e 000C                     _GO_DONE 00FA  
+                 ?_delay_ms 0070                  _lcd_putstr 0682                   ?_lcd_goto 0070  
+             ?_set_lcd_data 0070            delay_ms@ui_value 0070           __end_of_lcd_clear 0540  
+             _c_read_keypad 075F              _adc_initialize 058A      __size_of_c_wait_keypad 0024  
+                ??_delay_ms 0072                  ??_lcd_goto 0075                beep@uc_count 0074  
+      end_of_initialization 0586              ??_set_lcd_data 0070  c_wait_keypad@c_pressed_key 0072  
+         __end_of_set_lcd_e 0557      __end_of_adc_initialize 059C                  _set_lcd_rs 0557  
+            ?_c_read_keypad 0070               ??_lcd_2ndline 0075                 ?_lcd_putstr 0070  
+    __size_of_send_lcd_data 0037               _c_wait_keypad 05CF             ?_adc_initialize 0070  
+           _seg7_initialize 059C               ??_lcd_putchar 0075           lcd_putchar@c_data 0076  
+       __end_of_lcd_2ndline 054B         start_initialization 057C          set_lcd_rs@b_output 0070  
+      lcd_putstr@csz_string 0078         lcd_goto@uc_position 0076     __size_of_c_key_to_ASCII 0044  
+            ?_c_wait_keypad 0070             ??_c_read_keypad 0070                 ?_set_lcd_rs 0070  
+       __size_of_lcd_putstr 0041               _send_lcd_data 064B        __end_of_set_lcd_data 0536  
+       __end_of_lcd_putchar 056F           __size_of_delay_ms 001B           __size_of_lcd_goto 000D  
+   __end_of_seg7_initialize 05B4     __size_of_lcd_initialize 0033                 _lcd_2ndline 0540  
+                 __ptext380 0536                   __ptext381 05CF                   __ptext373 0000  
+                 __ptext390 058A                   __ptext382 05B4                   __ptext374 0682  
+                 __ptext391 0000                   __ptext383 064B                   __ptext375 0618  
+                 __ptext384 075F                   __ptext376 05F3                   __ptext385 059C  
+                 __ptext377 0563                   __ptext386 0530                   __ptext378 056F  
+                 __ptext387 0557                   __ptext379 0540                   __ptext388 054B  
+                 __ptext389 06C3                   _lcd_clear 0536              ?_send_lcd_data 0071  
+                 __pstrings 0003         __size_of_set_lcd_rs 000C         set_lcd_data@uc_data 0070  
+           ??_c_wait_keypad 0071                   _set_lcd_e 054B                 _lcd_putchar 0563  
+                ?_lcd_clear 0070                 __stringbase 0008                   main@value 0079  
+  c_key_to_ASCII@key_number 0070                ??_lcd_putstr 0077              _c_key_to_ASCII 06C3  
+          ??_adc_initialize 0070            ?_seg7_initialize 0070                  ?_set_lcd_e 0070  
+     __size_of_set_lcd_data 0006             ??_send_lcd_data 0072          __end_of_lcd_putstr 06C3  
+                  _delay_ms 05B4      __end_of_c_key_to_ASCII 0707                    _lcd_goto 056F  
+             __size_of_beep 0025               __size_of_main 0058                _set_lcd_data 0530  
+            _lcd_initialize 0618                ??_set_lcd_rs 0070                 ??_lcd_clear 0075  
+           ?_c_key_to_ASCII 0070          __end_of_set_lcd_rs 0563      __end_of_lcd_initialize 064B  
+                 stringcode 0003                 ??_set_lcd_e 0070       __end_of_c_read_keypad 0800  
+              ?_lcd_2ndline 0070                lcd_bcd@F1131 0020                    stringdir 0003  
+                  stringtab 0003             ?_lcd_initialize 0070  
