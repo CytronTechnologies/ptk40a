@@ -11,7 +11,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File001]
@@ -24,7 +24,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File002]
@@ -37,7 +37,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File003]
@@ -50,7 +50,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File004]
@@ -63,7 +63,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File005]
@@ -76,7 +76,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File006]
@@ -89,7 +89,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File007]
@@ -102,7 +102,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File008]
@@ -115,7 +115,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File009]
@@ -128,7 +128,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File010]
@@ -141,7 +141,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File011]
@@ -154,7 +154,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File012]
@@ -167,7 +167,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File013]
@@ -180,7 +180,7 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=
 [File014]
@@ -193,6 +193,6 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|adc.c|Main E_2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=2,1
+ToolArgsString=C9=2,1
 TraceCmdString=
 DebugOptions=

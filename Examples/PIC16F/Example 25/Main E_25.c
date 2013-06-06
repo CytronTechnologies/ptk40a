@@ -6,10 +6,10 @@
 *******************************************************************************/
 // PTK40A with PIC16F877A 
 // This template C file should be compiled with:
-// MPLAB IDE v8.63
+// MPLAB IDE v8.85
 // HI-TECH C for the PIC10/12/16 MCU Family
-// HI-TECH operate in LITE Mode with v9.80
-// Last Updated date: 1 July 2012
+// HI-TECH operate in LITE Mode with v9.80 or v9.83
+// Last Updated date: 6 June 2013
 // Please email support@cytron.com.my if you have any problem
 
 #include <htc.h>		//include hitech C header file
