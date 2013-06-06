@@ -1,0 +1,805 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
+                                                                                               Sat Apr 20 16:51:29 2013
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 31 "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\Main E_1.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 31 "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\Main E_1.c"
+    45  2007  FF32               	dw 0xFFFE & 0xFFFB & 0xFFF7 & 0xFFBF & 0xFF7F ;#
+    46                           	FNCALL	_main,_adc_initialize
+    47                           	FNCALL	_main,_beep
+    48                           	FNCALL	_main,_delay_ms
+    49                           	FNCALL	_beep,_delay_ms
+    50                           	FNROOT	_main
+    51                           	global	_ADRESH
+    52                           psect	text100,local,class=CODE,delta=2
+    53                           global __ptext100
+    54  0000                     __ptext100:
+    55  001E                     _ADRESH	set	30
+    56                           	global	_PORTA
+    57  0005                     _PORTA	set	5
+    58                           	global	_PORTB
+    59  0006                     _PORTB	set	6
+    60                           	global	_PORTC
+    61  0007                     _PORTC	set	7
+    62                           	global	_PORTD
+    63  0008                     _PORTD	set	8
+    64                           	global	_PORTE
+    65  0009                     _PORTE	set	9
+    66                           	global	_ADCS0
+    67  00FE                     _ADCS0	set	254
+    68                           	global	_ADCS1
+    69  00FF                     _ADCS1	set	255
+    70                           	global	_ADON
+    71  00F8                     _ADON	set	248
+    72                           	global	_CARRY
+    73  0018                     _CARRY	set	24
+    74                           	global	_CHS0
+    75  00FB                     _CHS0	set	251
+    76                           	global	_CHS1
+    77  00FC                     _CHS1	set	252
+    78                           	global	_CHS2
+    79  00FD                     _CHS2	set	253
+    80                           	global	_GIE
+    81  005F                     _GIE	set	95
+    82                           	global	_GO_DONE
+    83  00FA                     _GO_DONE	set	250
+    84                           	global	_RC2
+    85  003A                     _RC2	set	58
+    86                           	global	_RD4
+    87  0044                     _RD4	set	68
+    88                           	global	_ADRESL
+    89  009E                     _ADRESL	set	158
+    90                           	global	_TRISA
+    91  0085                     _TRISA	set	133
+    92                           	global	_TRISB
+    93  0086                     _TRISB	set	134
+    94                           	global	_TRISC
+    95  0087                     _TRISC	set	135
+    96                           	global	_TRISD
+    97  0088                     _TRISD	set	136
+    98                           	global	_TRISE
+    99  0089                     _TRISE	set	137
+   100                           	global	_ADCS2
+   101  04FE                     _ADCS2	set	1278
+   102                           	global	_ADFM
+   103  04FF                     _ADFM	set	1279
+   104                           	global	_PCFG0
+   105  04F8                     _PCFG0	set	1272
+   106                           	global	_PCFG1
+   107  04F9                     _PCFG1	set	1273
+   108                           	global	_PCFG2
+   109  04FA                     _PCFG2	set	1274
+   110                           	global	_PCFG3
+   111  04FB                     _PCFG3	set	1275
+   112                           	global	_EEADR
+   113  010D                     _EEADR	set	269
+   114                           	global	_EEDATA
+   115  010C                     _EEDATA	set	268
+   116                           	global	_EECON1
+   117  018C                     _EECON1	set	396
+   118                           	global	_EECON2
+   119  018D                     _EECON2	set	397
+   120                           	global	_RD
+   121  0C60                     _RD	set	3168
+   122                           	global	_WR
+   123  0C61                     _WR	set	3169
+   124                           	global	_WREN
+   125  0C62                     _WREN	set	3170
+   126                           	file	"Example1.as"
+   127                           	line	#
+   128                           psect cinit,class=CODE,delta=2
+   129                           global start_initialization
+   130  076E                     start_initialization:
+   131                           
+   132                           psect cinit,class=CODE,delta=2
+   133                           global end_of_initialization
+   134                           
+   135                           ;End of C runtime variable initialization code
+   136                           
+   137  076E                     end_of_initialization:
+   138  076E  0183               clrf status
+   139  076F  120A  118A  2FC4   ljmp _main	;jump to C main() function
+   140                           psect	cstackCOMMON,class=COMMON,space=1
+   141                           global __pcstackCOMMON
+   142  0070                     __pcstackCOMMON:
+   143                           	global	?_beep
+   144  0070                     ?_beep:	; 0 bytes @ 0x0
+   145                           	global	?_delay_ms
+   146  0070                     ?_delay_ms:	; 0 bytes @ 0x0
+   147                           	global	?_adc_initialize
+   148  0070                     ?_adc_initialize:	; 0 bytes @ 0x0
+   149                           	global	??_adc_initialize
+   150  0070                     ??_adc_initialize:	; 0 bytes @ 0x0
+   151                           	global	?_main
+   152  0070                     ?_main:	; 2 bytes @ 0x0
+   153                           	global	delay_ms@ui_value
+   154  0070                     delay_ms@ui_value:	; 2 bytes @ 0x0
+   155  0070                     	ds	2
+   156                           	global	??_delay_ms
+   157  0072                     ??_delay_ms:	; 0 bytes @ 0x2
+   158  0072                     	ds	2
+   159                           	global	??_beep
+   160  0074                     ??_beep:	; 0 bytes @ 0x4
+   161                           	global	beep@uc_count
+   162  0074                     beep@uc_count:	; 1 bytes @ 0x4
+   163  0074                     	ds	1
+   164                           	global	??_main
+   165  0075                     ??_main:	; 0 bytes @ 0x5
+   166 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   167 ;;Auto spaces:   Size  Autos    Used
+   168 ;; COMMON          14      5       5
+   169 ;; BANK0           80      0       0
+   170 ;; BANK1           80      0       0
+   171 ;; BANK3           96      0       0
+   172 ;; BANK2           96      0       0
+   173                           
+   174 ;;
+   175 ;; Pointer list with targets:
+   176                           
+   177                           
+   178                           
+   179 ;;
+   180 ;; Critical Paths under _main in COMMON
+   181 ;;
+   182 ;;   _main->_beep
+   183 ;;   _beep->_delay_ms
+   184 ;;
+   185 ;; Critical Paths under _main in BANK0
+   186 ;;
+   187 ;;   None.
+   188 ;;
+   189 ;; Critical Paths under _main in BANK1
+   190 ;;
+   191 ;;   None.
+   192 ;;
+   193 ;; Critical Paths under _main in BANK3
+   194 ;;
+   195 ;;   None.
+   196 ;;
+   197 ;; Critical Paths under _main in BANK2
+   198 ;;
+   199 ;;   None.
+   200                           
+   201 ;;
+   202 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   203 ;;
+   204                           
+   205 ;;
+   206 ;;Call Graph Tables:
+   207 ;;
+   208 ;; ---------------------------------------------------------------------------------
+   209 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   210 ;; ---------------------------------------------------------------------------------
+   211 ;; (0) _main                                                 0     0      0      45
+   212 ;;                     _adc_initialize
+   213 ;;                               _beep
+   214 ;;                           _delay_ms
+   215 ;; ---------------------------------------------------------------------------------
+   216 ;; (1) _beep                                                 1     1      0      30
+   217 ;;                                              4 COMMON     1     1      0
+   218 ;;                           _delay_ms
+   219 ;; ---------------------------------------------------------------------------------
+   220 ;; (1) _delay_ms                                             4     2      2      15
+   221 ;;                                              0 COMMON     4     2      2
+   222 ;; ---------------------------------------------------------------------------------
+   223 ;; (1) _adc_initialize                                       0     0      0       0
+   224 ;; ---------------------------------------------------------------------------------
+   225 ;; Estimated maximum stack depth 1
+   226 ;; ---------------------------------------------------------------------------------
+   227                           
+   228 ;; Call Graph Graphs:
+   229                           
+   230 ;; _main (ROOT)
+   231 ;;   _adc_initialize
+   232 ;;   _beep
+   233 ;;     _delay_ms
+   234 ;;   _delay_ms
+   235 ;;
+   236                           
+   237 ;; Address spaces:
+   238                           
+   239 ;;Name               Size   Autos  Total    Cost      Usage
+   240 ;;BITCOMMON            E      0       0       0        0.0%
+   241 ;;EEDATA             100      0       0       0        0.0%
+   242 ;;NULL                 0      0       0       0        0.0%
+   243 ;;CODE                 0      0       0       0        0.0%
+   244 ;;COMMON               E      5       5       1       35.7%
+   245 ;;BITSFR0              0      0       0       1        0.0%
+   246 ;;SFR0                 0      0       0       1        0.0%
+   247 ;;BITSFR1              0      0       0       2        0.0%
+   248 ;;SFR1                 0      0       0       2        0.0%
+   249 ;;STACK                0      0       2       2        0.0%
+   250 ;;ABS                  0      0       0       3        0.0%
+   251 ;;BITBANK0            50      0       0       4        0.0%
+   252 ;;BITSFR3              0      0       0       4        0.0%
+   253 ;;SFR3                 0      0       0       4        0.0%
+   254 ;;BANK0               50      0       0       5        0.0%
+   255 ;;BITSFR2              0      0       0       5        0.0%
+   256 ;;SFR2                 0      0       0       5        0.0%
+   257 ;;BITBANK1            50      0       0       6        0.0%
+   258 ;;BANK1               50      0       0       7        0.0%
+   259 ;;BITBANK3            60      0       0       8        0.0%
+   260 ;;BANK3               60      0       0       9        0.0%
+   261 ;;BITBANK2            60      0       0      10        0.0%
+   262 ;;BANK2               60      0       0      11        0.0%
+   263 ;;DATA                 0      0       0      12        0.0%
+   264                           
+   265                           	global	_main
+   266                           psect	maintext,global,class=CODE,delta=2
+   267                           global __pmaintext
+   268  07C4                     __pmaintext:
+   269                           
+   270 ;; *************** function _main *****************
+   271 ;; Defined at:
+   272 ;;		line 57 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\Main E_1.c"
+   273 ;; Parameters:    Size  Location     Type
+   274 ;;		None
+   275 ;; Auto vars:     Size  Location     Type
+   276 ;;		None
+   277 ;; Return value:  Size  Location     Type
+   278 ;;                  2  1391[COMMON] int 
+   279 ;; Registers used:
+   280 ;;		wreg, status,2, status,0, pclath, cstack
+   281 ;; Tracked objects:
+   282 ;;		On entry : 17F/0
+   283 ;;		On exit  : 0/0
+   284 ;;		Unchanged: 0/0
+   285 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   286 ;;      Params:         0       0       0       0       0
+   287 ;;      Locals:         0       0       0       0       0
+   288 ;;      Temps:          0       0       0       0       0
+   289 ;;      Totals:         0       0       0       0       0
+   290 ;;Total ram usage:        0 bytes
+   291 ;; Hardware stack levels required when called:    2
+   292 ;; This function calls:
+   293 ;;		_adc_initialize
+   294 ;;		_beep
+   295 ;;		_delay_ms
+   296 ;; This function is called by:
+   297 ;;		Startup code after reset
+   298 ;; This function uses a non-reentrant model
+   299 ;;
+   300                           psect	maintext
+   301                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\Main E_1.c
+                                 "
+   302                           	line	57
+   303                           	global	__size_of_main
+   304  003C                     	__size_of_main	equ	__end_of_main-_main
+   305                           	
+   306  07C4                     _main:	
+   307                           	opt	stack 6
+   308                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   309                           	line	59
+   310                           	
+   311  07C4                     l3351:	
+   312                           ;Main E_1.c: 59: PORTA = 0;
+   313  07C4  1283               	bcf	status, 5	;RP0=0, select bank0
+   314  07C5  1303               	bcf	status, 6	;RP1=0, select bank0
+   315  07C6  0185               	clrf	(5)	;volatile
+   316                           	line	60
+   317                           ;Main E_1.c: 60: PORTB = 0;
+   318  07C7  0186               	clrf	(6)	;volatile
+   319                           	line	61
+   320                           ;Main E_1.c: 61: PORTC = 0;
+   321  07C8  0187               	clrf	(7)	;volatile
+   322                           	line	62
+   323                           ;Main E_1.c: 62: PORTD = 0;
+   324  07C9  0188               	clrf	(8)	;volatile
+   325                           	line	63
+   326                           ;Main E_1.c: 63: PORTE = 0;
+   327  07CA  0189               	clrf	(9)	;volatile
+   328                           	line	69
+   329                           	
+   330  07CB                     l3353:	
+   331                           ;Main E_1.c: 69: TRISA = 0b00010001;
+   332  07CB  3011               	movlw	(011h)
+   333  07CC  1683               	bsf	status, 5	;RP0=1, select bank1
+   334  07CD  1303               	bcf	status, 6	;RP1=0, select bank1
+   335  07CE  0085               	movwf	(133)^080h	;volatile
+   336                           	line	70
+   337                           	
+   338  07CF                     l3355:	
+   339                           ;Main E_1.c: 70: TRISB = 0b00001111;
+   340  07CF  300F               	movlw	(0Fh)
+   341  07D0  0086               	movwf	(134)^080h	;volatile
+   342                           	line	71
+   343                           	
+   344  07D1                     l3357:	
+   345                           ;Main E_1.c: 71: TRISC = 0b10010011;
+   346  07D1  3093               	movlw	(093h)
+   347  07D2  0087               	movwf	(135)^080h	;volatile
+   348                           	line	72
+   349                           	
+   350  07D3                     l3359:	
+   351                           ;Main E_1.c: 72: TRISD = 0;
+   352  07D3  0188               	clrf	(136)^080h	;volatile
+   353                           	line	73
+   354                           	
+   355  07D4                     l3361:	
+   356                           ;Main E_1.c: 73: TRISE = 0;
+   357  07D4  0189               	clrf	(137)^080h	;volatile
+   358                           	line	76
+   359                           	
+   360  07D5                     l3363:	
+   361                           ;Main E_1.c: 76: adc_initialize();
+   362  07D5  120A  118A  2772   	fcall	_adc_initialize
+              120A  118A         
+   363                           	line	78
+   364                           	
+   365  07DA                     l3365:	
+   366                           ;Main E_1.c: 78: beep(2);
+   367  07DA  3002               	movlw	(02h)
+   368  07DB  120A  118A  279F   	fcall	_beep
+              120A  118A         
+   369  07E0  2FE1               	goto	l3367
+   370                           	line	83
+   371                           ;Main E_1.c: 83: while(1)
+   372                           	
+   373  07E1                     l1392:	
+   374                           	line	85
+   375                           	
+   376  07E1                     l3367:	
+   377                           ;Main E_1.c: 84: {
+   378                           ;Main E_1.c: 85: RD4 = 1;
+   379  07E1  1283               	bcf	status, 5	;RP0=0, select bank0
+   380  07E2  1303               	bcf	status, 6	;RP1=0, select bank0
+   381  07E3  1608               	bsf	(68/8),(68)&7
+   382                           	line	86
+   383                           	
+   384  07E4                     l3369:	
+   385                           ;Main E_1.c: 86: delay_ms(1000);
+   386  07E4  30E8               	movlw	low(03E8h)
+   387  07E5  00F0               	movwf	(?_delay_ms)
+   388  07E6  3003               	movlw	high(03E8h)
+   389  07E7  00F1               	movwf	((?_delay_ms))+1
+   390  07E8  120A  118A  2784   	fcall	_delay_ms
+              120A  118A         
+   391                           	line	87
+   392                           	
+   393  07ED                     l3371:	
+   394                           ;Main E_1.c: 87: RD4 = 0;
+   395  07ED  1283               	bcf	status, 5	;RP0=0, select bank0
+   396  07EE  1303               	bcf	status, 6	;RP1=0, select bank0
+   397  07EF  1208               	bcf	(68/8),(68)&7
+   398                           	line	88
+   399                           	
+   400  07F0                     l3373:	
+   401                           ;Main E_1.c: 88: delay_ms(1000);
+   402  07F0  30E8               	movlw	low(03E8h)
+   403  07F1  00F0               	movwf	(?_delay_ms)
+   404  07F2  3003               	movlw	high(03E8h)
+   405  07F3  00F1               	movwf	((?_delay_ms))+1
+   406  07F4  120A  118A  2784   	fcall	_delay_ms
+              120A  118A         
+   407  07F9  2FE1               	goto	l3367
+   408                           	line	89
+   409                           	
+   410  07FA                     l1393:	
+   411                           	line	83
+   412  07FA  2FE1               	goto	l3367
+   413                           	
+   414  07FB                     l1394:	
+   415  07FB  2FFC               	goto	l1396
+   416                           	line	91
+   417                           ;Main E_1.c: 89: }
+   418                           ;Main E_1.c: 91: while(1) continue;
+   419                           	
+   420  07FC                     l1395:	
+   421                           	
+   422  07FC                     l1396:	
+   423  07FC  2FFC               	goto	l1396
+   424                           	
+   425  07FD                     l1397:	
+   426                           	line	92
+   427                           	
+   428  07FD                     l1398:	
+   429                           	global	start
+   430  07FD  120A  118A  2800   	ljmp	start
+   431                           	opt stack 0
+   432                           GLOBAL	__end_of_main
+   433  0800                     	__end_of_main:
+   434 ;; =============== function _main ends ============
+   435                           
+   436                           	signat	_main,90
+   437                           	global	_beep
+   438                           psect	text101,local,class=CODE,delta=2
+   439                           global __ptext101
+   440  079F                     __ptext101:
+   441                           
+   442 ;; *************** function _beep *****************
+   443 ;; Defined at:
+   444 ;;		line 128 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\Main E_1.c"
+   445 ;; Parameters:    Size  Location     Type
+   446 ;;  uc_count        1    wreg     unsigned char 
+   447 ;; Auto vars:     Size  Location     Type
+   448 ;;  uc_count        1    4[COMMON] unsigned char 
+   449 ;; Return value:  Size  Location     Type
+   450 ;;		None               void
+   451 ;; Registers used:
+   452 ;;		wreg, status,2, status,0, pclath, cstack
+   453 ;; Tracked objects:
+   454 ;;		On entry : 0/0
+   455 ;;		On exit  : 0/0
+   456 ;;		Unchanged: 0/0
+   457 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   458 ;;      Params:         0       0       0       0       0
+   459 ;;      Locals:         1       0       0       0       0
+   460 ;;      Temps:          0       0       0       0       0
+   461 ;;      Totals:         1       0       0       0       0
+   462 ;;Total ram usage:        1 bytes
+   463 ;; Hardware stack levels used:    1
+   464 ;; Hardware stack levels required when called:    1
+   465 ;; This function calls:
+   466 ;;		_delay_ms
+   467 ;; This function is called by:
+   468 ;;		_main
+   469 ;; This function uses a non-reentrant model
+   470 ;;
+   471                           psect	text101
+   472                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\Main E_1.c
+                                 "
+   473                           	line	128
+   474                           	global	__size_of_beep
+   475  0025                     	__size_of_beep	equ	__end_of_beep-_beep
+   476                           	
+   477  079F                     _beep:	
+   478                           	opt	stack 6
+   479                           ; Regs used in _beep: [wreg+status,2+status,0+pclath+cstack]
+   480                           ;beep@uc_count stored from wreg
+   481  079F  00F4               	movwf	(beep@uc_count)
+   482                           	line	129
+   483                           	
+   484  07A0                     l3343:	
+   485                           ;Main E_1.c: 129: while (uc_count-- > 0) {
+   486  07A0  2FBA               	goto	l3349
+   487                           	
+   488  07A1                     l1408:	
+   489                           	line	130
+   490                           ;Main E_1.c: 130: RC2 = 1;
+   491  07A1  1283               	bcf	status, 5	;RP0=0, select bank0
+   492  07A2  1303               	bcf	status, 6	;RP1=0, select bank0
+   493  07A3  1507               	bsf	(58/8),(58)&7
+   494                           	line	131
+   495                           	
+   496  07A4                     l3345:	
+   497                           ;Main E_1.c: 131: delay_ms(80);
+   498  07A4  3050               	movlw	low(050h)
+   499  07A5  00F0               	movwf	(?_delay_ms)
+   500  07A6  3000               	movlw	high(050h)
+   501  07A7  00F1               	movwf	((?_delay_ms))+1
+   502  07A8  120A  118A  2784   	fcall	_delay_ms
+              120A  118A         
+   503                           	line	132
+   504                           	
+   505  07AD                     l3347:	
+   506                           ;Main E_1.c: 132: RC2 = 0;
+   507  07AD  1283               	bcf	status, 5	;RP0=0, select bank0
+   508  07AE  1303               	bcf	status, 6	;RP1=0, select bank0
+   509  07AF  1107               	bcf	(58/8),(58)&7
+   510                           	line	133
+   511                           ;Main E_1.c: 133: delay_ms(100);
+   512  07B0  3064               	movlw	low(064h)
+   513  07B1  00F0               	movwf	(?_delay_ms)
+   514  07B2  3000               	movlw	high(064h)
+   515  07B3  00F1               	movwf	((?_delay_ms))+1
+   516  07B4  120A  118A  2784   	fcall	_delay_ms
+              120A  118A         
+   517  07B9  2FBA               	goto	l3349
+   518                           	line	134
+   519                           	
+   520  07BA                     l1407:	
+   521                           	line	129
+   522                           	
+   523  07BA                     l3349:	
+   524  07BA  3001               	movlw	low(01h)
+   525  07BB  02F4               	subwf	(beep@uc_count),f
+   526  07BC  0874               	movf	((beep@uc_count)),w
+   527  07BD  3AFF               	xorlw	0FFh
+   528  07BE  1D03               	skipz
+   529  07BF  2FC1               	goto	u2241
+   530  07C0  2FC2               	goto	u2240
+   531  07C1                     u2241:
+   532  07C1  2FA1               	goto	l1408
+   533  07C2                     u2240:
+   534  07C2  2FC3               	goto	l1410
+   535                           	
+   536  07C3                     l1409:	
+   537                           	line	135
+   538                           	
+   539  07C3                     l1410:	
+   540  07C3  0008               	return
+   541                           	opt stack 0
+   542                           GLOBAL	__end_of_beep
+   543  07C4                     	__end_of_beep:
+   544 ;; =============== function _beep ends ============
+   545                           
+   546                           	signat	_beep,4216
+   547                           	global	_delay_ms
+   548                           psect	text102,local,class=CODE,delta=2
+   549                           global __ptext102
+   550  0784                     __ptext102:
+   551                           
+   552 ;; *************** function _delay_ms *****************
+   553 ;; Defined at:
+   554 ;;		line 108 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\Main E_1.c"
+   555 ;; Parameters:    Size  Location     Type
+   556 ;;  ui_value        2    0[COMMON] unsigned int 
+   557 ;; Auto vars:     Size  Location     Type
+   558 ;;		None
+   559 ;; Return value:  Size  Location     Type
+   560 ;;		None               void
+   561 ;; Registers used:
+   562 ;;		wreg
+   563 ;; Tracked objects:
+   564 ;;		On entry : 0/0
+   565 ;;		On exit  : 0/0
+   566 ;;		Unchanged: 0/0
+   567 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   568 ;;      Params:         2       0       0       0       0
+   569 ;;      Locals:         0       0       0       0       0
+   570 ;;      Temps:          2       0       0       0       0
+   571 ;;      Totals:         4       0       0       0       0
+   572 ;;Total ram usage:        4 bytes
+   573 ;; Hardware stack levels used:    1
+   574 ;; This function calls:
+   575 ;;		Nothing
+   576 ;; This function is called by:
+   577 ;;		_main
+   578 ;;		_beep
+   579 ;; This function uses a non-reentrant model
+   580 ;;
+   581                           psect	text102
+   582                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\Main E_1.c
+                                 "
+   583                           	line	108
+   584                           	global	__size_of_delay_ms
+   585  001B                     	__size_of_delay_ms	equ	__end_of_delay_ms-_delay_ms
+   586                           	
+   587  0784                     _delay_ms:	
+   588                           	opt	stack 7
+   589                           ; Regs used in _delay_ms: [wreg]
+   590                           	line	109
+   591                           	
+   592  0784                     l3339:	
+   593                           ;Main E_1.c: 109: while (ui_value-- > 0) {
+   594  0784  2F8D               	goto	l1401
+   595                           	
+   596  0785                     l1402:	
+   597                           	line	110
+   598                           	
+   599  0785                     l3341:	
+   600                           ;Main E_1.c: 110: _delay((unsigned long)((1)*(20000000/4000.0)));
+   601                           	opt asmopt_off
+   602  0785  3007               movlw	7
+   603  0786  00F3               movwf	((??_delay_ms+0)+0+1),f
+   604  0787  307D               	movlw	125
+   605  0788  00F2               movwf	((??_delay_ms+0)+0),f
+   606  0789                     u2257:
+   607  0789  0BF2               	decfsz	((??_delay_ms+0)+0),f
+   608  078A  2F89               	goto	u2257
+   609  078B  0BF3               	decfsz	((??_delay_ms+0)+0+1),f
+   610  078C  2F89               	goto	u2257
+   611                           opt asmopt_on
+   612                           
+   613                           	line	111
+   614                           	
+   615  078D                     l1401:	
+   616                           	line	109
+   617  078D  3001               	movlw	low(01h)
+   618  078E  02F0               	subwf	(delay_ms@ui_value),f
+   619  078F  3000               	movlw	high(01h)
+   620  0790  1C03               	skipc
+   621  0791  03F1               	decf	(delay_ms@ui_value+1),f
+   622  0792  02F1               	subwf	(delay_ms@ui_value+1),f
+   623  0793  30FF               	movlw	high(0FFFFh)
+   624  0794  0671               	xorwf	((delay_ms@ui_value+1)),w
+   625  0795  1D03               	skipz
+   626  0796  2F99               	goto	u2235
+   627  0797  30FF               	movlw	low(0FFFFh)
+   628  0798  0670               	xorwf	((delay_ms@ui_value)),w
+   629  0799                     u2235:
+   630                           
+   631  0799  1D03               	skipz
+   632  079A  2F9C               	goto	u2231
+   633  079B  2F9D               	goto	u2230
+   634  079C                     u2231:
+   635  079C  2F85               	goto	l3341
+   636  079D                     u2230:
+   637  079D  2F9E               	goto	l1404
+   638                           	
+   639  079E                     l1403:	
+   640                           	line	112
+   641                           	
+   642  079E                     l1404:	
+   643  079E  0008               	return
+   644                           	opt stack 0
+   645                           GLOBAL	__end_of_delay_ms
+   646  079F                     	__end_of_delay_ms:
+   647 ;; =============== function _delay_ms ends ============
+   648                           
+   649                           	signat	_delay_ms,4216
+   650                           	global	_adc_initialize
+   651                           psect	text103,local,class=CODE,delta=2
+   652                           global __ptext103
+   653  0772                     __ptext103:
+   654                           
+   655 ;; *************** function _adc_initialize *****************
+   656 ;; Defined at:
+   657 ;;		line 27 in file "E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\adc.c"
+   658 ;; Parameters:    Size  Location     Type
+   659 ;;		None
+   660 ;; Auto vars:     Size  Location     Type
+   661 ;;		None
+   662 ;; Return value:  Size  Location     Type
+   663 ;;		None               void
+   664 ;; Registers used:
+   665 ;;		None
+   666 ;; Tracked objects:
+   667 ;;		On entry : 0/0
+   668 ;;		On exit  : 0/0
+   669 ;;		Unchanged: 0/0
+   670 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   671 ;;      Params:         0       0       0       0       0
+   672 ;;      Locals:         0       0       0       0       0
+   673 ;;      Temps:          0       0       0       0       0
+   674 ;;      Totals:         0       0       0       0       0
+   675 ;;Total ram usage:        0 bytes
+   676 ;; Hardware stack levels used:    1
+   677 ;; This function calls:
+   678 ;;		Nothing
+   679 ;; This function is called by:
+   680 ;;		_main
+   681 ;; This function uses a non-reentrant model
+   682 ;;
+   683                           psect	text103
+   684                           	file	"E:\Cytron SVN\PTK40A (PIC Training Kit)\Source Code\Examples\Example 1\adc.c"
+   685                           	line	27
+   686                           	global	__size_of_adc_initialize
+   687  0012                     	__size_of_adc_initialize	equ	__end_of_adc_initialize-_adc_initialize
+   688                           	
+   689  0772                     _adc_initialize:	
+   690                           	opt	stack 7
+   691                           ; Regs used in _adc_initialize: []
+   692                           	line	29
+   693                           	
+   694  0772                     l2457:	
+   695                           ;adc.c: 29: ADCS2 = 1;
+   696  0772  1683               	bsf	status, 5	;RP0=1, select bank1
+   697  0773  1303               	bcf	status, 6	;RP1=0, select bank1
+   698  0774  171F               	bsf	(1278/8)^080h,(1278)&7
+   699                           	line	30
+   700                           ;adc.c: 30: ADCS1 = 1;
+   701  0775  1283               	bcf	status, 5	;RP0=0, select bank0
+   702  0776  1303               	bcf	status, 6	;RP1=0, select bank0
+   703  0777  179F               	bsf	(255/8),(255)&7
+   704                           	line	31
+   705                           ;adc.c: 31: ADCS0 = 0;
+   706  0778  131F               	bcf	(254/8),(254)&7
+   707                           	line	34
+   708                           ;adc.c: 34: PCFG3 = 1;
+   709  0779  1683               	bsf	status, 5	;RP0=1, select bank1
+   710  077A  1303               	bcf	status, 6	;RP1=0, select bank1
+   711  077B  159F               	bsf	(1275/8)^080h,(1275)&7
+   712                           	line	35
+   713                           ;adc.c: 35: PCFG2 = 1;
+   714  077C  151F               	bsf	(1274/8)^080h,(1274)&7
+   715                           	line	36
+   716                           ;adc.c: 36: PCFG1 = 1;
+   717  077D  149F               	bsf	(1273/8)^080h,(1273)&7
+   718                           	line	37
+   719                           ;adc.c: 37: PCFG0 = 0;
+   720  077E  101F               	bcf	(1272/8)^080h,(1272)&7
+   721                           	line	40
+   722                           ;adc.c: 40: ADFM = 1;
+   723  077F  179F               	bsf	(1279/8)^080h,(1279)&7
+   724                           	line	43
+   725                           ;adc.c: 43: ADON = 0;
+   726  0780  1283               	bcf	status, 5	;RP0=0, select bank0
+   727  0781  1303               	bcf	status, 6	;RP1=0, select bank0
+   728  0782  101F               	bcf	(248/8),(248)&7
+   729                           	line	44
+   730                           	
+   731  0783                     l687:	
+   732  0783  0008               	return
+   733                           	opt stack 0
+   734                           GLOBAL	__end_of_adc_initialize
+   735  0784                     	__end_of_adc_initialize:
+   736 ;; =============== function _adc_initialize ends ============
+   737                           
+   738                           	signat	_adc_initialize,88
+   739                           psect	text104,local,class=CODE,delta=2
+   740                           global __ptext104
+   741  0000                     __ptext104:
+   742                           	global	btemp
+   743  007E                     	btemp set 07Eh
+   744                           
+   745                           	DABS	1,126,2	;btemp
+   746                           	global	wtemp0
+   747  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sat Apr 20 16:51:29 2013
+
+                     _RD 0C60                       _WR 0C61                      l687 0783  
+                    _GIE 005F                      _RC2 003A                      _RD4 0044  
+                   l1401 078D                     l1402 0785                     l1410 07C3  
+                   l1403 079E                     l1404 079E                     l1407 07BA  
+                   l1408 07A1                     l1409 07C3                     l1392 07E1  
+                   l1393 07FA                     l1394 07FB                     l1395 07FC  
+                   l1396 07FC                     l3341 0785                     l1397 07FD  
+                   l1398 07FD                     l3343 07A0                     l3351 07C4  
+                   l2457 0772                     l3345 07A4                     l3361 07D4  
+                   l3353 07CB                     l3339 0784                     l3347 07AD  
+                   l3371 07ED                     l3363 07D5                     l3355 07CF  
+                   l3349 07BA                     l3373 07F0                     l3365 07DA  
+                   l3357 07D1                     l3367 07E1                     l3359 07D3  
+                   l3369 07E4                     _ADFM 04FF                     _ADON 00F8  
+                   _CHS0 00FB                     _CHS1 00FC                     _CHS2 00FD  
+                   u2230 079D                     u2231 079C                     u2240 07C2  
+                   u2241 07C1                     u2235 0799                     u2257 0789  
+                   _WREN 0C62                     _beep 079F                     _main 07C4  
+                   btemp 007E                     start 0000                    ?_beep 0070  
+                  _ADCS0 00FE                    _ADCS1 00FF                    _ADCS2 04FE  
+                  ?_main 0070                    _EEADR 010D                    _CARRY 0018  
+                  _PCFG0 04F8                    _PCFG1 04F9                    _PCFG2 04FA  
+                  _PCFG3 04FB                    _PORTA 0005                    _PORTB 0006  
+                  _PORTC 0007                    _PORTD 0008                    _PORTE 0009  
+                  _TRISA 0085                    _TRISB 0086                    _TRISC 0087  
+                  _TRISD 0088                    _TRISE 0089                    status 0003  
+                  wtemp0 007E             __end_of_beep 07C4             __end_of_main 0800  
+                 ??_beep 0074                   ??_main 0075                   _ADRESH 001E  
+                 _ADRESL 009E                   _EEDATA 010C                   _EECON1 018C  
+                 _EECON2 018D         __end_of_delay_ms 079F  __size_of_adc_initialize 0012  
+         __pcstackCOMMON 0070               __pmaintext 07C4                  _GO_DONE 00FA  
+              ?_delay_ms 0070         delay_ms@ui_value 0070           _adc_initialize 0772  
+             ??_delay_ms 0072             beep@uc_count 0074     end_of_initialization 076E  
+ __end_of_adc_initialize 0784          ?_adc_initialize 0070      start_initialization 076E  
+      __size_of_delay_ms 001B                __ptext100 0000                __ptext101 079F  
+              __ptext102 0784                __ptext103 0772                __ptext104 0000  
+       ??_adc_initialize 0070                 _delay_ms 0784            __size_of_beep 0025  
+          __size_of_main 003C  

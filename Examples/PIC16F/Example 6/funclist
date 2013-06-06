@@ -1,0 +1,19 @@
+_set_lcd_e: CODE, 1355 0 12
+_set_lcd_rs: CODE, 1367 0 12
+_c_wait_keypad: CODE, 1487 0 36
+_lcd_2ndline: CODE, 1344 0 11
+_adc_initialize: CODE, 1418 0 18
+_set_lcd_data: CODE, 1328 0 6
+_lcd_putstr: CODE, 1666 0 65
+_lcd_putchar: CODE, 1379 0 12
+_lcd_initialize: CODE, 1560 0 51
+_beep: CODE, 1523 0 37
+_main: CODE, 1799 0 88
+_c_read_keypad: CODE, 1887 0 161
+_seg7_initialize: CODE, 1436 0 24
+_lcd_clear: CODE, 1334 0 10
+_lcd_goto: CODE, 1391 0 13
+_send_lcd_data: CODE, 1611 0 55
+_delay_ms: CODE, 1460 0 27
+_c_key_to_ASCII: CODE, 1731 0 68
+Total: 706

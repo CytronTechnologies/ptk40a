@@ -1,0 +1,21 @@
+;***********************************************************
+; Jumper Configurations for PTK40A
+; Example 15
+; By Ober Choo
+; 1 June 2012
+;***********************************************************
+
+    JP3		I2C			; Not Applicable
+	JP5		I2C			; Not Applicable
+	JP6		SPI			; Not Applicable
+	JP7		SPI			; Not Applicable	
+    JP9 	SK_RST  	; Not Applicable
+	JP10 	PWM			; Need to connect to PWM
+	JP14  	POT	    	; Please connect to POT, Pontentiometer
+	JP15	5V			; Not Applicable
+	JP18 	OUT			; Not connected, disconnect 5V from UC00A
+	JP20	DC MOTOR 	; Connect to DC MOTOR
+	JP21	DC MOTOR 	; COnnect to DC MOTOR
+	JP23	UNIPOLAR	; Not Applicable
+	JP24	UNIPOLAR	; Not Applicable
+	

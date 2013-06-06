@@ -1,0 +1,16 @@
+_set_lcd_e: CODE, 1632 0 12
+_set_lcd_rs: CODE, 1644 0 12
+_lcd_2ndline: CODE, 1621 0 11
+_adc_initialize: CODE, 1695 0 18
+_set_lcd_data: CODE, 1605 0 6
+_lcd_putstr: CODE, 1907 0 65
+_lcd_putchar: CODE, 1656 0 12
+_lcd_initialize: CODE, 1801 0 51
+_beep: CODE, 1764 0 37
+_main: CODE, 1972 0 76
+_seg7_initialize: CODE, 1713 0 24
+_lcd_clear: CODE, 1611 0 10
+_lcd_goto: CODE, 1668 0 13
+_send_lcd_data: CODE, 1852 0 55
+_delay_ms: CODE, 1737 0 27
+Total: 429

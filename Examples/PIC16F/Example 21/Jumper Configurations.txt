@@ -1,0 +1,21 @@
+;***********************************************************
+; Jumper Configurations for PTK40A
+; Example 21
+; By Ober Choo
+; 1 July 2012
+;***********************************************************
+
+    JP3		I2C		; Not Applicable
+	JP5		I2C		; Not Applicable
+	JP6		SPI		; Not Applicable
+	JP7		SPI		; Not Applicable	
+   	JP9 	SERVO  	; Not Applicable
+	JP10 	BUZZER 	; Need to connect to BUZZER
+	JP14  	POT     ; Not Applicable	
+	JP15	5V		; Not Applicable
+	JP18 	OUT		; Not connected, disconnect 5V from UC00A
+	JP20	DC MOTOR	; Not Applicable
+	JP21	DC MOTOR	; Not Applicable
+	JP23	UNIPOLAR	; Not Applicable
+	JP24	UNIPOLAR	; Not Applicable
+	
