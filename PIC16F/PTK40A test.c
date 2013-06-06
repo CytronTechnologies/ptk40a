@@ -9,7 +9,7 @@
 // MPLAB IDE v8.85
 // HI-TECH C for the PIC10/12/16 MCU Family
 // HI-TECH operate in LITE Mode with v9.83
-// Last Updated date: 1 June 2012
+// Last Updated date: 1 June 2013
 // Please email support@cytron.com.my if you have any problem
 
 #include <htc.h>		//include hitech C header file
@@ -32,15 +32,14 @@
 /*******************************************************************************
 * DEVICE CONFIGURATION WORDS                                                   *
 *******************************************************************************/
-#if defined (HITECH_V9_80)	//if Hi-Tech V9.80 compiler is being used
+#if((_HTC_VER_MAJOR_ == 9) && (_HTC_VER_MINOR_ <= 80)) //if Hi-Tech V9.80 or lower version of compiler is being used
 __CONFIG(HS &			// High Speed Crystal.
 		 WDTDIS &		// Disable Watchdog Timer.
 		 PWRTEN &		// Enable Power Up Timer.
 		 BORDIS &		// Disable Brown Out Reset.
 		 LVPDIS);		// Disable Low Voltage Programming.
 
-#elif defined (HITECH_V9_82)		//else if Hi-Tech V9.82 compiler is being used
-// If Hi-TECH C Compiler v9.82 is use, this configuration bit should be used
+#elif((_HTC_VER_MAJOR_ == 9) && (_HTC_VER_MINOR_ > 80)) //else if Hi-Tech greater than V9.80 compiler is being used
 __CONFIG(FOSC_HS &			// High Speed Crystal.
 		 WDTE_OFF &		// Disable Watchdog Timer.
 		 PWRTE_ON &		// Enable Power Up Timer.
@@ -85,7 +84,7 @@ void wait_sw1(void);
 * Global Variables                                                             *
 *******************************************************************************/
 const char string_cytron[] = "  Cytron Tech\n cytron.com.my";
-const char string_testcode[] = "PTK40A Test Code\n   V1.1 Jun12";
+const char string_testcode[] = "PTK40A Test Code\n   V1.2 Jun13";
 const char string_SWsError[] = "Other SWs is Low";
 const char string_press_SW1[] = "Press SW1 when\nready";
 const char string_buzzer[] = "JP10 to BUZZER";
