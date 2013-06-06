@@ -37,9 +37,9 @@ void spi_initialize(void)
 	SMP = 0;
 	
 	// Select SPI mode 1, 1.
-	CKE = 1;		// Output data changes on transition from active to idle clock state.
-					// Rising edge
-	CKP = 0;		// Idle state for clock is a low level.
+	CKE = 0;		// Output data changes on transition from idle to active clock state.
+					// Falling edge
+	CKP = 1;		// Idle state for clock is high level.
 	
 	// SPI Master mode, clock = FOSC/4.
 	SSPM3 = 0;
