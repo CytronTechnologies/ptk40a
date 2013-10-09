@@ -22,66 +22,61 @@
 *******************************************************************************/
 unsigned char c_read_keypad(void)
 {
-	//start the scanning process		
-	TRIS_KP_R1 = 0;	//make data direction of Row 1 pin output
-	TRIS_KP_R2 = 1;	// the rest become input
-	TRIS_KP_R3 = 1;
-	TRIS_KP_R4 = 1;
-	KP_R1 = 0;		// scan keypress on 1st row: 1, 2, 3, A	
-	KP_R2 = 1;
-	KP_R3 = 1;
-	KP_R4 = 1;
-	//Delay a short time for the pin to get to correct state before detecting proper key
-	__delay_us(15);	
-	if (KP_C1 == 0) return 1;		// Key '1' is pressed
-	if (KP_C2 == 0) return 2;		// Key '2' is pressed
-	if (KP_C3 == 0) return 3;		// Key '3' is pressed
-	if (KP_C4 == 0) return 10;		// Key 'A' is pressed, we will store as 10 
-	
-	TRIS_KP_R1 = 1;	//make data direction of Row 2 pin output
-	TRIS_KP_R2 = 0;	// the rest become input
-	KP_R1 = 1;	
-	KP_R2 = 0;		// scan keypress on 2nd row: 4, 5, 6, B	
-	//Delay a short time for the pin to get to correct state before detecting proper key
-	__delay_us(15);
-	if (KP_C1 == 0) return 4;		// Key '4' is pressed
-	if (KP_C2 == 0) return 5;		// Key '5' is pressed
-	if (KP_C3 == 0) return 6;		// Key '6' is pressed
-	if (KP_C4 == 0) return 11;		// Key 'B' is pressed, we will store as 11	
-	
-		
-	TRIS_KP_R2 = 1;	//make data direction of Row 3 pin output
-	TRIS_KP_R3 = 0;	// the rest become input
-	KP_R2 = 1;	
-	KP_R3 = 0;		// scan keypress on 3rd row: 7, 8, 9, C	
-	//Delay a short time for the pin to get to correct state before detecting proper key
-	__delay_us(15);
-	if (KP_C1 == 0) return 7;		// Key '7' is pressed
-	if (KP_C2 == 0) return 8;		// Key '8' is pressed
-	if (KP_C3 == 0) return 9;		// Key '9' is pressed
-	if (KP_C4 == 0) return 12;		// Key 'C' is pressed, we will store as 12		
-	
-		
-	TRIS_KP_R3 = 1;	//make data direction of Row 4 pin output
-	TRIS_KP_R4 = 0;	// the rest become input
-	KP_R3 = 1;
-	KP_R4 = 0;		// scan keypress on 4th row: *, 0, #, D	
-	//Delay a short time for the pin to get to correct state before detecting proper key
-	__delay_us(15);
-	if (KP_C1 == 0) return 14;		// Key '*' is pressed, we will store as 14
-	if (KP_C2 == 0) return 0;		// Key '0' is pressed
-	if (KP_C3 == 0) return 15;		// Key '#' is pressed, we will store as 15
-	if (KP_C4 == 0) return 13;		// Key 'D' is pressed, we will store as 13			
-	
-	TRIS_KP_R1 = 0;	//make data direction of Row 1 pin output
-	TRIS_KP_R2 = 0;	// the rest become input
-	TRIS_KP_R3 = 0;
-	TRIS_KP_R4 = 0;
-	KP_R1 = 0;
-	KP_R2 = 0;
-	KP_R3 = 0;
-	KP_R4 = 0;
-	return 0xFF;					// if no key press, the register is 0xFF		
+    unsigned char key = 0xFF;
+    //start the scanning process
+    TRIS_KP_R1 = 0;	//make data direction of Row 1 pin output
+    TRIS_KP_R2 = 1;	// the rest become input
+    TRIS_KP_R3 = 1;
+    TRIS_KP_R4 = 1;
+    KP_R1 = 0;		// scan keypress on 1st row: 1, 2, 3, A
+    //Delay a short time for the pin to get to correct state before detecting proper key
+    __delay_us(15);
+    if (KP_C1 == 0) key =  1;		// Key '1' is pressed
+    else if (KP_C2 == 0) key =  2;		// Key '2' is pressed
+    else if (KP_C3 == 0) key =  3;		// Key '3' is pressed
+    else if (KP_C4 == 0) key =  10;		// Key 'A' is pressed, we will store as 10
+    else
+    {
+        TRIS_KP_R1 = 1;	//make data direction of Row 2 pin output
+        TRIS_KP_R2 = 0;	// the rest become input
+        KP_R2 = 0;	// scan keypress on 2nd row: 4, 5, 6, B
+        //Delay a short time for the pin to get to correct state before detecting proper key
+        __delay_us(15);
+        if (KP_C1 == 0) key =  4;		// Key '4' is pressed
+        else if (KP_C2 == 0) key =  5;		// Key '5' is pressed
+        else if (KP_C3 == 0) key =  6;		// Key '6' is pressed
+        else if (KP_C4 == 0) key =  11;		// Key 'B' is pressed, we will store as 11
+        else
+        {
+            TRIS_KP_R2 = 1;	//make data direction of Row 3 pin output
+            TRIS_KP_R3 = 0;	// the rest become input
+            KP_R3 = 0;		// scan keypress on 3rd row: 7, 8, 9, C
+            //Delay a short time for the pin to get to correct state before detecting proper key
+            __delay_us(15);
+            if (KP_C1 == 0) key =  7;		// Key '7' is pressed
+            else if (KP_C2 == 0) key =  8;		// Key '8' is pressed
+            else if (KP_C3 == 0) key =  9;		// Key '9' is pressed
+            else if (KP_C4 == 0) key =  12;		// Key 'C' is pressed, we will store as 12
+            else
+            {
+                TRIS_KP_R3 = 1;	//make data direction of Row 4 pin output
+                TRIS_KP_R4 = 0;	// the rest become input
+                KP_R4 = 0;	// scan keypress on 4th row: *, 0, #, D
+                //Delay a short time for the pin to get to correct state before detecting proper key
+                __delay_us(15);
+                if (KP_C1 == 0) key =  14;		// Key '*' is pressed, we will store as 14
+                else if (KP_C2 == 0) key =  0;		// Key '0' is pressed
+                else if (KP_C3 == 0) key =  15;		// Key '#' is pressed, we will store as 15
+                else if (KP_C4 == 0) key =  13;		// Key 'D' is pressed, we will store as 13
+                else key = 0xFF;    //no key press in this scan
+            }
+        }
+    }
+    TRIS_KP_R1 = 0;	//make all row pins as output for LCD function
+    TRIS_KP_R2 = 0;
+    TRIS_KP_R3 = 0;
+    TRIS_KP_R4 = 0;
+    return key;		// return the value in key
 }
 
 /*******************************************************************************

@@ -18,11 +18,11 @@
 
 // I/O Connections.
 // Parallel 2x16 Character LCD
-#define LCD_E				LATAbits.LATA3	// E clock pin is connected to RA3	
-#define LCD_RS			LATAbits.LATA2	// RS pin is used for LCD to differentiate data is command or character, RA2
-#define LCD_BACKLIGHT	LATAbits.LATA1	// Back light of LCD, active high, connected to RA1
+#define LCD_E		LA3	// E clock pin is connected to RA3	
+#define LCD_RS		LA2	// RS pin is used for LCD to differentiate data is command or character, RA2
+#define LCD_BACKLIGHT	LA1	// Back light of LCD, active high, connected to RA1
 
-#define	LCD_DATA		LATD	// Data Latch of LCD is connected to PORTD, 8 bit mode
+#define	LCD_DATA	LATD	// Data Latch of LCD is connected to PORTD, 8 bit mode
 								// DB7(LCD) = RD7(PIC)
 								// DB6(LCD) = RD6(PIC)
 								// DB5(LCD) = RD5(PIC)
@@ -41,10 +41,10 @@
 #define SW3		RB2
 
 // Digital input pin, pull high
-#define DIGITAL_IN		RB3
+#define DIGITAL_IN	RB3
 
 // Relay, is an output, active high
-#define RELAY			LA5
+#define RELAY		LA5
 
 // Buzzer, active high
 #define BUZZER		LC2
@@ -57,20 +57,20 @@
 #define M2		LB5
 
 // L293 pin for stepper motor
-#define X			LB4
+#define X		LB4
 #define XN		LB5
-#define Y			LB6
+#define Y		LB6
 #define YN		LB7
 
 // RC Servo signal pin
-#define SERVO	LE2
+#define SERVO       LE2
 
 // 7-segment decoder
 #define S7_0		LD0	//connected to CD4511 
 #define S7_1		LD1	//connected to CD4511 
 #define S7_2		LD2	//connected to CD4511 
 #define S7_3		LD3	//connected to CD4511 
-#define S7_DATA	LATD	
+#define S7_DATA         LATD
 #define S7_L1		LE1	//connected to CD4511 7-Seg1's Latch Enable 
 #define S7_L2		LE0	//connected to CD4511 7-Seg2's Latch Enable 
 
@@ -80,19 +80,19 @@
 #define KP_R3		LD6	// Row 3
 #define KP_R4		LD7	// Row 4
 
-#define KP_C1		RB0		// Colomn 1
-#define KP_C2		RB1		// Colomn 2
-#define KP_C3		RB2		// Colomn 3
-#define KP_C4		RB3		// Colomn 4
+#define KP_C1		RB0	// Colomn 1
+#define KP_C2		RB1	// Colomn 2
+#define KP_C3		RB2	// Colomn 3
+#define KP_C4		RB3	// Colomn 4
 
-#define TRIS_KP_R1		TRISD4	// Data direction bit for Row 1
-#define TRIS_KP_R2		TRISD5	// Data direction bit for Row 2
-#define TRIS_KP_R3		TRISD6	// Data direction bit for Row 3
-#define TRIS_KP_R4		TRISD6	// Data direction bit for Row 4
+#define TRIS_KP_R1	TRISD4	// Data direction bit for Row 1
+#define TRIS_KP_R2	TRISD5	// Data direction bit for Row 2
+#define TRIS_KP_R3	TRISD6	// Data direction bit for Row 3
+#define TRIS_KP_R4	TRISD7	// Data direction bit for Row 4
 
 
 //SPI EEPROM Chip 25AA020A
 #define SPI_EEPROM_CSN	LA5		//SPI Chip Select pin
 
 //SK's Reset pin
-#define SK_RESET		LE2
+#define SK_RESET	LE2
