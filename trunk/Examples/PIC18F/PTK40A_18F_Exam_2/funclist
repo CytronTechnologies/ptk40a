@@ -1,0 +1,6 @@
+_adc_initialize: CODE, 32542 0 30
+_beep: CODE, 32572 0 48
+_main: CODE, 32674 0 94
+__initialization: CODE, 32536 0 0
+_delay_ms: CODE, 32620 0 54
+Total: 226

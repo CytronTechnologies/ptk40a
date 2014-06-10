@@ -1,0 +1,12 @@
+___awdiv: CODE, 32580 0 188
+_adc_initialize: CODE, 32040 0 30
+_seg7_1_dis: CODE, 31984 0 26
+___awmod: CODE, 32412 0 168
+_beep: CODE, 32070 0 48
+_main: CODE, 32264 0 148
+_seg7_initialize: CODE, 32010 0 30
+_seg7_com_dis: CODE, 32172 0 92
+__initialization: CODE, 31952 0 0
+_seg7_2_dis: CODE, 31958 0 26
+_delay_ms: CODE, 32118 0 54
+Total: 810
