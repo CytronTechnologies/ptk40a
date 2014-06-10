@@ -1,0 +1,21 @@
+_set_lcd_e: CODE, 3386 0 12
+_set_lcd_rs: CODE, 3398 0 12
+_c_wait_keypad: CODE, 3120 0 50
+_lcd_2ndline: CODE, 3326 0 22
+_adc_initialize: CODE, 3218 0 30
+_set_lcd_data: CODE, 3410 0 6
+__stringdata: SMALLCONST, 2048 0 27
+_lcd_putstr: CODE, 2862 0 106
+_lcd_putchar: CODE, 3368 0 18
+_lcd_initialize: CODE, 2750 0 112
+_beep: CODE, 3170 0 48
+_main: CODE, 2476 0 142
+_c_read_keypad: CODE, 2076 0 400
+_seg7_initialize: CODE, 3248 0 30
+__initialization: CODE, 3278 0 12
+_lcd_clear: CODE, 3304 0 22
+_lcd_goto: CODE, 3348 0 20
+_send_lcd_data: CODE, 2968 0 98
+_delay_ms: CODE, 3066 0 54
+_c_key_to_ASCII: CODE, 2618 0 132
+Total: 1353

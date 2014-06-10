@@ -1,0 +1,246 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abdiv.c
+[v ___abdiv `(c  1 e 1 0 ]
+"5 ../common/asfladd.c
+[v ___asfladd `(d  1 e 3 0 ]
+"5 ../common/asfldiv.c
+[v ___asfldiv `(d  1 e 3 0 ]
+"5 ../common/asflmul.c
+[v ___asflmul `(d  1 e 3 0 ]
+"5 ../common/asflsub.c
+[v ___asflsub `(d  1 e 3 0 ]
+"5 ../common/asftadd.c
+[v ___asftadd `(f  1 e 3 0 ]
+"5 ../common/asftdiv.c
+[v ___asftdiv `(f  1 e 3 0 ]
+"5 ../common/asftmul.c
+[v ___asftmul `(f  1 e 3 0 ]
+"5 ../common/asftsub.c
+[v ___asftsub `(f  1 e 3 0 ]
+"5 ../common/aslmul.c
+[v ___aslmul `(ul  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abmod.c
+[v ___abmod `(c  1 e 1 0 ]
+"32 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abtofl.c
+[v ___abtofl `(d  1 e 3 0 ]
+"34 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\abtoft.c
+[v ___abtoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\aldiv.c
+[v ___aldiv `(l  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\almod.c
+[v ___almod `(l  1 e 4 0 ]
+"37 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\altofl.c
+[v ___altofl `(d  1 e 3 0 ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\altoft.c
+[v ___altoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\atdiv.c
+[v ___atdiv `(m  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\atmod.c
+[v ___atmod `(m  1 e 3 0 ]
+"38 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\attofl.c
+[v ___attofl `(d  1 e 3 0 ]
+"38 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\attoft.c
+[v ___attoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\awdiv.c
+[v ___awdiv `(i  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\awmod.c
+[v ___awmod `(i  1 e 2 0 ]
+"32 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\awtofl.c
+[v ___awtofl `(d  1 e 3 0 ]
+"33 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\awtoft.c
+[v ___awtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\bmul.c
+[v ___bmul `(uc  1 e 1 0 ]
+"64 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\double.c
+[v ___flpack `(d  1 e 3 0 ]
+"89 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\fladd.c
+[v ___fladd `(d  1 e 3 0 ]
+"50 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\fldiv.c
+[v ___fldiv `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\flge.c
+[v ___flge `(b  1 e 0 0 ]
+"51 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\flmul.c
+[v ___flmul `(d  1 e 3 0 ]
+"16 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\flneg.c
+[v ___flneg `(d  1 e 3 0 ]
+"63 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\float.c
+[v ___ftpack `(f  1 e 3 0 ]
+"22 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\flsub.c
+[v ___flsub `(d  1 e 3 0 ]
+"44 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\fltol.c
+[v ___fltol `(l  1 e 4 0 ]
+"87 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftadd.c
+[v ___ftadd `(f  1 e 3 0 ]
+"50 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftdiv.c
+[v ___ftdiv `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftge.c
+[v ___ftge `(b  1 e 0 0 ]
+"52 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftmul.c
+[v ___ftmul `(f  1 e 3 0 ]
+"16 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftneg.c
+[v ___ftneg `(f  1 e 3 0 ]
+"22 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ftsub.c
+[v ___ftsub `(f  1 e 3 0 ]
+"45 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\fttol.c
+[v ___fttol `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lbdiv.c
+[v ___lbdiv `(uc  1 e 1 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lbmod.c
+[v ___lbmod `(uc  1 e 1 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lbtofl.c
+[v ___lbtofl `(d  1 e 3 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lbtoft.c
+[v ___lbtoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lldiv.c
+[v ___lldiv `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\llmod.c
+[v ___llmod `(ul  1 e 4 0 ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lltofl.c
+[v ___lltofl `(d  1 e 3 0 ]
+"36 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lltoft.c
+[v ___lltoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lmul.c
+[v ___lmul `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ltdiv.c
+[v ___ltdiv `(um  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\ltmod.c
+[v ___ltmod `(um  1 e 3 0 ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lttofl.c
+[v ___lttofl `(d  1 e 3 0 ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lttoft.c
+[v ___lttoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lwdiv.c
+[v ___lwdiv `(ui  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lwmod.c
+[v ___lwmod `(ui  1 e 2 0 ]
+"29 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lwtofl.c
+[v ___lwtofl `(d  1 e 3 0 ]
+"29 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\lwtoft.c
+[v ___lwtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\tmul.c
+[v ___tmul `(um  1 e 3 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.12\sources\wmul.c
+[v ___wmul `(ui  1 e 2 0 ]
+"91 src/18F_Main_E_9.c
+[v _main `(i  1 e 2 0 ]
+"186
+[v _delay_10us `(v  1 e 0 0 ]
+"208
+[v _delay_ms `(v  1 e 0 0 ]
+"230
+[v _beep `(v  1 e 0 0 ]
+"26 src/adc.c
+[v _adc_initialize `(v  1 e 0 0 ]
+"79
+[v _adc_on `(v  1 e 0 0 ]
+"100
+[v _adc_off `(v  1 e 0 0 ]
+"122
+[v _ui_adc_read `(ui  1 e 2 0 ]
+"2566 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic18f4550.h
+[v _PORTA `VEuc  1 e 1 @3968 ]
+"2722
+[v _PORTB `VEuc  1 e 1 @3969 ]
+"2831
+[v _PORTC `VEuc  1 e 1 @3970 ]
+"2984
+[v _PORTD `VEuc  1 e 1 @3971 ]
+"3104
+[v _PORTE `VEuc  1 e 1 @3972 ]
+"3971
+[v _TRISA `VEuc  1 e 1 @3986 ]
+"4168
+[v _TRISB `VEuc  1 e 1 @3987 ]
+"4389
+[v _TRISC `VEuc  1 e 1 @3988 ]
+"4560
+[v _TRISD `VEuc  1 e 1 @3989 ]
+"4781
+[v _TRISE `VEuc  1 e 1 @3990 ]
+"7294
+[v _ADRES `VEus  1 e 2 @4035 ]
+"9304
+[v _ACQT0 `VEb  1 e 0 @32259 ]
+"9306
+[v _ACQT1 `VEb  1 e 0 @32260 ]
+"9308
+[v _ACQT2 `VEb  1 e 0 @32261 ]
+"9314
+[v _ADCS0 `VEb  1 e 0 @32256 ]
+"9316
+[v _ADCS1 `VEb  1 e 0 @32257 ]
+"9318
+[v _ADCS2 `VEb  1 e 0 @32258 ]
+"9338
+[v _ADFM `VEb  1 e 0 @32263 ]
+"9346
+[v _ADON `VEb  1 e 0 @32272 ]
+"9444
+[v _CHS0 `VEb  1 e 0 @32274 ]
+"9446
+[v _CHS1 `VEb  1 e 0 @32275 ]
+"9448
+[v _CHS2 `VEb  1 e 0 @32276 ]
+"9450
+[v _CHS3 `VEb  1 e 0 @32277 ]
+"9548
+[v _DONE `VEb  1 e 0 @32273 ]
+"9864
+[v _GO `VEb  1 e 0 @32273 ]
+"10054
+[v _LB4 `VEb  1 e 0 @31828 ]
+"10056
+[v _LB5 `VEb  1 e 0 @31829 ]
+"10058
+[v _LB6 `VEb  1 e 0 @31830 ]
+"10060
+[v _LB7 `VEb  1 e 0 @31831 ]
+"10066
+[v _LC2 `VEb  1 e 0 @31834 ]
+"10208
+[v _PCFG0 `VEb  1 e 0 @32264 ]
+"10210
+[v _PCFG1 `VEb  1 e 0 @32265 ]
+"10212
+[v _PCFG2 `VEb  1 e 0 @32266 ]
+"10214
+[v _PCFG3 `VEb  1 e 0 @32267 ]
+"10330
+[v _RC2 `VEb  1 e 0 @31762 ]
+"10790
+[v _VCFG0 `VEb  1 e 0 @32268 ]
+"10794
+[v _VCFG1 `VEb  1 e 0 @32269 ]
+"91 src/18F_Main_E_9.c
+[v _main `(i  1 e 2 0 ]
+{
+"93
+[v main@delay `ui  1 a 2 4 ]
+"92
+[v main@step `uc  1 a 1 6 ]
+"167
+} 0
+"26 src/adc.c
+[v _adc_initialize `(v  1 e 0 0 ]
+{
+"62
+} 0
+"79
+[v _adc_on `(v  1 e 0 0 ]
+{
+"83
+} 0
+"122
+[v _ui_adc_read `(ui  1 e 2 0 ]
+{
+"147
+} 0
+"208 src/18F_Main_E_9.c
+[v _delay_ms `(v  1 e 0 0 ]
+{
+[v delay_ms@ui_millisecond `ui  1 p 2 0 ]
+"213
+} 0

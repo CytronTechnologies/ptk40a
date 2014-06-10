@@ -1,0 +1,7 @@
+_adc_initialize: CODE, 32460 0 30
+_main: CODE, 32544 0 224
+__initialization: CODE, 32424 0 0
+_adc_on: CODE, 32420 0 4
+_ui_adc_read: CODE, 32430 0 30
+_delay_ms: CODE, 32490 0 54
+Total: 342
